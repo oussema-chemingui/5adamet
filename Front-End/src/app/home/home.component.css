@@ -1,0 +1,169 @@
+*{
+  font-family:'Neuton', serif;
+  font-weight:500;
+  font-size:23px;
+  letter-spacing: 0.5pt;
+  word-spacing: 2pt;
+ 
+}
+.backgrnd{
+  background: linear-gradient(#40294e,#764cb9);
+}
+.container{
+  background-color: white;
+}
+
+.head-banner p{
+  text-align: center;
+}
+.navbar{
+  background-color: #c4bceb;
+
+}
+.text-block {
+    border-radius: 15px;
+ 
+    background: linear-gradient(rgb(56, 51, 100),rgb(111, 11, 224));
+    color:rgb(255, 255, 255);
+     padding: 30px 30px;
+     transform: translate(-10%, -10%);
+  }
+  .text-block h4{
+    text-align: center;
+    margin-bottom: 1px;
+  }
+  #floatingSelect{
+    margin-top: 30px;
+
+  }
+  select{
+      width:300px; 
+       height:50px;
+     margin:10px;
+    border-radius:30px;
+  
+  }
+  option{
+      border-radius: 10px;
+  }
+
+  .border{
+    border: 2px solid rgb(253, 248, 248);
+    
+  }
+
+@media screen and (min-width:500px) {
+  .img-fluid{
+    width: 100%;
+    height: auto;
+    display:block;
+  }
+  .img-fluid1{
+    width: 400px;
+    height: auto;
+    display:block;
+    margin: 30px 50px;
+  }
+  .img-fluid-temp{
+    width: 20%;
+    height: auto;
+    display:block;
+}
+.img-fluid-warn{
+  width: 20%;
+  height: auto;
+  display:block;
+}
+}
+@media screen and (max-width:500px) {
+  .img-fluid{
+    width: 110%;
+    height: auto;
+    display:block;
+  }
+  .img-fluid1{
+    width: 100%;
+    height: auto;
+    display:block;
+    margin: 30px 0px;
+  }
+  .img-fluid-temp{
+    width: 25%;
+    height: auto;
+    display:block;
+}
+.img-fluid-warn{
+  width: 50%;
+  height: auto;
+  display:block;
+}
+.text-block {
+ 
+  margin: 30px 10px;
+  margin-left: 90px;
+}
+
+}
+.text-block{
+  border: 1px;
+  border-radius: 30px;
+  background-color:linear-gradient(rgb(80, 75, 116),rgb(135, 200, 209));
+}
+.container1{
+
+    max-width: 1350px;
+    margin: auto;
+    height: 600px;
+    background-image: url("https://atemplate.com.ng/wp-content/uploads/2020/06/Service-Finder-Provider-and-Business-Listing-WordPress-Theme-1024x414.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+/* .container2{
+
+  max-width: 1350px;
+  margin: auto;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 10px;
+}
+.container3{
+  max-width: 1350px;
+  margin: auto;
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 5px;
+} */
+
+.container4{
+ 
+  background: linear-gradient(rgb(80, 75, 116),rgb(135, 200, 209));
+  
+}
+#button-color{
+  font-size: 20px;
+  color:rgb(255, 255, 255);
+  background: linear-gradient(rgb(138, 38, 163),rgb(79, 40, 141)) ;
+  border: 1px solid rgb(28, 2, 99);
+  border-radius: 26px;
+  padding:10px 30px;
+}
+#button-color:hover{
+  background: linear-gradient(rgb(128, 76, 170),rgb(79, 13, 95)) ;
+  border: 1px solid rgb(58, 17, 124);
+}
+
+div.gap-5:hover{
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.287);
+  transform: scale(1.3rem);
+}
+
+
+.animation {
+
+  justify-content: center;
+  justify-items: center;
+}
+
