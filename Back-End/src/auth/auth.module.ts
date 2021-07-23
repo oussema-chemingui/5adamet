@@ -7,6 +7,8 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AdminsRepository } from 'src/admin/admins.repository';
+import { ServiceProviderRepository } from 'src/serviceProvider/serviceProvider.repostory';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         },
       }),
     }),
-    TypeOrmModule.forFeature([UsersRepository]),
+    TypeOrmModule.forFeature([UsersRepository,AdminsRepository,ServiceProviderRepository]),
   ],
   providers: [AuthService, JwtStrategy],
   controllers: [AuthController],
