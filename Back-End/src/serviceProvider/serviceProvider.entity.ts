@@ -18,4 +18,6 @@ export class ServiceProvider {
   @Column()
   address: string;
 
+  
+
 }

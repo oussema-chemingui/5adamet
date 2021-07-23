@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "home-services": {
+    "5adamet": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/home-services",
+            "outputPath": "dist/5adamet",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,8 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -62,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "home-services:build"
+            "browserTarget": "5adamet:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "home-services:build:production"
+              "browserTarget": "5adamet:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "home-services:build"
+            "browserTarget": "5adamet:build"
           }
         },
         "test": {
@@ -111,16 +110,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "home-services:serve"
+            "devServerTarget": "5adamet:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "home-services:serve:production"
+              "devServerTarget": "5adamet:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "home-services"
+  "defaultProject": "5adamet"
 }

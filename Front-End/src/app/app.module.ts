@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminaddservicesComponent } from './adminaddservices/adminaddservices.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,9 +23,10 @@ import { ServicesdescriptionComponent } from './servicesdescription/servicesdesc
 import { SuccessComponent } from './success/success.component'
 
 
-import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
+import { PackagesComponent } from './packages/packages.component';
+
 
 
 
@@ -48,6 +49,8 @@ import { AboutComponent } from './about/about.component';
     SuccessComponent,
     NavbarComponent,
     AboutComponent,
+    PackagesComponent,
+
    
     
   ],
@@ -58,7 +61,7 @@ import { AboutComponent } from './about/about.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzButtonModule
+ 
    
 
   ],
