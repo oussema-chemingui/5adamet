@@ -21,7 +21,7 @@ export class AuthController {
     return this.authService.SPSignUp(authCredentialsDto);
   }
 
-  @Post('users/signin')
+  @Post('/signin')
   signIn(
     @Body() authCredentialsDto: AuthCredentialsDto,
   ): Promise<{ accessToken: string }> {

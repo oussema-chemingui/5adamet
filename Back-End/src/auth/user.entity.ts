@@ -15,10 +15,10 @@ export class User {
   @Column()
   email: string;
 
-  @Column()
+  @Column({default: ''})
   adress: string;
 
-  @Column()
+  @Column({default: ''})
   phone: string;
 
 

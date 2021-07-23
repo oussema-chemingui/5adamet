@@ -5,18 +5,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
-
+ 
+  API_SERVER = "http://localhost:3000";
+  
  constructor(private hc:HttpClient) {}
 postadminsignup(userobj):Observable<any>{
-  return this.hc.post("/admin/createadmin",userobj)
+  return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
 }
 
-postusersignup(userobj):Observable<any>{
-  return this.hc.post("/user/createuser",userobj)
+postusersignup(userobj):Observable<null>{
+  return this.hc.post<null>(`${this.API_SERVER}/auth/users/signup`,userobj)
 }
 
  getadminlogin(userObj):Observable<any>{
-return this.hc.post("/admin/adminlogin",userObj)
+return this.hc.post("admins/signup",userObj)
  }
 
  getuserlogin(userObj):Observable<any>{
