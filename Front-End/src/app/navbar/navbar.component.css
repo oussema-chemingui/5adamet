@@ -3,7 +3,7 @@
     color:azure;
     font-family:'Neuton', serif;
     font-weight:500;
-    font-size:26px;
+    font-size:20px;
    
 }
 .bg-color{
@@ -23,3 +23,8 @@ border-radius: 3px;
 .nav-link{
     color:black
 }
+
+.btn:hover{
+    background-color:#467bcb;
+}
+
