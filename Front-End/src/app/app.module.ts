@@ -25,8 +25,10 @@ import { SuccessComponent } from './success/success.component'
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
-import { PackagesComponent } from './packages/packages.component';
 
+import { ServicesComponent } from './services/services.component';
+import { ServiceItemComponent } from './service-item/service-item.component';
+import { PackagesComponent } from './packages/packages.component';
 
 
 
@@ -49,8 +51,9 @@ import { PackagesComponent } from './packages/packages.component';
     SuccessComponent,
     NavbarComponent,
     AboutComponent,
-    PackagesComponent,
-
+    ServicesComponent,
+    ServiceItemComponent,
+    PackagesComponent
    
     
   ],
