@@ -21,8 +21,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MainservicesComponent } from './mainservices/mainservices.component';
 import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
 import { SuccessComponent } from './success/success.component'
-
-
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
@@ -58,7 +56,7 @@ import { AboutComponent } from './about/about.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzButtonModule
+     NzButtonModule
    
 
   ],
