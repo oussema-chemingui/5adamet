@@ -17,9 +17,9 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm=new FormGroup({
       usertype:new FormControl(null,Validators.required),
-      name:new FormControl(null, [
+      email:new FormControl(null, [
         Validators.required,
-        Validators.minLength(5)]),
+        Validators.email]),
       password:new FormControl(null, [
         Validators.required])
     })
@@ -34,21 +34,21 @@ export class LoginComponent implements OnInit {
  if(this.loginForm.value.usertype=="admin"){
 this.us.getadminlogin(this.loginForm.value).subscribe(
   (res)=>{
-    console.log(res["message"])
-    if(res["message"]=="login success"){
-      localStorage.setItem("token",res["token"])
-    localStorage.setItem("name",res["name"])
-      alert("Login successfull")
-        this.router.navigateByUrl("/adminaddservices")
+    console.log(res)
+    // if(res["message"]=="login success"){
+    localStorage.setItem("token",res.accessToken)
+    // localStorage.setItem("name",res["name"])
+    //   alert("Login successfull")
+     this.router.navigateByUrl("/adminaddservices")
     
-    }else if(res["message"]=="invalid password"){
-      alert("Invalid Password")
-    }
+    // }else if(res["message"]=="invalid password"){
+    //   alert("Invalid Password")
+    // }
     
-    else{
-     alert("Admin data not found ...please register!!")
-     this.router.navigateByUrl("/signup")
-    }
+    // else{
+    //  alert("Admin data not found ...please register!!")
+    //  //this.router.navigateByUrl("/signup")
+    // }
   },
   (err)=>{
     console.log(err)
@@ -58,21 +58,21 @@ this.us.getadminlogin(this.loginForm.value).subscribe(
   if(this.loginForm.value.usertype=="user"){
     this.us.getuserlogin(this.loginForm.value).subscribe(
       (res)=>{
-        console.log(res["message"])
-        if(res["message"]=="login success"){
-          localStorage.setItem("token",res["token"])
-        localStorage.setItem("name",res["name"])
-          alert("User Login successfull")
-            this.router.navigateByUrl("/dashboard")
+        console.log(res)
+        // if(res["message"]=="login success"){
+         localStorage.setItem("token",res.accessToken)
+        // localStorage.setItem("name",res["name"])
+        //   alert("User Login successfull")
+        this.router.navigateByUrl("/dashboard")
         
-        }else if(res["message"]=="invalid password"){
-          alert("Invalid Password")
-        }
+        // }else if(res["message"]=="invalid password"){
+        //   alert("Invalid Password")
+        // }
         
-        else{
-         alert("user data not found ...please register!!")
-         this.router.navigateByUrl("/signup")
-        }
+        // else{
+        //  alert("user data not found ...please register!!")
+        //  this.router.navigateByUrl("/signup")
+        // }
       },
       (err)=>{
         console.log(err)

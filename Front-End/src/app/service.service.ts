@@ -17,14 +17,16 @@ postusersignup(userobj):Observable<null>{
   return this.hc.post<null>(`${this.API_SERVER}/auth/users/signup`,userobj)
 }
 
- getadminlogin(userObj):Observable<any>{
-return this.hc.post("admins/signup",userObj)
+ getadminlogin(userObj):Observable<{ accessToken: string }>{
+return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,userObj)
  }
 
- getuserlogin(userObj):Observable<any>{
-  return this.hc.post("/user/userlogin",userObj)
+ getuserlogin(userObj):Observable<{ accessToken: string }>{
+  return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,userObj)
    }
 
+
+   
    getcart(username):Observable<any>{
      return this.hc.post("/cart/getitems",username)
    }
