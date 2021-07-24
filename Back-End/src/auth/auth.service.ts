@@ -7,6 +7,7 @@ import { ServiceProviderRepository } from '../serviceProvider/serviceProvider.re
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './strategy/jwt-payload.interface';
+import { SignUpDto } from './dto/auth-credentials-signup.dto';
 
 @Injectable()
 export class AuthService {
@@ -24,17 +25,17 @@ export class AuthService {
   ) {}
 
 
-  async userSignUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async userSignUp(authCredentialsDto: SignUpDto): Promise<void> {
     return this.usersRepository.createUser(authCredentialsDto);
     
   }
 
-  async adminSignUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async adminSignUp(authCredentialsDto: SignUpDto): Promise<void> {
     return this.adminsRepository.createAdmin(authCredentialsDto);
     
   }
 
-  async SPSignUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async SPSignUp(authCredentialsDto: SignUpDto): Promise<void> {
     return this.serviceProviderRepository.createServiceProvider(authCredentialsDto);
     
   }

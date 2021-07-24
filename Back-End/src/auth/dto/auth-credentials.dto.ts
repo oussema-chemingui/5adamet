@@ -14,9 +14,4 @@ export class AuthCredentialsDto {
   })
   password: string;
 
-
-  @IsString()
-  @MinLength(5)
-  @MaxLength(30)
-  name: string;
 }
