@@ -24,6 +24,9 @@ import { SuccessComponent } from './success/success.component'
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
+import { ServicesComponent } from './services/services.component';
+import { ServiceItemComponent } from './service-item/service-item.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 
 
@@ -46,6 +49,9 @@ import { AboutComponent } from './about/about.component';
     SuccessComponent,
     NavbarComponent,
     AboutComponent,
+    ServicesComponent,
+    ServiceItemComponent,
+    UserprofileComponent,
    
     
   ],

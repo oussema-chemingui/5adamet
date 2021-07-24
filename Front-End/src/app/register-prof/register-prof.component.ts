@@ -31,8 +31,8 @@ export class RegisterProfComponent implements OnInit {
           Validators.required]),
         mobilenumber:new FormControl(null,[
           Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(10),
+          Validators.minLength(8),
+          Validators.maxLength(8),
            Validators.pattern("[0-9]*$")])
   
         

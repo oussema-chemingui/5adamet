@@ -2,7 +2,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class ServiceProvider {
+export class Admin {
   @PrimaryGeneratedColumn()
   id: string;
 
@@ -15,7 +15,5 @@ export class ServiceProvider {
   @Column()
   email: string;
 
-  @Column()
-  address: string;
 
 }
