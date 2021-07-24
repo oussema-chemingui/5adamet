@@ -15,20 +15,20 @@
                     <label class="form-check-label" for="admin"><h5>Admin</h5></label>
                   </div>
                   <div *ngIf="getControls().usertype.touched && getControls().usertype.invalid" class="alert alert-danger">
-                    <div *ngIf="getControls().usertype.errors?.required">Name is required.</div>
+                    <div *ngIf="getControls().usertype.errors?.required">Email is required.</div>
                 </div>
                 </div>
                
             
                 <div class="form-floating mb-3">
-                   <input type="text" class="form-control " id="name" name="name" formControlName="name" >
-                   <div *ngIf="(getControls().name.pristine  || getControls().name.invalid) && (getControls().name.dirty ||  getControls().name.touched)"
+                   <input type="text" class="form-control " id="email" name="email" formControlName="email" >
+                   <div *ngIf="(getControls().email.pristine  || getControls().email.invalid) && (getControls().email.dirty ||  getControls().email.touched)"
                    class=" text-danger">
-                   <p *ngIf="getControls().name.errors?.required">*Name is required.</p>
-                   <p  *ngIf="getControls().name.errors?.minlength">Name must be at least 5 characters long.</p>
+                   <p *ngIf="getControls().email.errors?.required">*Email is required.</p>
+                   <p  *ngIf="getControls().email.errors?.minlength">Email must be Valid & at least 5 characters long.</p>
                    
                 </div>
-                <label for="adminname " class="usertext">User Name</label>
+                <label for="adminname " class="usertext">User Email</label>
             </div>
                   <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="password" name="password" formControlName="password" >
