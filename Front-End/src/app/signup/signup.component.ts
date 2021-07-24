@@ -48,21 +48,14 @@ export class SignupComponent implements OnInit {
     // else 
    // if(this.registerForm.value.usertype=="user"){
       this.us.postusersignup(this.registerForm.value).subscribe(
-        (res)=>{
-          console.log(res["message"])
-          if(res["message"]=="user created"){
-            alert("user Created & redirecting to login Page")
+        ()=>{
+          
             this.router.navigateByUrl("/login")
-          }else{
-            alert("User name Already exist")
-          }
-            },
+        },
             err=>{ console.log(err)}
-      )
+
    // }
-
-    
-     }
-
+      )
+    }
 }
 }

@@ -58,4 +58,23 @@ export class AuthService {
       throw new UnauthorizedException('Please check your login credentials');
     }
   }
+
+
+//   const p1 = new Promise(/* ... */);
+// const p2 = new Promise(/* ... */);
+// const promises = [ p1, p2 ];
+
+// Promise.any(promises)
+//   .then(firstResult => { /* do whatever */ })
+//   .catch(allErrors => { /* do whatever */ })
+
+// // or when using async/await
+
+// try {
+//   const firstResult = await Promise.any(promises);
+//   /* do whatever */
+// } catch (allErrors) {
+//   /* do whatever */
+// }
+
 }
