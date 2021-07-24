@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminaddservicesComponent } from './adminaddservices/adminaddservices.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,12 +21,22 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MainservicesComponent } from './mainservices/mainservices.component';
 import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
 import { SuccessComponent } from './success/success.component'
+<<<<<<< HEAD
 import { NzButtonModule } from 'ng-zorro-antd/button';
+=======
+
+
+>>>>>>> a3cf3cec0484bce7cebc18770151a3dc0f5d4170
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
+
 import { ServicesComponent } from './services/services.component';
 import { ServiceItemComponent } from './service-item/service-item.component';
+<<<<<<< HEAD
 import { UserprofileComponent } from './userprofile/userprofile.component';
+=======
+import { PackagesComponent } from './packages/packages.component';
+>>>>>>> a3cf3cec0484bce7cebc18770151a3dc0f5d4170
 
 
 
@@ -51,7 +61,11 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     AboutComponent,
     ServicesComponent,
     ServiceItemComponent,
+<<<<<<< HEAD
     UserprofileComponent,
+=======
+    PackagesComponent
+>>>>>>> a3cf3cec0484bce7cebc18770151a3dc0f5d4170
    
     
   ],
@@ -62,7 +76,11 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
      NzButtonModule
+=======
+ 
+>>>>>>> a3cf3cec0484bce7cebc18770151a3dc0f5d4170
    
 
   ],

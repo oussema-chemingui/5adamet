@@ -24,11 +24,9 @@ export class LoginComponent implements OnInit {
         Validators.required])
     })
   }
-
   getControls(){
     return this.loginForm.controls
   }
- 
   onSubmit(){
     this.submitted=true;
   if(this.loginForm.valid){
