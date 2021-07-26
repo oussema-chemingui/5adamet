@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ServiceService } from '../service.service';
+import jwt_decode from 'jwt-decode';
+
+
 
 @Component({
   selector: 'app-login',
@@ -12,6 +15,7 @@ import { ServiceService } from '../service.service';
 export class LoginComponent implements OnInit {
   loginForm:FormGroup
   submitted:boolean
+
   constructor(private us:ServiceService, private router:Router) { }
 
   ngOnInit(): void {
@@ -24,31 +28,29 @@ export class LoginComponent implements OnInit {
         Validators.required])
     })
   }
+
+
   getControls(){
     return this.loginForm.controls
   }
+
+
+
   onSubmit(){
     this.submitted=true;
   if(this.loginForm.valid){
-    console.log(this.loginForm.value)
- if(this.loginForm.value.usertype=="admin"){
+    console.log(this.loginForm.value.usertype)
+ if(this.loginForm.value.usertype=="ServiceProvider"){
 this.us.getadminlogin(this.loginForm.value).subscribe(
   (res)=>{
-    console.log(res)
-    // if(res["message"]=="login success"){
+
+    let tokenInfo = this.getDecodedAccessToken(res.accessToken);
+    localStorage.setItem("name",tokenInfo.name)
     localStorage.setItem("token",res.accessToken)
-    // localStorage.setItem("name",res["name"])
-    //   alert("Login successfull")
+
+
      this.router.navigateByUrl("/adminaddservices")
-    
-    // }else if(res["message"]=="invalid password"){
-    //   alert("Invalid Password")
-    // }
-    
-    // else{
-    //  alert("Admin data not found ...please register!!")
-    //  //this.router.navigateByUrl("/signup")
-    // }
+
   },
   (err)=>{
     console.log(err)
@@ -58,21 +60,15 @@ this.us.getadminlogin(this.loginForm.value).subscribe(
   if(this.loginForm.value.usertype=="user"){
     this.us.getuserlogin(this.loginForm.value).subscribe(
       (res)=>{
-        console.log(res)
-        // if(res["message"]=="login success"){
-         localStorage.setItem("token",res.accessToken)
-        // localStorage.setItem("name",res["name"])
-        //   alert("User Login successfull")
+        //console.log(res)
+
+        let tokenInfo = this.getDecodedAccessToken(res.accessToken);
+
+        localStorage.setItem("name",tokenInfo.name)
+        localStorage.setItem("token",res.accessToken)
+
         this.router.navigateByUrl("/dashboard")
-        
-        // }else if(res["message"]=="invalid password"){
-        //   alert("Invalid Password")
-        // }
-        
-        // else{
-        //  alert("user data not found ...please register!!")
-        //  this.router.navigateByUrl("/signup")
-        // }
+ 
       },
       (err)=>{
         console.log(err)
@@ -81,16 +77,23 @@ this.us.getadminlogin(this.loginForm.value).subscribe(
  }
 }
     
- 
 }
+
+
+
 goto(){
   return this.router.navigateByUrl("/signup")
 }
-// changetype(e) {
- 
-  
-//   this.loginForm.setValue({
-//     usertype:e.target.value
-//   })
-// }
+
+
+
+
+getDecodedAccessToken(token: string): any {
+  try{
+      return jwt_decode(token);
+  }
+  catch(Error){
+      return null;
+  }
+}
 }
