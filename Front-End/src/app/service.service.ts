@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import{HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,6 +14,11 @@ postadminsignup(userobj):Observable<any>{
   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
 }
 
+
+postSPsignup(userobj):Observable<null>{
+  return this.hc.post<null>(`${this.API_SERVER}/auth/admins/signup`,userobj)
+}
+
 postusersignup(userobj):Observable<null>{
   return this.hc.post<null>(`${this.API_SERVER}/auth/users/signup`,userobj)
 }
@@ -21,8 +27,16 @@ postusersignup(userobj):Observable<null>{
 return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,userObj)
  }
 
- getuserlogin(userObj):Observable<{ accessToken: string }>{
-  return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,userObj)
+ getuserlogin(userObj){
+  return this.hc.post<any>(`${this.API_SERVER}/auth/signin`,userObj)
+//   .pipe(map(user => {
+//     // store user details and jwt token in local storage to keep user logged in between page refreshes
+//     console.log(user)
+//     localStorage.setItem('currentUser', JSON.stringify(user));
+//     localStorage.setItem('id_token', JSON.stringify(user.token));
+//     // this.currentUserSubject.next(user);
+//     return user;
+// }));
    }
 
 

@@ -1,13 +1,4 @@
-<style>
-    
-    .bg-color{
-       background-image: url(../../assets/images/Hometools.jpg);
-       background-repeat: no-repeat;
-      background-size: cover;
-      height: 800px;
 
-    }
-</style>
 <div class="bg-color">
 <div class="container pt-5 pt-md-5">
     <div class="row ">
@@ -28,6 +19,22 @@
         <label for="name"><h6>Name</h6></label>
 
         </div>
+
+        <div class="form-group mb-3">
+        <label for="pwd" ><h5>Password</h5></label>
+        <input type="password" class="form-control mt-2 mb-3" id="pwd" placeholder="Password" formControlName="password" autocomplete="off">
+      </div>
+
+<!--password validation-->
+
+      <div class="text-danger"*ngIf="submitted||getControls().password.invalid && (getControls().password.dirty ||getControls().password.touched) ">
+          <p *ngIf=" getControls().password.errors?.required">*Please Enter Password</p>
+          <p *ngIf= "getControls().password.errors?.pattern">*Password should contain Numbers and alphabet</p>
+       </div>
+
+
+
+
         <div class="form-floating mb-3">
             <input type="email" id="email" class="form-control" formControlName="email" name="email" >
             
