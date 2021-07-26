@@ -8,6 +8,7 @@ import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { JwtPayload } from './strategy/jwt-payload.interface';
 import { SignUpDto } from './dto/auth-credentials-signup.dto';
+import { User } from './user.entity';
 
 @Injectable()
 export class AuthService {
@@ -42,7 +43,7 @@ export class AuthService {
 
   async signIn(
     authCredentialsDto: AuthCredentialsDto,
-  ): Promise<{ accessToken: string }> {
+  ): Promise<{ accessToken: string}> {
     const { email, password } = authCredentialsDto;
    
     const user = await this.usersRepository.findOne({ email });
@@ -51,14 +52,35 @@ export class AuthService {
 
 
 
-    if (user  && (await bcrypt.compare(password, user.password)) || admin  && (await bcrypt.compare(password, admin.password)) || sp && (await bcrypt.compare(password, sp.password))) {
-      const payload: JwtPayload = { email };
+    if (user  && (await bcrypt.compare(password, user.password))) {
+      const payload: JwtPayload = { email : user.email, name:user.name };
+
+      var accessToken =  this.jwtService.sign(payload);
+      var userInfo = Object.assign(user,accessToken)
+
+      console.log(userInfo)
+      return { accessToken};
+    }  if (admin  && (await bcrypt.compare(password, admin.password))){
+      const payload: JwtPayload = { email , name:admin.name };
+
       const accessToken =  this.jwtService.sign(payload);
-      return { accessToken };
-    } else {
-      throw new UnauthorizedException('Please check your login credentials');
+      
+      return { accessToken};
+
+    }if ( sp && (await bcrypt.compare(password, sp.password))){
+      const payload: JwtPayload = { email : sp.email, name:sp.name };
+
+      const accessToken =  this.jwtService.sign(payload);
+      
+      return { accessToken};
+   
     }
+  else {
+    throw new UnauthorizedException('Please check your login credentials');
   }
+  
+}
+
 
 
 //   const p1 = new Promise(/* ... */);

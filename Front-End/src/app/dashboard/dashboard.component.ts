@@ -8,6 +8,8 @@ import { ServiceService } from '../service.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
+
 export class DashboardComponent implements OnInit {
   servicesArray=[];
   checkbox:any;
@@ -19,6 +21,8 @@ export class DashboardComponent implements OnInit {
   username=localStorage.getItem("name")
   constructor(private us:ServiceService, private router:Router) { }
    id:Number=0;
+
+
   ngOnInit(): void {
     let tokenverify=localStorage.getItem("token")
     if(tokenverify==null){
@@ -52,10 +56,15 @@ this.router.navigateByUrl("/login")
     localStorage.clear()
     this.router.navigateByUrl(`/login`)
   }
+
+
   bookings(){
   
     this.router.navigateByUrl(`/mybookings`)
   }
+
+
+
   addtocart(service){
     
     console.log("in compo",service)
@@ -85,6 +94,8 @@ this.router.navigateByUrl("/login")
     )
   }
 
+
+
   load(){
 
     let currentUrl = this.router.url;
@@ -92,6 +103,9 @@ this.router.navigateByUrl("/login")
         this.router.navigate([currentUrl]);
     });
   }
+
+
+
   search(){
     if(this.mainservicename!=""){
     this.servicesArray=this.servicesArray.filter(res=>{
