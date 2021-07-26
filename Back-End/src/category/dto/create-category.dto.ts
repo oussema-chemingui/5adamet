@@ -14,6 +14,6 @@ export class CreateCategoryDto {
   @MaxLength(100)
   description: string;
 
-  @IsIn([CategoryTypes.PCs, CategoryTypes.PLAY_STATIONS, CategoryTypes.LAPTOPS, CategoryTypes.ACCESSORIES,CategoryTypes.HEAD_PHONES, CategoryTypes.OTHERS])
+  @IsIn([CategoryTypes.RENOVATION, CategoryTypes.REPARATION])
   type: CategoryTypes;
 }
