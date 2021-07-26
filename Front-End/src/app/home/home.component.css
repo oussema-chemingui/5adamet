@@ -120,6 +120,29 @@
 
 }
 
+[nz-carousel-content] {
+  text-align: center;
+  height: 400px;
+  line-height: 200px;
+  background: #364d79;
+  color: #fff;
+  overflow: hidden;
+  background-size: cover;
+  object-fit: cover ;
+  
+}
+
+[nz-carousel-content].img {
+  width:100%;
+  background-size: cover;
+}
+
+h3 {
+  color: #fff;
+  margin-bottom: 0;
+  user-select: none;
+}
+
 
 /* .container2{
 

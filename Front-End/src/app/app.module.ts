@@ -30,6 +30,13 @@ import { ServicesComponent } from './services/services.component';
 import { ServiceItemComponent } from './service-item/service-item.component';
 import { PackagesComponent } from './packages/packages.component';
 import { QuotedemandComponent } from './quotedemand/quotedemand.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
+
+registerLocaleData(en);
 
 
 
@@ -67,11 +74,11 @@ import { QuotedemandComponent } from './quotedemand/quotedemand.component';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
- 
+    DemoNgZorroAntdModule
    
 
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

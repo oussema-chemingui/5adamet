@@ -22,13 +22,21 @@ export class RegisterProfComponent implements OnInit {
           Validators.required,
           Validators.minLength(5),
           Validators.pattern("[a-zA-Z ]*$")]),
+
+        password:new FormControl(null,[
+            Validators.required,
+            Validators.pattern("[a-zA-Z0-9]*$")]),
+
         email: new FormControl(null,[
           Validators.required,
           Validators.email]),
+
         locations: new FormControl(null,[
           Validators.required]),
+
         skills:new FormControl(null,[
           Validators.required]),
+
         mobilenumber:new FormControl(null,[
           Validators.required,
           Validators.minLength(10),
@@ -48,14 +56,14 @@ export class RegisterProfComponent implements OnInit {
         if(this.loginForm.valid){
         console.log(this.loginForm.value)
        this.us.postprofdata(this.loginForm.value).subscribe(
-       (res)=>{
-         console.log("in component",res["message"])
-          if(res["message"]=="Professional created"){
-            alert("Registered as Professional Successfully")
-          }
-          else{
-            alert("Professional name already Exist....try with other username")
-          }
+       ()=>{
+        //  console.log("in component",res["message"])
+        //   if(res["message"]=="Professional created"){
+        //     alert("Registered as Professional Successfully")
+        //   }
+        //   else{
+        //     alert("Professional name already Exist....try with other username")
+        //   }
        },
        (err)=>{console.log(err)}
        )

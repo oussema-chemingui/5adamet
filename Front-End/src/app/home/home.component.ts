@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
 
- 
+  array = [1, 2, 3, 4];
   public users:Array<string> = ["TUNIS","ARIANA","BIZERTE","BEN AROUS","MANOUBA","SOUSSE"];
   constructor(private router:Router) { }
 

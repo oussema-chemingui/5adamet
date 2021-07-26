@@ -8,11 +8,12 @@
    
   }
 .backgrnd{
-    background-image: url("../../assets/images/5533513.jpg");
+background-image: url("../../assets/images/5533513.jpg");
  height: 800px;
  background-size: cover;
  background-position: center;
 }
+
 .bg-color{
     color: rgb(250, 248, 242);
   background: linear-gradient(to bottom, rgb(61, 89, 122) 50%, rgb(17, 36, 61) 75%);
