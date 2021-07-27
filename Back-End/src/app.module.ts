@@ -3,7 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
+
 import {CloudinaryModule} from './cloudinary/cloudinary.module'
+=======
+
 
 @Module({
   imports: [
@@ -41,6 +44,5 @@ import {CloudinaryModule} from './cloudinary/cloudinary.module'
       envFilePath: '.env',
     }),
 
-  ],
-})
+
 export class AppModule {}
