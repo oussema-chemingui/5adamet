@@ -8,7 +8,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
   providedIn: 'root'
 })
 export class ServiceService {
-  private apiUrl = 'http://localhost:5000/services'
+  private apiUrl = 'http://localhost:5000/services';
+  API_SERVER = "http://localhost:3000";
 
   constructor(private http: HttpClient) { }
 
@@ -16,5 +17,6 @@ export class ServiceService {
     // const services = of(SERVICES);
     // return services;
     return this.http.get<Service[]>(this.apiUrl)
+    // return this.http.get<Service[]>(`${this.API_SERVER}/services/getservices`)
   }
 }
