@@ -6,11 +6,10 @@
   word-spacing: 2pt;
  
 }
-.backgrnd{
-  background: linear-gradient(#40294e,#764cb9);
-}
+
 .container{
   background-color: white;
+max-width: 80%;
 }
 
 .head-banner p{
@@ -111,7 +110,7 @@
 }
 .container1{
 
-    max-width: 1350px;
+    max-width: 100%;
     margin: auto;
     height: 600px;
     background-image: url("https://atemplate.com.ng/wp-content/uploads/2020/06/Service-Finder-Provider-and-Business-Listing-WordPress-Theme-1024x414.jpg");
