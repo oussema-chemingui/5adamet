@@ -39,7 +39,4 @@ export class ServiceService {
       throw new NotFoundException(`Service with id: ${id} is not found `);
     }
   }
-
-  
-
 }

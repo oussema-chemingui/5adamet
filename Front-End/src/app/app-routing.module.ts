@@ -12,8 +12,10 @@ import { RegisterProfComponent } from './register-prof/register-prof.component';
 import { SignupComponent } from './signup/signup.component';
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
+import { QuotedemandComponent } from './quotedemand/quotedemand.component';
 
 const routes: Routes = [
+  {path:'costestimation',component:QuotedemandComponent},
   {path:'home',component:HomeComponent},
   {path:'mainservices',component:MainservicesComponent},
   {path:'registerProf',component:RegisterProfComponent},
@@ -25,7 +27,7 @@ const routes: Routes = [
   {path:'adminaddservices',component:AdminaddservicesComponent},
   {path:'update/:serviceId',component:UpdateComponent},
   {path:"",redirectTo:"/home",pathMatch:"full"},
-  {path:"**",component:PagenotfoundComponent}
+  {path:"**",component:PagenotfoundComponent} 
 ];
 
 @NgModule({
