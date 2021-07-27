@@ -21,4 +21,7 @@ export class ServiceProvider {
   @Column({default: ''})
   phone: string;
 
+  @Column({default: 'ServiceProvider'})
+  role : string
+
 }

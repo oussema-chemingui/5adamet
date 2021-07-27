@@ -16,6 +16,7 @@ import { AuthGuard } from '@nestjs/passport';
 @Controller('services')
 export class ServiceController {
   constructor(private readonly serviceService: ServiceService) {}
+ 
   @Get()
   getServices(
   ) {

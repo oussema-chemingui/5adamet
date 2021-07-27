@@ -23,7 +23,7 @@
 .text-block {
     border-radius: 15px;
  
-    background: linear-gradient(rgb(56, 51, 100),rgb(111, 11, 224));
+    background: linear-gradient( rgb(61, 89, 122) 50%, rgb(17, 36, 61));
     color:rgb(255, 255, 255);
      padding: 30px 30px;
      transform: translate(-10%, -10%);
@@ -166,15 +166,14 @@ h3 {
   
 }
 #button-color{
-  font-size: 20px;
-  color:rgb(255, 255, 255);
-  background: linear-gradient(rgb(138, 38, 163),rgb(79, 40, 141)) ;
-  border: 1px solid rgb(28, 2, 99);
-  border-radius: 26px;
-  padding:10px 30px;
+  border-radius: 40px;
+    background:linear-gradient(to left, rgb(23, 60, 226) , rgb(65, 173, 223) );
+    padding: 3px 40px;
+    color: rgb(251, 251, 251);
+    border-color: darkblue;
 }
 #button-color:hover{
-  background: linear-gradient(rgb(128, 76, 170),rgb(79, 13, 95)) ;
+  background:linear-gradient(to left, rgb(9, 30, 126) , rgb(19, 84, 114) );
   border: 1px solid rgb(58, 17, 124);
 }
 

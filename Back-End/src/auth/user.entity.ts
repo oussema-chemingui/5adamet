@@ -21,5 +21,7 @@ export class User {
   @Column({default: ''})
   phone: string;
 
+  @Column({default: 'user'})
+  role : string
 
 }
