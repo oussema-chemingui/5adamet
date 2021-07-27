@@ -16,7 +16,7 @@ postadminsignup(userobj):Observable<any>{
 
 
 postSPsignup(userobj):Observable<null>{
-  return this.hc.post<null>(`${this.API_SERVER}/auth/admins/signup`,userobj)
+  return this.hc.post<null>(`${this.API_SERVER}/auth/serviceProvider/signup`,userobj)
 }
 
 postusersignup(userobj):Observable<null>{
@@ -87,6 +87,7 @@ return this.hc.get(`/cart/getservicesfrmcart/${username}`)
    updateservices(serviceObj):Observable<any>{
         return this.hc.put("/services/updateservice",serviceObj)
       }
+      
    getmainservices(location):Observable<any>{
         return this.hc.get(`/services/getmainservices/${location}`)
           }

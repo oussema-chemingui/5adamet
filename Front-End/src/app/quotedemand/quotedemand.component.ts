@@ -24,8 +24,10 @@ export class QuotedemandComponent  {
 
   constructor(private fb: FormBuilder) {
     this.validateForm = this.fb.group({
+      name: ['' ,  [Validators.required]],
       address: ['' ,  [Validators.required]],
       phone: ['' ,  [Validators.required]],
+      datePicker:['' ,  [Validators.required]],
       description: ['' ,  [Validators.required]],
       comment: ['']
     });

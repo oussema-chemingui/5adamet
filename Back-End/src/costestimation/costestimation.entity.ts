@@ -1,24 +1,22 @@
 
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from '../auth/user.entity'
+import { CostEstimationStatus } from './costestimation.enum';
 @Entity()
 export class CostEstimation {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column()
   description: string;
 
-  @Column({default: ''})
-  address: string;
-
-  @Column({default: ''})
-  phone: string;
+  @Column()
+  date: Date;
 
   @Column()
-  comment: string;
+  status: CostEstimationStatus;
 
-  @Column()
-  providers: number;
+  @ManyToOne((_type) => User, (user) => user.costEstimations, { eager: false })
+  user: User;
 
 }

@@ -53,7 +53,7 @@ export class AuthService {
 
 
     if (user  && (await bcrypt.compare(password, user.password))) {
-      const payload: JwtPayload = { email : user.email, name:user.name };
+      const payload: JwtPayload = { email : user.email, name:user.name , role:user.role };
 
       var accessToken =  this.jwtService.sign(payload);
       var userInfo = Object.assign(user,accessToken)
@@ -61,14 +61,14 @@ export class AuthService {
       console.log(userInfo)
       return { accessToken};
     }  if (admin  && (await bcrypt.compare(password, admin.password))){
-      const payload: JwtPayload = { email , name:admin.name };
+      const payload: JwtPayload = { email , name:admin.name , role:admin.role};
 
       const accessToken =  this.jwtService.sign(payload);
       
       return { accessToken};
 
     }if ( sp && (await bcrypt.compare(password, sp.password))){
-      const payload: JwtPayload = { email : sp.email, name:sp.name };
+      const payload: JwtPayload = { email : sp.email, name:sp.name, role:sp.role };
 
       const accessToken =  this.jwtService.sign(payload);
       

@@ -1,3 +1,39 @@
+
+<style>
+
+.backgrnd{
+ background-image: url("../../assets/images/5533513.jpg");
+ height: 800px;
+ background-size: cover;
+ background-position: center;
+}
+
+.bg-color{
+    color: rgb(250, 248, 242);
+  background: linear-gradient(to bottom, rgb(61, 89, 122) 50%, rgb(17, 36, 61) 75%);
+}
+.usertext{
+    color:black;
+}
+.btn-style{
+    border-radius: 40px;
+    background:linear-gradient(to left, rgb(23, 60, 226) , rgb(65, 173, 223) );
+    padding: 3px 40px;
+    color: rgb(251, 251, 251);
+    border-color: darkblue;
+}
+.btn-style:hover{
+    background:linear-gradient(to left, rgb(9, 30, 126) , rgb(19, 84, 114) );
+}
+.border-top{
+    border-top:1px solid rgb(153, 148, 148);
+}
+
+</style>
+
+
+
+
 <div class="backgrnd">
 <div class="container ">
     <div class="row ">
@@ -5,10 +41,10 @@
         <div class="col-12 col-md-6 mt-5 ">
           
             <form [formGroup]="loginForm"  class="form p-5 mt-5 border rounded-3 bg-color" (ngSubmit)="onSubmit()">
-               <div class="text-center">
+               <!-- <div class="text-center"> -->
                 
                 
-                <div class="form-check form-check-inline   mx-3 mx-md-3 p-md-4">
+                <!-- <div class="form-check form-check-inline   mx-3 mx-md-3 p-md-4">
                   <input class="form-check-input" type="radio" id="user" name="usertype" value="user" formControlName="usertype" >
                   <label class="form-check-label" for="user"><h5>User</h5></label>
                 </div>
@@ -17,12 +53,12 @@
                 <div class="form-check form-check-inline  mx-3 mx-md-3 p-md-4">
                   <input class="form-check-input" type="radio" id="ServiceProvider" name="usertype" value="ServiceProvider" formControlName="usertype">
                   <label class="form-check-label" for="ServiceProvider"><h5>Service Provider</h5></label>
-                </div>
+                </div> -->
                   
-                  <div *ngIf="getControls().usertype.touched && getControls().usertype.invalid" class="alert alert-danger">
+                  <!-- <div *ngIf="getControls().usertype.touched && getControls().usertype.invalid" class="alert alert-danger">
                     <div *ngIf="getControls().usertype.errors?.required">Email is required.</div>
                 </div>
-                </div>
+                </div> -->
                
             
                 <div class="form-floating mb-3">

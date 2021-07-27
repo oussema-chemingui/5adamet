@@ -1,18 +1,11 @@
 import { IsNotEmpty,IsOptional } from 'class-validator';
 
-export class CreateTaskDto {
-  @IsNotEmpty()
-  address: string;
-
-  @IsNotEmpty()
-  phone: string;
-
+export class CreateCostEstimationDto {
+  
   @IsNotEmpty()
   description: string;
 
   @IsNotEmpty()
-  providers: number;
+  date: Date;
 
-  @IsOptional()
-  comment: string
 }
