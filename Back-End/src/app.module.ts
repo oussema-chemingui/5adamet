@@ -4,6 +4,10 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
 
+import {CloudinaryModule} from './cloudinary/cloudinary.module'
+=======
+
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -33,7 +37,12 @@ import { configValidationSchema } from './config.schema';
         };
       },
     }),
-    AuthModule 
-  ],
-})
+    AuthModule,
+   
+    CloudinaryModule,
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+    }),
+
+
 export class AppModule {}

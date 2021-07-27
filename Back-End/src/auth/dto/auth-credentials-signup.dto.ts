@@ -9,4 +9,8 @@ export class SignUpDto extends AuthCredentialsDto {
   @MinLength(5)
   @MaxLength(30)
   name: string;
+
+
+
+
 }
