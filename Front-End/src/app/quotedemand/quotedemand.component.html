@@ -1,6 +1,13 @@
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
 
   <nz-form-item>
+    <nz-form-label [nzSpan]="7" nzRequired>Username</nz-form-label>
+    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your name!">
+      <input nz-input type="name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
     <nz-form-label [nzSpan]="7" nzRequired>Phone number</nz-form-label>
     <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your phone!">
       <input nz-input type="phone"   />
@@ -11,6 +18,13 @@
     <nz-form-label [nzSpan]="7" nzRequired>Address</nz-form-label>
     <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your address!">
       <input nz-input type="address"   />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Date</nz-form-label>
+    <nz-form-control [nzSm]="16" [nzXs]="24">
+      <nz-date-picker formControlName="datePicker"></nz-date-picker>
     </nz-form-control>
   </nz-form-item>
 
