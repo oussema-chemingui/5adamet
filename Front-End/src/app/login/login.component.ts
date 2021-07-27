@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm=new FormGroup({
-      usertype:new FormControl(null,Validators.required),
+      //usertype:new FormControl(null,Validators.required),
       email:new FormControl(null, [
         Validators.required,
         Validators.email]),
@@ -38,36 +38,30 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     this.submitted=true;
-  if(this.loginForm.valid){
-    console.log(this.loginForm.value.usertype)
- if(this.loginForm.value.usertype=="ServiceProvider"){
-this.us.getadminlogin(this.loginForm.value).subscribe(
-  (res)=>{
-
-    let tokenInfo = this.getDecodedAccessToken(res.accessToken);
-    localStorage.setItem("name",tokenInfo.name)
-    localStorage.setItem("token",res.accessToken)
-
-
-     this.router.navigateByUrl("/adminaddservices")
-
-  },
-  (err)=>{
-    console.log(err)
-  }
-)
- }else 
-  if(this.loginForm.value.usertype=="user"){
+     if(this.loginForm.valid){
+    
     this.us.getuserlogin(this.loginForm.value).subscribe(
       (res)=>{
         //console.log(res)
 
         let tokenInfo = this.getDecodedAccessToken(res.accessToken);
+        console.log(tokenInfo.role)
+
+        if(tokenInfo.role =='user'){
+          this.router.navigateByUrl("/dashboard")
+         }
+        else if (tokenInfo.role =='ServiceProvider'){
+          this.router.navigateByUrl("/adminaddservices")
+        }
 
         localStorage.setItem("name",tokenInfo.name)
         localStorage.setItem("token",res.accessToken)
-
-        this.router.navigateByUrl("/dashboard")
+        //  if(tokenInfo.role =='user' || tokenInfo.role =='ServiceProvider'){
+        //   this.router.navigateByUrl("/dashboard")
+        //  }
+        // else if (tokenInfo.role =='ServiceProvider'){
+        //   this.router.navigateByUrl("/adminaddservices")
+        // }
  
       },
       (err)=>{
@@ -77,7 +71,7 @@ this.us.getadminlogin(this.loginForm.value).subscribe(
  }
 }
     
-}
+
 
 
 
