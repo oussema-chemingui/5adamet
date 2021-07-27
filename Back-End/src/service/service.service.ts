@@ -12,11 +12,9 @@ export class ServiceService {
   constructor(
     @InjectRepository(ServiceRepository)
     private serviceRepository: ServiceRepository,
- 
   ) {}
 
-  async getServices(
-  ): Promise<Service[]> {
+  async getServices(): Promise<Service[]> {
     return await this.serviceRepository.getServices();
   }
 
@@ -39,7 +37,4 @@ export class ServiceService {
       throw new NotFoundException(`Service with id: ${id} is not found `);
     }
   }
-
-  
-
 }
