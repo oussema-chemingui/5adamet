@@ -10,6 +10,7 @@ import { SignUpDto } from 'src/auth/dto/auth-credentials-signup.dto';
   
   @EntityRepository(ServiceProvider)
   export class ServiceProviderRepository extends Repository<ServiceProvider> {
+    
     async createServiceProvider(authCredentialsDto: SignUpDto): Promise<void> {
       const { email, password ,name} = authCredentialsDto;
   
@@ -23,8 +24,10 @@ import { SignUpDto } from 'src/auth/dto/auth-credentials-signup.dto';
       } catch (error) {
         if (error.code === '23505') {
           // duplicate username
+
           throw new ConflictException('Service Provider already exists');
         } else {
+          console.log(error)
           throw new InternalServerErrorException();
         }
       }

@@ -15,8 +15,8 @@ export class ServiceProvider {
   @Column()
   email: string;
 
-  @Column()
-  location: string;
+  @Column({default: ''})
+  adress: string;
 
   @Column({default: ''})
   phone: string;

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ServiceService } from '../service.service';
+import { FormControl,FormGroup,Validators,FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-register-prof',
@@ -10,64 +9,57 @@ import { ServiceService } from '../service.service';
 })
 export class RegisterProfComponent implements OnInit {
 
-  loginForm:FormGroup;
-  submitted:boolean
-    skillsarray=["Electician","Plumber","cleanser","saloon","Carpenter"]
-    locationsarray=["TUNIS","ARIANA","BIZERTE","MANOUBA","BEN AROUS" ,"SOUSSE"]
-    constructor(private us:ServiceService) { }
-  
-    ngOnInit(): void {
-      this.loginForm=new FormGroup({
-        name: new FormControl(null,[
-          Validators.required,
-          Validators.minLength(5),
-          Validators.pattern("[a-zA-Z ]*$")]),
-
-        password:new FormControl(null,[
-            Validators.required,
-            Validators.pattern("[a-zA-Z0-9]*$")]),
-
-        email: new FormControl(null,[
-          Validators.required,
-          Validators.email]),
-
-        locations: new FormControl(null,[
-          Validators.required]),
-
-        skills:new FormControl(null,[
-          Validators.required]),
-
-        mobilenumber:new FormControl(null,[
-          Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(10),
-           Validators.pattern("[0-9]*$")])
-  
+  personalDetails!: FormGroup;
+  addressDetails!: FormGroup;
+  personal_step = false;
+  address_step = false;
+  step = 1;
+  constructor(private formBuilder: FormBuilder) { }
+  ngOnInit() {
+        this.personalDetails = this.formBuilder.group({
+            name: ['', Validators.required],
+            email: ['', Validators.required],
+            phone: ['',Validators.required]
+        });
+        this.addressDetails = this.formBuilder.group({
+            city: ['', Validators.required],
+            address: ['', Validators.required],
+            pincode: ['',Validators.required]
+        });
         
-        })
-       
-      }
-      getControls(){
-        return this.loginForm.controls
-      }
-  
-      onSubmit(){
-        this.submitted=true;
-        if(this.loginForm.valid){
-        console.log(this.loginForm.value)
-       this.us.postprofdata(this.loginForm.value).subscribe(
-       ()=>{
-        //  console.log("in component",res["message"])
-        //   if(res["message"]=="Professional created"){
-        //     alert("Registered as Professional Successfully")
-        //   }
-        //   else{
-        //     alert("Professional name already Exist....try with other username")
-        //   }
-       },
-       (err)=>{console.log(err)}
-       )
-      }
-      }
-      
+  }
+  get personal() { return this.personalDetails.controls; }
+  get address() { return this.addressDetails.controls; }
+  next(){
+    if(this.step==1){
+          this.personal_step = true;
+          if (this.personalDetails.invalid) { return  }
+          this.step++
     }
+
+    if(this.step==2){
+        this.address_step = true;
+        if (this.addressDetails.invalid) { return }
+            this.step++;
+    }
+  }
+  previous(){
+    this.step--
+    if(this.step==1){
+      this.personal_step = false;
+    }
+    if(this.step==2){
+      this.address_step = false;
+    }
+  }
+  submit(){
+    if(this.step==2){
+      this.address_step = true;
+      if (this.addressDetails.invalid) { return }
+    }
+
+
+    console.log(this.personal)
+
+  }
+}

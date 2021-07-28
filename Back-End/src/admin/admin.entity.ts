@@ -15,6 +15,13 @@ export class Admin {
   @Column()
   email: string;
 
+  @Column({default: ''})
+  adress: string;
+
+  @Column({default: ''})
+  phone: string;
+
+  
   @Column({default: 'admin'})
   role : string
 
