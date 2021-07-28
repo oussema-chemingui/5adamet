@@ -4,6 +4,8 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
 import {CloudinaryModule} from './cloudinary/cloudinary.module'
+import { ServiceModule } from './service/service.module';
+import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
@@ -35,6 +37,9 @@ import {CloudinaryModule} from './cloudinary/cloudinary.module'
       },
     }),
     AuthModule,
+
+    ServiceModule,
+    CategoryModule,
    
     CloudinaryModule,
     ConfigModule.forRoot({

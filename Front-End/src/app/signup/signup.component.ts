@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm=new FormGroup({
-       usertype:new FormControl(null, Validators.required),
+       role:new FormControl(null, Validators.required),
       name:new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(30),Validators.pattern("[a-zA-Z ]*$")]),
       password:new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z0-9]*$")]),
       email:new FormControl(null,[Validators.required,Validators.email]),
@@ -31,24 +31,19 @@ export class SignupComponent implements OnInit {
     this.submitted=true;
     if(this.registerForm.valid){
      console.log(this.registerForm.value);
-    if(this.registerForm.value.usertype=="user"){
 
-      this.us.postusersignup(this.registerForm.value).subscribe(
-        ()=>{
-            this.router.navigateByUrl("/login")
-        },
-            err=>{ console.log(err)})
+      this.router.navigate(['/step',JSON.stringify(this.registerForm.value)] ,{ skipLocationChange: true})
       }
 
 
-     }else if(this.registerForm.value.usertype=="ServiceProvider"){
+    //  }if(this.registerForm.value.role=="ServiceProvider"){
     
-      this.us.postSPsignup(this.registerForm.value).subscribe(
-        ()=>{
-            this.router.navigateByUrl("/login")
-        },
-            err=>{ console.log(err)})
-      }
+    //   this.us.postSPsignup(this.registerForm.value).subscribe(
+    //     ()=>{
+    //         this.router.navigateByUrl("/login")
+    //     },
+    //         err=>{ console.log(err)})
+    //   }
 
 
     }
