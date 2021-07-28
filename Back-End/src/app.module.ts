@@ -6,6 +6,7 @@ import { configValidationSchema } from './config.schema';
 
 import {CloudinaryModule} from './cloudinary/cloudinary.module'
 import { CostestimationModule } from './costestimation/costestimation.module';
+import { SpresponseModule } from './spresponse/spresponse.module';
 
 
 
@@ -46,6 +47,7 @@ import { CostestimationModule } from './costestimation/costestimation.module';
       envFilePath: '.env',
     }),
     CostestimationModule,
+    SpresponseModule,
 
   ]})
 export class AppModule {}

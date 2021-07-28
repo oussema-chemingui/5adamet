@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/auth/user.entity';
 import { CostEstimation } from './costestimation.entity';
 import { CostEstimationRepository } from './costestimation.repository';
 import { CreateCostEstimationDto } from './dto/costestimation.dto';
@@ -21,8 +22,11 @@ export class CostestimationService {
         return found;
       }
 
-    async createCostEstimation (createCostEstimationDto: CreateCostEstimationDto): Promise<CostEstimation>{
-        return this.costEstimationRepository.createCostEstimation(createCostEstimationDto)
+    async createCostEstimation (
+      createCostEstimationDto: CreateCostEstimationDto,
+      user:User
+      ): Promise<CostEstimation>{
+        return this.costEstimationRepository.createCostEstimation(createCostEstimationDto,user)
     }
 }
 

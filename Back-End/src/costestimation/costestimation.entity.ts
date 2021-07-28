@@ -1,5 +1,6 @@
 
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { SpResponse } from 'src/spresponse/spresponse.entity';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../auth/user.entity'
 import { CostEstimationStatus } from './costestimation.enum';
 @Entity()
@@ -18,5 +19,8 @@ export class CostEstimation {
 
   @ManyToOne((_type) => User, (user) => user.costEstimations, { eager: false })
   user: User;
+
+  @OneToMany( () => SpResponse, spResponse => spResponse.costEstimation) 
+costEstimations : CostEstimation[]
 
 }

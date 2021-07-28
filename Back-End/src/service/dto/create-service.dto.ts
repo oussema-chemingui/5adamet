@@ -23,11 +23,5 @@ export class CreateServiceDto {
   @MaxLength(100)
   description: string;
 
-  @IsNumber()
-  @IsNotEmpty()
-  @IsPositive()
-  @Min(20)
-  @Max(100000)
-  coast: number;
 
 }
