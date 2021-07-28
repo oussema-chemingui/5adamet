@@ -9,20 +9,17 @@ import { DeleteResult } from 'typeorm';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import * as fs from 'fs';
 
-
 @Injectable()
 export class CategoryService {
   constructor(
     @InjectRepository(CategoryRepository)
     private categoryRepository: CategoryRepository,
     private readonly serviceService: ServiceService,
-
   ) {}
 
   async getCategories(): Promise<Category[]> {
     return await this.categoryRepository.find();
   }
-
 
   async getCategory(id: number): Promise<Category> {
     const category: Category = await this.categoryRepository.findOne({
@@ -34,13 +31,11 @@ export class CategoryService {
     return category;
   }
 
-
   async createCategory(
     createCategoryDto: CreateCategoryDto,
   ): Promise<Category> {
     return await this.categoryRepository.createCategory(createCategoryDto);
   }
-
 
   async createService(
     id: number,
@@ -55,7 +50,7 @@ export class CategoryService {
     service.description = description;
     service.coast = coast;
     service.category = category;
-    service.image = image ; //await this. .fileupload(image);
+    service.image = image; //await this. .fileupload(image);
     console.log(service.image);
     category.services.push(await service.save());
   }
@@ -69,7 +64,7 @@ export class CategoryService {
     image: any,
   ): Promise<void> {
     const category: Category = await this.getCategory(categoryId);
-    const service = category.services.find(serv => serv.id === serviceId);
+    const service = category.services.find((serv) => serv.id === serviceId);
     if (name) {
       service.name = name;
     }
@@ -104,7 +99,7 @@ export class CategoryService {
   async getServices(categoryId: number) {
     const category = await this.getCategory(categoryId);
     const services = category.services;
-    services.forEach(serv => {
+    services.forEach((serv) => {
       if (serv.id === 81) {
         console.log(serv.image.substring(55));
       }
@@ -124,7 +119,7 @@ export class CategoryService {
 
   async deleteService(categoryId: number, serviceId: number) {
     const category: Category = await this.getCategory(categoryId);
-    const service = category.services.find(serv => serv.id === serviceId);
+    const service = category.services.find((serv) => serv.id === serviceId);
     if (service.image) {
       // await this. .fileDelete(service.image);
     }

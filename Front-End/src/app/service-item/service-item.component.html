@@ -1,4 +1,9 @@
-<div class="service">
-    <img src={{service.img}}/>
-    <h3>{{service.text}}</h3>
-</div>
+
+<nz-card nzHoverable style="width:75%;" [nzCover]="coverTemplate">
+    <nz-card-meta nzTitle={{service.text}} ></nz-card-meta>
+  </nz-card>
+  <ng-template #coverTemplate>
+    <img alt="example" src={{service.img}} />
+  </ng-template>
+
+    
