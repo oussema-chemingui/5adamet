@@ -35,6 +35,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
+import { CategoryComponent } from './category/category.component';
 
 registerLocaleData(en);
 
@@ -63,6 +64,7 @@ registerLocaleData(en);
     ServiceItemComponent,
    PackagesComponent,
    QuotedemandComponent,
+   CategoryComponent,
    
    
     

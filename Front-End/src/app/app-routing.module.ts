@@ -12,6 +12,7 @@ import { RegisterProfComponent } from './register-prof/register-prof.component';
 import { SignupComponent } from './signup/signup.component';
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
+import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component'
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'success',component:SuccessComponent},
   {path:'adminaddservices',component:AdminaddservicesComponent},
   {path:'update/:serviceId',component:UpdateComponent},
+  {path:'servicesdescription',component:ServicesdescriptionComponent},
   {path:"",redirectTo:"/home",pathMatch:"full"},
   {path:"**",component:PagenotfoundComponent}
 ];
