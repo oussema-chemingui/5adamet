@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import{HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,18 +12,30 @@ export class ServiceService {
   API_SERVER = "http://localhost:3000";
   
  constructor(private hc:HttpClient) {}
-postadminsignup(userobj):Observable<any>{
-  return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
-}
+
+// postadminsignup(userobj):Observable<any>{
+//   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
+// }
+
 
 
 postSPsignup(userobj):Observable<null>{
-  return this.hc.post<null>(`${this.API_SERVER}/auth/serviceProvider/signup`,userobj)
+  return this.hc.post<null>(`${this.API_SERVER}/auth/serviceprovider/signup`,userobj)
 }
+
+
+
+
+
 
 postusersignup(userobj):Observable<null>{
   return this.hc.post<null>(`${this.API_SERVER}/auth/users/signup`,userobj)
 }
+
+
+
+
+
 
  getadminlogin(userObj):Observable<{ accessToken: string }>{
 return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,userObj)

@@ -8,7 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AdminsRepository } from 'src/admin/admins.repository';
-import { ServiceProviderRepository } from 'src/serviceProvider/serviceProvider.repostory';
+import { ServiceProviderRepository } from 'src/serviceProvider/serviceProvider.repository';
 
 @Module({
   imports: [
