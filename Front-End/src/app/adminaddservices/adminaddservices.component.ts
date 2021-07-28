@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IndexOptions } from 'mongoose';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -49,42 +48,28 @@ this.router.navigateByUrl("/home")
 
     let serviceObj = ref.value
     console.log(serviceObj)
-    serviceObj.status=true;
+    //serviceObj.status=true;
     this.formData.append("image",this.file,this.file.name)
     this.formData.append("serviceObj",JSON.stringify(serviceObj))
  
    
 
     this.us.postservices(this.formData).subscribe(
-      res=>{
-        console.log(res["message"])
-        if(res['message'] == "failed"){
-          alert(res['reason'])
-          localStorage.clear()
-          //navigate to loin
-          this.router.navigateByUrl("/login")
-        }
-        else{
-          
-        if(res['message'] == 'services added'){
-          alert(res['message'])
+      ()=>{
+       
           let currentUrl = this.router.url;
           this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
               this.router.navigate([currentUrl]);
           });
-        }
-        else{
-          alert(res['message'])
-        }
-      }
-      },
-      err=>{
+        } ,err=>{
         alert("Something went wrong")
         console.log(err)
       }
     )
   }
 
+
+  
 update(serviceId){
   this.router.navigateByUrl(`/update/${serviceId}`)
 }

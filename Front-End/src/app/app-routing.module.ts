@@ -10,7 +10,7 @@ import { MybookingsComponent } from './mybookings/mybookings.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterProfComponent } from './register-prof/register-prof.component';
 import { SignupComponent } from './signup/signup.component';
-import { StepComponent } from './step/step.component';
+import { StepComponent } from './step/step.component'
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
 

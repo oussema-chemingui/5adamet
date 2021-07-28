@@ -32,12 +32,16 @@ export class Service extends BaseEntity {
   image: string;
 
 
-  @ManyToOne(type => Category, category => category.services, {
-    eager: false,
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
-  })
-  category: Category;
+  @Column()
+  main_service: string;
+
+
+  // @ManyToOne(type => Category, category => category.services, {
+  //   eager: false,
+  //   onDelete: 'CASCADE',
+  //   onUpdate: 'CASCADE'
+  // })
+  // category: Category;
 
 
 }
