@@ -18,12 +18,14 @@ export class SpResponse {
   @Column()
   date: Date;
 
+  @Column()
+  costEstimationId: number;
+
   @ManyToOne(() => CostEstimation, (costEstimation) => costEstimation.spResponse, { eager: false })
   costEstimation : CostEstimation;
 
   @ManyToOne(() => ServiceProvider, (serviceProvider) => serviceProvider.spResponse, { eager: false })
   serviceProvider : ServiceProvider;
 
-  @Column()
-  costEstimationId: number;
+ 
 }
