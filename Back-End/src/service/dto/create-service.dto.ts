@@ -7,27 +7,47 @@ import {
   IsPositive,
   Min,
   Max,
+  IsOptional,
+  isBase64,
 
 } from 'class-validator';
+import { Transform } from 'class-transformer';
 
 export class CreateServiceDto {
+
+ 
   @IsString()
   @IsNotEmpty()
-  @MinLength(5)
+  @MinLength(3)
   @MaxLength(20)
   name: string;
 
   @IsString()
   @IsNotEmpty()
   @MinLength(5)
-  @MaxLength(100)
+  @MaxLength(1000)
   description: string;
 
+  @Transform(cost => 
+  Number.isNaN(+cost.value) ? 0 : +cost.value
+)
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
-  @Min(20)
+  @Min(5)
   @Max(100000)
   coast: number;
+
+
+  @IsNotEmpty()
+  @IsString()
+  main_service:string;
+
+  
+  
+
+
+  
+
 
 }

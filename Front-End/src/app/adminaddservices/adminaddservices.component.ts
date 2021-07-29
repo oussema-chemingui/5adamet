@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IndexOptions } from 'mongoose';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -47,44 +46,34 @@ this.router.navigateByUrl("/home")
 
   addservices(ref){
 
-    let serviceObj = ref.value
-    console.log(serviceObj)
-    serviceObj.status=true;
+    let {name,coast,description,main_service} = ref.value
+
+    //serviceObj.status=true;
     this.formData.append("image",this.file,this.file.name)
-    this.formData.append("serviceObj",JSON.stringify(serviceObj))
- 
+    //this.formData.append("serviceObj",JSON.stringify(serviceObj))
+ this.formData.append('name',name)
+ this.formData.append('coast',coast)
+ this.formData.append('description',description)
+ this.formData.append('main_service',main_service)
+
    
 
     this.us.postservices(this.formData).subscribe(
-      res=>{
-        console.log(res["message"])
-        if(res['message'] == "failed"){
-          alert(res['reason'])
-          localStorage.clear()
-          //navigate to loin
-          this.router.navigateByUrl("/login")
-        }
-        else{
-          
-        if(res['message'] == 'services added'){
-          alert(res['message'])
+      ()=>{
+       
           let currentUrl = this.router.url;
           this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
               this.router.navigate([currentUrl]);
           });
-        }
-        else{
-          alert(res['message'])
-        }
-      }
-      },
-      err=>{
+        } ,err=>{
         alert("Something went wrong")
         console.log(err)
       }
     )
   }
 
+
+  
 update(serviceId){
   this.router.navigateByUrl(`/update/${serviceId}`)
 }

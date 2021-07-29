@@ -1,72 +1,78 @@
-#packages {
-    padding-top: 15px !important;
-    padding-bottom: 15px !important;
-    background: #f9f9f9;
-    max-width: 100%;
-  }
-  
-  .row-centered {
+@import url('https://fonts.googleapis.com/css?family=Poppins|Ubuntu&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background: #eee;
+    font-family: 'Ubuntu', sans-serif
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px
+}
+
+.our-services {
+    margin-top: 75px;
+    padding-bottom: 30px;
+    padding: 0 60px;
+    min-height: 198px;
     text-align: center;
-  }
-  
-  .col-centered {
-    display: inline-block;
-    float: none;
-    /* reset the text-align */
-    text-align: left;
-    /* inline-block space fix */
-    margin-right: -4px;
-  }
-  
-  .item {
-    opacity: .35;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-    cursor: default;
-  }
-  
-  .item:hover {
-    opacity: 1;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all .4s ease-in-out;
+    box-shadow: 0 0 25px 0 rgba(20, 27, 202, .17)
+}
+
+.our-services .icon {
+    margin-bottom: -21px;
+    transform: translateY(-50%);
+    text-align: center
+}
+
+.our-services:hover h4,
+.our-services:hover p {
+    color: #fff
+}
+
+.speedup:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
     cursor: pointer;
-  }
-  
-  .item:focus {
-    opacity: 3;
-  }
-  
-  .item i {
-    font-size: 50px;
-    text-align: center;
-  }
-  
-  .item h6 {
-    font-weight: 400;
-  }
-  
-  @media (max-width: 492px) {
-    .no-pad {
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-    .item {
-      padding-bottom: 5px;
-    }
-    #packages .item:nth-child(3) {
-      border-bottom: none;
-    }
-    .item i {
-            font-size: 60px;
-            color: #7b37d5;
-            width: 100%;
-            padding-bottom: 20px;
-    }
-    .item h6 {
-      font-size: 12px;
-    }
-  }
-  
-  #l-menu div {
-    float: left;
-  }
-  /*# sourceMappingURL=packages.component.css.map */
+    background-image: linear-gradient(-45deg, #fb0054 0%, #f55b2a 100%)
+}
+
+.settings:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #34b5bf 0%, #210c59 100%)
+}
+
+.privacy:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #3615e7 0%, #44a2f6 100%)
+}
+
+.backups:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #fc6a0e 0%, #fdb642 100%)
+}
+
+.ssl:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #8d40fb 0%, #5a57fb 100%)
+}
+
+.database:hover {
+    box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
+    cursor: pointer;
+    background-image: linear-gradient(-45deg, #27b88d 0%, #22dd73 100%)
+}

@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
 *{
   font-family:'Neuton', serif;
-  font-weight:500;
+  font-weight:490;
   font-size:23px;
   letter-spacing: 0.5pt;
   word-spacing: 2pt;
@@ -9,7 +12,7 @@
 
 .container{
   background-color: white;
-max-width: 80%;
+max-width: 75%;
 }
 
 .head-banner p{
@@ -119,29 +122,35 @@ max-width: 80%;
 
 }
 
-[nz-carousel-content] {
-  text-align: center;
-  height: 400px;
-  line-height: 200px;
-  background: #364d79;
-  color: #fff;
-  overflow: hidden;
-  background-size: cover;
-  object-fit: cover ;
-  
+.carousel-container {
+  margin-top: 40px;
+  background-image: linear-gradient(to right, #000428, #004e92)
 }
 
-[nz-carousel-content].img {
-  width:100%;
-  background-size: cover;
+.carousel-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover
 }
 
-h3 {
-  color: #fff;
-  margin-bottom: 0;
-  user-select: none;
+.banner-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+  color: black
 }
 
+.carousel-indicators li {
+  height: 0.8rem;
+  width: .8rem;
+  border-radius: 50%;
+  background-color: white
+}
 
 /* .container2{
 
@@ -186,5 +195,116 @@ div.gap-5:hover{
 
   justify-content: center;
   justify-items: center;
+}
+
+
+.container {
+  margin-top: 100px
+}
+
+.container .row .col-lg-4 {
+  display: flex;
+  justify-content: center
+}
+
+.card {
+  position: relative;
+  padding: 0;
+  margin: 0 !important;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 280px;
+  max-height: 340px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2)
+}
+
+.card .card-image {
+  width: 100%;
+  max-height: 340px
+}
+
+.card .card-image img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover
+}
+
+.card .card-content {
+  position: absolute;
+  bottom: -180px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  min-height: 140px;
+  width: 100%;
+  transition: bottom .4s ease-in;
+  box-shadow: 0 -10px 10px rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.2)
+}
+
+.card:hover .card-content {
+  bottom: 0px
+}
+
+.card:hover .card-content h4,
+.card:hover .card-content h5 {
+  transform: translateY(10px);
+  opacity: 1
+}
+
+.card .card-content h4,
+.card .card-content h5 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-align: center;
+  transition: 0.8s;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-40px);
+  transition-delay: 0.2s
+}
+
+.card .card-content h5 {
+  transition: 0.5s;
+  font-weight: 200;
+  font-size: 0.8rem;
+  letter-spacing: 2px
+}
+
+.card .card-content .social-icons {
+  list-style: none;
+  padding: 0
+}
+
+.card .card-content .social-icons li {
+  margin: 10px;
+  transition: 0.5s;
+  transition-delay: calc(0.15s * var(--i));
+  transform: translateY(50px)
+}
+
+.card:hover .card-content .social-icons li {
+  transform: translateY(20px)
+}
+
+.card .card-content .social-icons li a {
+  color: #fff
+}
+
+.card .card-content .social-icons li a span {
+  font-size: 1.3rem
+}
+
+@media(max-width: 991.5px) {
+  .container {
+      margin-top: 20px
+  }
+
+  .container .row .col-lg-4 {
+      margin: 20px 0px
+  }
 }
 
