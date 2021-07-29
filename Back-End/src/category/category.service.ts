@@ -46,13 +46,13 @@ export class CategoryService {
   ) {
     const category: Category = await this.getCategory(id);
     const service = new Service();
-    service.name = name;
-    service.description = description;
-    service.coast = coast;
-    service.category = category;
-    service.image = image; //await this. .fileupload(image);
-    console.log(service.image);
-    category.services.push(await service.save());
+    // service.name = name;
+    // service.description = description;
+    // service.coast = coast;
+    // service.category = category;
+    // service.image = image; //await this. .fileupload(image);
+    // console.log(service.image);
+    // category.services.push(await service.save());
   }
 
   async updateService(
@@ -64,22 +64,22 @@ export class CategoryService {
     image: any,
   ): Promise<void> {
     const category: Category = await this.getCategory(categoryId);
-    const service = category.services.find((serv) => serv.id === serviceId);
-    if (name) {
-      service.name = name;
-    }
-    if (description) {
-      service.description = description;
-    }
-    if (coast) {
-      service.coast = coast;
-    }
+    // const service = category.services.find((serv) => serv.id === serviceId);
+    // if (name) {
+    //   service.name = name;
+    // }
+    // if (description) {
+    //   service.description = description;
+    // }
+    // if (coast) {
+    //   service.coast = coast;
+    // }
 
     if (image) {
       // await this. .fileDelete(service.image);
       // service.image = await this. .fileupload(image);
     }
-    await service.save();
+    // await service.save();
   }
   async updateCategory(
     id: number,
@@ -98,13 +98,13 @@ export class CategoryService {
 
   async getServices(categoryId: number) {
     const category = await this.getCategory(categoryId);
-    const services = category.services;
-    services.forEach((serv) => {
-      if (serv.id === 81) {
-        console.log(serv.image.substring(55));
-      }
-    });
-    return services;
+    // const services = category.services;
+    // services.forEach((serv) => {
+    //   if (serv.id === 81) {
+    //     console.log(serv.image.substring(55));
+    //   }
+    // });
+    // return services;
   }
 
   async deleteCategory(categoryId: number): Promise<DeleteResult> {
@@ -119,10 +119,10 @@ export class CategoryService {
 
   async deleteService(categoryId: number, serviceId: number) {
     const category: Category = await this.getCategory(categoryId);
-    const service = category.services.find((serv) => serv.id === serviceId);
-    if (service.image) {
-      // await this. .fileDelete(service.image);
-    }
-    await this.serviceService.deleteService(serviceId);
+    // const service = category.services.find((serv) => serv.id === serviceId);
+    //   if (service.image) {
+    //     // await this. .fileDelete(service.image);
+    //   }
+    //   await this.serviceService.deleteService(serviceId);
   }
 }

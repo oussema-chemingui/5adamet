@@ -21,12 +21,12 @@ export class Category extends BaseEntity {
   @Column()
   description: string;
 
-  @OneToMany((type) => Service, (service) => service.category, {
-    eager: true,
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  })
-  services: Service[];
+  // @OneToMany(type => Service, service => service.category, {
+  //   eager: true,
+  //   onDelete: 'CASCADE',
+  //   onUpdate: 'CASCADE'
+  // })
+  // services: Service[];
 
   @Column()
   type: CategoryTypes;

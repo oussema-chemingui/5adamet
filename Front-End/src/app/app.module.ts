@@ -41,6 +41,9 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { FormComponent } from './form/form.component';
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { TestemonialComponent } from './testemonial/testemonial.component';
+import { SliderComponent } from './slider/slider.component';
 
 registerLocaleData(en);
 
@@ -76,6 +79,9 @@ registerLocaleData(en);
    FormComponent,
    SuccesspurchaseComponent,
    ErrorComponent,
+   CarouselComponent,
+   TestemonialComponent,
+   SliderComponent,
    
 
    

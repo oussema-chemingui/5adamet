@@ -13,9 +13,10 @@ export class ServiceService {
   
  constructor(private hc:HttpClient) {}
 
-// postadminsignup(userobj):Observable<any>{
-//   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
-// }
+
+ postadminsignup(userobj):Observable<any>{
+  return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
+}
 
 
 
@@ -54,6 +55,23 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
    }
 
 
+  postservices(servicesObj):Observable<null>{
+    return this.hc.post<null>(`${this.API_SERVER}/services/createservices`,servicesObj)
+  }
+
+
+
+
+
+  getservices():Observable<any>{
+    return this.hc.get(`${this.API_SERVER}/services/getservices`)
+  }
+
+
+
+
+
+
    
    getcart(username):Observable<any>{
      return this.hc.post("/cart/getitems",username)
@@ -63,13 +81,7 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
      return this.hc.post("/professional/createprof",profObj)
    }
 
-   postservices(servicesObj):Observable<any>{
-     return this.hc.post("/services/createservices",servicesObj)
-   }
 
-   getservices():Observable<any>{
-     return this.hc.get("services/getservices")
-   }
 
    addtocart(cartObj):Observable<any>{
      return this.hc.post(`/cart/addtocart`,cartObj)

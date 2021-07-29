@@ -10,7 +10,7 @@ import { MybookingsComponent } from './mybookings/mybookings.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegisterProfComponent } from './register-prof/register-prof.component';
 import { SignupComponent } from './signup/signup.component';
-import { StepComponent } from './step/step.component';
+import { StepComponent } from './step/step.component'
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
 import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
@@ -18,8 +18,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
+import { QuotedemandComponent } from './quotedemand/quotedemand.component';
 
 const routes: Routes = [
+  {path:'costestimation',component:QuotedemandComponent},
   {path:'home',component:HomeComponent},
   {path:'step/:User',component:StepComponent},
   {path:'mainservices',component:MainservicesComponent},
@@ -37,7 +39,7 @@ const routes: Routes = [
   {path:':code',component:FormComponent},
   {path:'checkout',component:CheckoutComponent},
   {path:"",redirectTo:"/home",pathMatch:"full"},
-  {path:"**",component:PagenotfoundComponent}
+  {path:"**",component:PagenotfoundComponent} 
 ];
 
 @NgModule({
