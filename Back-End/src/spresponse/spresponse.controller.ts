@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Query, UseGuards, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Post, Query, UseGuards, ValidationPipe } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CostEstimation } from 'src/costestimation/costestimation.entity';
 import { GetCostEstimation } from 'src/costestimation/get-costestimation.decorator';
@@ -14,11 +14,11 @@ export class SpresponseController {
     constructor(private spResponseService:SpresponseService){}
 
     @Get('spresponses/:id')
-    getSpResponses(@GetCostEstimation() @Query(ValidationPipe) costEstimation:CostEstimation): Promise<SpResponse[]>{
-      return this.spResponseService.getSpResponses(costEstimation)
+    getSpResponses(@Param('id',ParseIntPipe) costEstimationid:number): Promise<SpResponse[]>{
+      return this.spResponseService.getSpResponses(costEstimationid)
     }
 
-    @Post('createresponse')
+    @Post()
     createSpResponse(
     @Body() createSpResponseDto:CreateSpResponseDto,
     @GetSP() serviceProvider:ServiceProvider

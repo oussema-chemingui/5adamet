@@ -7,10 +7,10 @@ import { SpResponse } from './spresponse.entity';
 @EntityRepository(SpResponse)
 export class SpResponseRepository extends Repository<SpResponse> {
 
-  async getSpResponses (costEstimation:CostEstimation): Promise <SpResponse[]>{
+  async getSpResponses (costEstimationId:number): Promise <SpResponse[]>{
         
         const query = this.createQueryBuilder('spResponse');
-        query.where('spResponse.costEstimationId = :costEstimationId' , {costEstimationId:costEstimation.id})
+        query.where('spResponse.costEstimationId = :costEstimationId' , {costEstimationId:costEstimationId})
         const spResponses= await query.getMany();
         return spResponses
   }

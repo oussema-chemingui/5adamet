@@ -11,10 +11,11 @@ export class SpresponseService {
     constructor(
         @InjectRepository(SpResponseRepository)
         private spResponseRepository : SpResponseRepository
+        
     ){}
     
-    getSpResponses(costEstimation: CostEstimation ): Promise<SpResponse[]> {
-        return this.spResponseRepository.getSpResponses( costEstimation );
+    getSpResponses(costEstimationId: number ): Promise<SpResponse[]> {
+        return this.spResponseRepository.getSpResponses( costEstimationId );
       }
 
     async createSpResponse (

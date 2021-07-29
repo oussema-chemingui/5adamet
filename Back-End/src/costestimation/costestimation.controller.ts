@@ -16,7 +16,7 @@ export class CostestimationController {
       return this.costEstimationService.getCostEstimationById(id);
     }
 
-    @Post('createquote')
+    @Post()
     createCostEstimation(
     @Body() createCostEstimationDto:CreateCostEstimationDto,
     @GetUser() user:User

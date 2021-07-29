@@ -13,7 +13,10 @@ async createCostEstimation(createCostEstimationDto: CreateCostEstimationDto,user
     costEstimation.date=date;
     costEstimation.status= CostEstimationStatus.NOTRESERVED;
     costEstimation.user=user;
+    costEstimation.spResponse=[]   
+    
         await this.save(costEstimation);
+    
         delete costEstimation.user
         return costEstimation
 }
