@@ -46,12 +46,16 @@ this.router.navigateByUrl("/home")
 
   addservices(ref){
 
-    let serviceObj = ref.value
-    console.log(serviceObj)
+    let {name,coast,description,main_service} = ref.value
+
     //serviceObj.status=true;
     this.formData.append("image",this.file,this.file.name)
-    this.formData.append("serviceObj",JSON.stringify(serviceObj))
- 
+    //this.formData.append("serviceObj",JSON.stringify(serviceObj))
+ this.formData.append('name',name)
+ this.formData.append('coast',coast)
+ this.formData.append('description',description)
+ this.formData.append('main_service',main_service)
+
    
 
     this.us.postservices(this.formData).subscribe(

@@ -13,9 +13,10 @@ export class ServiceService {
   
  constructor(private hc:HttpClient) {}
 
-// postadminsignup(userobj):Observable<any>{
-//   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
-// }
+
+ postadminsignup(userobj):Observable<any>{
+  return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
+}
 
 
 
@@ -57,6 +58,8 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
   postservices(servicesObj):Observable<null>{
     return this.hc.post<null>(`${this.API_SERVER}/services/createservices`,servicesObj)
   }
+
+
 
 
 

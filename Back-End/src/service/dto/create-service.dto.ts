@@ -11,12 +11,9 @@ import {
   isBase64,
 
 } from 'class-validator';
+import { Transform } from 'class-transformer';
 
 export class CreateServiceDto {
- constructor (...args){
-
-  
- }
 
  
   @IsString()
@@ -31,6 +28,9 @@ export class CreateServiceDto {
   @MaxLength(1000)
   description: string;
 
+  @Transform(cost => 
+  Number.isNaN(+cost.value) ? 0 : +cost.value
+)
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
@@ -41,11 +41,11 @@ export class CreateServiceDto {
 
   @IsNotEmpty()
   @IsString()
-  main_service
+  main_service:string;
 
   
   
-  image : string;
+
 
   
 

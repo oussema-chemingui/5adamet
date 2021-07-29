@@ -38,6 +38,7 @@ import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { StepComponent } from './step/step.component'
 import { CarouselComponent } from './carousel/carousel.component';
 import { TestemonialComponent } from './testemonial/testemonial.component';
+import { SliderComponent } from './slider/slider.component';
 
 registerLocaleData(en);
 
@@ -70,6 +71,7 @@ registerLocaleData(en);
    QuotedemandComponent,
    CarouselComponent,
    TestemonialComponent,
+   SliderComponent,
    
 
    

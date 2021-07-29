@@ -10,6 +10,8 @@ import {
   UseInterceptors,
   UploadedFile,
   Body,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 
 import { ServiceService } from './service.service';
@@ -34,12 +36,13 @@ export class ServiceController {
 
 
   @Post('createservices')
+  @UsePipes(new ValidationPipe({ transform: true  }))
   @UseInterceptors(FileInterceptor('image'))
-  createService( @UploadedFile() image , @Body('serviceObj') body: string ,
+  createService( @UploadedFile() image , @Body() createServiceDto: CreateServiceDto ,
  
    ) :void  {
-     const createServiceDto = new CreateServiceDto(JSON.parse(body))
-     console.log(createServiceDto )
+   
+     console.log(typeof(createServiceDto.coast) )
      console.log(image)
     // return this.serviceService.createService(createServiceDto);
   }
