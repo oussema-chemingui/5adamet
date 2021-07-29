@@ -152,8 +152,6 @@ textarea.input-box:focus {
   -webkit-box-shadow: none;
   box-shadow: none
 }
-<<<<<<< HEAD
-=======
 
 form .form-control::-webkit-input-placeholder {
   color: #9E9E9E
@@ -187,4 +185,3 @@ input.btn-green {
   color: #546E7A;
   text-align: center
 }
->>>>>>> d3a9527eea01b3ff6a727d6a5c54799cc0855efb
