@@ -5,10 +5,7 @@ import { CreateServiceDto } from './dto/create-service.dto';
 
 @EntityRepository(Service)
 export class ServiceRepository extends Repository<Service> {
-  
-  
-  async getServices(
-  ): Promise<Service[]> {
+  async getServices(): Promise<Service[]> {
     try {
       return await this.find();
     } catch (error) {
@@ -16,26 +13,17 @@ export class ServiceRepository extends Repository<Service> {
     }
   }
 
-  
   async createService(createServiceDto: CreateServiceDto): Promise<Service> {
-    const { name, description , coast , main_service  } = createServiceDto;
+    const { name, description, coast, main_service } = createServiceDto;
 
     const service = this.create({
       name,
       description,
       coast,
       main_service,
-    
     });
 
     await this.save(service);
     return service;
   }
-
-
-
-
-
-
-
 }

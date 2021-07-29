@@ -7,7 +7,6 @@ import { PassportModule } from '@nestjs/passport';
 import { CloudinaryModule } from '../cloudinary/cloudinary.module';
 import { ConfigModule } from '@nestjs/config';
 
-
 @Module({
   imports: [
     TypeOrmModule.forFeature([ServiceRepository]),

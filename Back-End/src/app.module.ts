@@ -4,14 +4,15 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
 
-import {CloudinaryModule} from './cloudinary/cloudinary.module'
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { CostestimationModule } from './costestimation/costestimation.module';
 import { SpresponseModule } from './spresponse/spresponse.module';
 
-
 import { ServiceModule } from './service/service.module';
 import { CategoryModule } from './category/category.module';
-
+import { LinkController } from './link/link.controller';
+import { LinkService } from './link/link.service';
+import { LinkModule } from './link/link.module';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { CategoryModule } from './category/category.module';
       envFilePath: [`.env.stage.${process.env.STAGE}`],
       validationSchema: configValidationSchema,
     }),
-  
+
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -47,13 +48,14 @@ import { CategoryModule } from './category/category.module';
 
     ServiceModule,
     CategoryModule,
-   
+
     CloudinaryModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
-    CostestimationModule,
-    SpresponseModule,
-
-  ]})
+    LinkModule,
+  ],
+  controllers: [LinkController],
+  providers: [LinkService, CostestimationModule, SpresponseModule],
+})
 export class AppModule {}
