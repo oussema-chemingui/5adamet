@@ -7,6 +7,9 @@ import { configValidationSchema } from './config.schema';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { ServiceModule } from './service/service.module';
 import { CategoryModule } from './category/category.module';
+import { LinkController } from './link/link.controller';
+import { LinkService } from './link/link.service';
+import { LinkModule } from './link/link.module';
 
 @Module({
   imports: [
@@ -46,7 +49,10 @@ import { CategoryModule } from './category/category.module';
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
+    LinkModule,
   
-  ]})
+  ],
+  controllers: [LinkController],
+  providers: [LinkService]})
 
 export class AppModule {}

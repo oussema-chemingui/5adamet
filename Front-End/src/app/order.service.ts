@@ -6,11 +6,15 @@ import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class LinkService {
+export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  get(code: string): Observable<any>{
-    return this.http.get(`${environment.api}/links/${code}`)
+  create(data: any): Observable<any>{
+    return this.http.post(`${environment.api}/orders`, data)
+  }
+
+  confirm(data: any): Observable<any>{
+    return this.http.post(`${environment.api}/orders/confirm`, data)
   }
 }
