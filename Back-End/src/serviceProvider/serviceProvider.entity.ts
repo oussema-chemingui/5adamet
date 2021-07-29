@@ -1,5 +1,6 @@
 
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { SpResponse } from 'src/spresponse/spresponse.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class ServiceProvider {
@@ -23,5 +24,8 @@ export class ServiceProvider {
 
   @Column({default: 'ServiceProvider'})
   role : string
+
+  @OneToMany( () => SpResponse, spResponse => spResponse.serviceProvider, { eager: true }) 
+spResponse : SpResponse[]
 
 }

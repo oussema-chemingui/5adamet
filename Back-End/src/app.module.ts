@@ -5,6 +5,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
 
 import {CloudinaryModule} from './cloudinary/cloudinary.module'
+import { CostestimationModule } from './costestimation/costestimation.module';
+import { SpresponseModule } from './spresponse/spresponse.module';
+
 
 import { ServiceModule } from './service/service.module';
 import { CategoryModule } from './category/category.module';
@@ -39,6 +42,7 @@ import { CategoryModule } from './category/category.module';
         };
       },
     }),
+
     AuthModule,
 
     ServiceModule,
@@ -48,7 +52,8 @@ import { CategoryModule } from './category/category.module';
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
-  
-  ]})
+    CostestimationModule,
+    SpresponseModule,
 
+  ]})
 export class AppModule {}

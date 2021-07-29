@@ -1,5 +1,6 @@
 
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { CostEstimation } from 'src/costestimation/costestimation.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
@@ -22,6 +23,8 @@ export class User {
   phone: string;
 
   @Column({default: 'user'})
-  role : string
+  role : string;
 
+  @OneToMany( () => CostEstimation, costestimation => costestimation.user, { eager: true }) 
+costEstimations : CostEstimation[]
 }

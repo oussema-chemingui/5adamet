@@ -32,7 +32,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: JwtPayload): Promise<User> {
+  async validate(payload: JwtPayload): Promise<User|Admin|ServiceProvider> {
     const { email } = payload;
 
     const user: User = await this.usersRepository.findOne({ email });
@@ -52,4 +52,4 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         throw new UnauthorizedException();
     
   }
-}
+ }
