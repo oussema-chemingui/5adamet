@@ -23,7 +23,7 @@ export class User {
   phone: string;
 
   @Column({default: 'user'})
-  role : string
+  role : string;
 
   @OneToMany( () => CostEstimation, costestimation => costestimation.user, { eager: true }) 
 costEstimations : CostEstimation[]

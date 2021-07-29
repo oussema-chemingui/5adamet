@@ -17,10 +17,12 @@ export class AuthController {
     return this.authService.adminSignUp(authCredentialsDto);
   }
 
-  @Post('serviceProvider/signup')
+  @Post('serviceprovider/signup')
   SPSignUp(@Body() authCredentialsDto: SignUpDto): Promise<void> {
     return this.authService.SPSignUp(authCredentialsDto);
   }
+
+
 
   @Post('signin')
   signIn(

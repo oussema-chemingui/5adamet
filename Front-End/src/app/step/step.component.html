@@ -34,28 +34,23 @@
           <div class="col-10 col-md-5">
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="border rounded-3 p-5 color-form">
                 
-              <div class="text-center">
-                    
-                    
-                <div class="form-check form-check-inline   mx-3 mx-md-3 p-md-4">
-                  <input class="form-check-input" type="radio" id="user" name="role" value="user" formControlName="role" >
-                  <label class="form-check-label" for="user"><h5>User</h5></label>
-                </div>
-    
-    
-                <div class="form-check form-check-inline  mx-3 mx-md-3 p-md-4">
-                  <input class="form-check-input" type="radio" id="ServiceProvider" name="role" value="ServiceProvider" formControlName="role">
-                  <label class="form-check-label" for="ServiceProvider"><h5>Service Provider</h5></label>
-                </div> 
-                  
-                  <div *ngIf="getControls().role.touched && getControls().role.invalid" class="alert alert-danger">
-                    <div *ngIf="getControls().role.errors?.required">Email is required.</div>
-                </div>
-                </div>
+             
     
                 <div class="form-group mt-3">
                   <label for="u"><h5>Username</h5></label>
                   <input type="text" class="form-control mt-2 mb-3 " id="u"  placeholder="Username" formControlName="name" autocomplete="off">
+                </div>
+                <div class="form-group mt-3">
+                  <label for="u"><h5>Adress</h5></label>
+                  <input type="text" class="form-control mt-2 mb-3 " id="u"  placeholder="Adress" formControlName="adress" autocomplete="off">
+                </div>
+                <div class="form-group mt-3">
+                  <label for="u"><h5>Phone</h5></label>
+                  <input type="text" class="form-control mt-2 mb-3 " id="u"  placeholder="phone" formControlName="phone" autocomplete="off">
+                </div>
+                <div class="form-group mt-3">
+                  <label for="u"><h5>Role</h5></label>
+                  <input  type="text" class="form-control mt-2 mb-3 "  formControlName="role" readonly >
                 </div>
                 <!--username validations-->
                    

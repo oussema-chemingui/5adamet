@@ -9,6 +9,9 @@ import { CostestimationModule } from './costestimation/costestimation.module';
 import { SpresponseModule } from './spresponse/spresponse.module';
 
 
+import { ServiceModule } from './service/service.module';
+import { CategoryModule } from './category/category.module';
+
 
 @Module({
   imports: [
@@ -41,6 +44,9 @@ import { SpresponseModule } from './spresponse/spresponse.module';
     }),
 
     AuthModule,
+
+    ServiceModule,
+    CategoryModule,
    
     CloudinaryModule,
     ConfigModule.forRoot({

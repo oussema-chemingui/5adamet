@@ -17,7 +17,7 @@ export class CostEstimation {
   @Column()
   status: CostEstimationStatus;
 
-  @ManyToOne((_type) => User, (user) => user.costEstimations, { eager: false })
+  @ManyToOne(() => User, (user) => user.costEstimations, { eager: false })
   user: User;
 
   @OneToMany( () => SpResponse, spResponse => spResponse.costEstimation, { eager: true }) 

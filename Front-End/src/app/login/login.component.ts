@@ -52,6 +52,8 @@ export class LoginComponent implements OnInit {
          }
         else if (tokenInfo.role =='ServiceProvider'){
           this.router.navigateByUrl("/adminaddservices")
+        } else if (tokenInfo.role =='admin'){
+          this.router.navigateByUrl("/adminaddservices")
         }
 
         localStorage.setItem("name",tokenInfo.name)
