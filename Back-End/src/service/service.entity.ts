@@ -19,6 +19,11 @@ export class Service extends BaseEntity {
   description: string;
 
   @Column({
+    default: 0.0,
+  })
+  coast: number;
+
+  @Column({
     nullable: true,
   })
   image: string;
