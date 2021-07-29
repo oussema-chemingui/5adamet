@@ -20,7 +20,7 @@ export class CostEstimation {
   @ManyToOne((_type) => User, (user) => user.costEstimations, { eager: false })
   user: User;
 
-  @OneToMany( () => SpResponse, spResponse => spResponse.costEstimation) 
-costEstimations : CostEstimation[]
+  @OneToMany( () => SpResponse, spResponse => spResponse.costEstimation, { eager: true }) 
+spResponse : SpResponse[]
 
 }

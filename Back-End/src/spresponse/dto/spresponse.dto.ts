@@ -8,4 +8,7 @@ export class CreateSpResponseDto {
   @IsNotEmpty()
   date: Date;
 
+  @IsNotEmpty()
+  cost: number;
+  
 }

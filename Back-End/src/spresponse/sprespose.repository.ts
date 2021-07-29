@@ -1,21 +1,32 @@
-// import { CostEstimation } from "./costestimation.entity";
-import { EntityRepository,Repository } from "typeorm";
-import { SpResponse } from "./spresponse.entity";
-// import { CreateCostEstimationDto } from "./dto/costestimation.dto";
-// import { CostEstimationStatus } from "./costestimation.enum";
-// import { User } from "src/auth/user.entity";
+import { CostEstimation } from 'src/costestimation/costestimation.entity';
+import { ServiceProvider } from 'src/serviceProvider/serviceProvider.entity';
+import { EntityRepository, Repository } from 'typeorm';
+import { CreateSpResponseDto } from './dto/spresponse.dto';
+import { SpResponse } from './spresponse.entity';
 
 @EntityRepository(SpResponse)
 export class SpResponseRepository extends Repository<SpResponse> {
-// async createCostEstimation(createCostEstimationDto: CreateCostEstimationDto,user:User): Promise<CostEstimation>{
-//     const {description , date} = createCostEstimationDto;
-//     const costEstimation = new CostEstimation();
-//     costEstimation.description=description;
-//     costEstimation.date=date;
-//     costEstimation.status= CostEstimationStatus.NOTRESERVED;
-//     costEstimation.user=user;
-//         await this.save(costEstimation);
-//         delete costEstimation.user
-//         return costEstimation
-// }
+
+  async getSpResponses (costEstimation:CostEstimation): Promise <SpResponse[]>{
+        
+        const query = this.createQueryBuilder('spResponse');
+        query.where('spResponse.costEstimationId = :costEstimationId' , {costEstimationId:costEstimation.id})
+        const spResponses= await query.getMany();
+        return spResponses
+  }
+
+  async createSpResponse(
+    createSpRepository: CreateSpResponseDto,
+    serviceProvider: ServiceProvider,
+  ): Promise<SpResponse> {
+    const { cost, response, date } = createSpRepository;
+    const spResponse = new SpResponse();
+    spResponse.cost = cost;
+    spResponse.date = date;
+    spResponse.response = response;
+    spResponse.serviceProvider = serviceProvider;
+    await this.save(spResponse);
+    delete spResponse.serviceProvider;
+    return spResponse;
+  }
 }

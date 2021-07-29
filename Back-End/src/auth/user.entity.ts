@@ -25,6 +25,6 @@ export class User {
   @Column({default: 'user'})
   role : string
 
-  @OneToMany( () => CostEstimation, costestimation => costestimation.user) 
+  @OneToMany( () => CostEstimation, costestimation => costestimation.user, { eager: true }) 
 costEstimations : CostEstimation[]
 }

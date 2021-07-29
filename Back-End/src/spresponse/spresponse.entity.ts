@@ -1,8 +1,9 @@
 
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { CostEstimation } from 'src/costestimation/costestimation.entity';
-// import { User } from '../auth/user.entity'
-// import { CostEstimationStatus } from './costestimation.enum';
+import { ServiceProvider } from 'src/serviceProvider/serviceProvider.entity';
+
+
 @Entity()
 export class SpResponse {
   @PrimaryGeneratedColumn()
@@ -17,7 +18,12 @@ export class SpResponse {
   @Column()
   date: Date;
 
-  // @ManyToOne(() => CostEstimation, (costEstimation) => costEstimation.spResponses, { eager: false })
-  // costEstimation : CostEstimation;
+  @ManyToOne(() => CostEstimation, (costEstimation) => costEstimation.spResponse, { eager: false })
+  costEstimation : CostEstimation;
 
+  @ManyToOne(() => ServiceProvider, (serviceProvider) => serviceProvider.spResponse, { eager: false })
+  serviceProvider : ServiceProvider;
+
+  @Column()
+  costEstimationId: number;
 }
