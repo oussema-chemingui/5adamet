@@ -13,14 +13,17 @@ export class AdminaddservicesComponent implements OnInit {
 services=["cleaning","plumbing","carpenter","painter","saloon for men","saloon for women","pest control","Applaince Repair"]
 constructor(private us:ServiceService, private router:Router){}
   ngOnInit(){
+    
     let tokenverify=localStorage.getItem("token")
     if(tokenverify==null){
       alert("Unauthorized access")
-this.router.navigateByUrl("/home")
+   this.router.navigateByUrl("/home")
     }
-    this.us.getservices().subscribe(
+      this.us.getservices().subscribe(
       (res)=>{
-        this.servicesArray=res["message"]
+
+        console.log(res)
+        this.servicesArray=res
       },
       (err)=>{
         alert("Something went wrong")
@@ -29,6 +32,10 @@ this.router.navigateByUrl("/home")
     )
   
   }
+
+
+
+
   logout(){
     localStorage.clear();
     this.router.navigateByUrl("/login")
@@ -80,31 +87,24 @@ update(serviceId){
 
  delete(serviceObj){
   var newObj={
-    serviceId : serviceObj.serviceId,
-    mainservice :serviceObj.mainservice,
-    subservice:serviceObj.subservice,
-    status:false,
-    price:serviceObj.price,
-    discreption:serviceObj.discreption,
+    main_service :serviceObj.mainservice,
+    name:serviceObj.name,
+    coast:serviceObj.prcoastice,
+    description:serviceObj.description,
     image:serviceObj.image
       };
   
       console.log(newObj)  
   this.us.deleteservices(newObj).subscribe(
-    (res)=>{
-      console.log(res["message"])
-      if(res["message"]=="deleted the service"){
-      alert("Deleted a service")
-     
-  
+    ()=>{
+      
+        
       let currentUrl = this.router.url;
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.router.navigate([currentUrl]);
       });
   
-      }else{
-        alert("something went Wrong")
-      }
+  
     },
     (err)=>{
       console.log(err)
@@ -112,32 +112,27 @@ update(serviceId){
   )
 
   var newObjcart={
-    subservice:serviceObj.subservice,
-    price:serviceObj.price,
-    status:false,
-    image:serviceObj.image
+    name:serviceObj.name,
+    coast:serviceObj.coast,
+    image:serviceObj.image,
+    main_service:serviceObj.main_service
       };
   
       console.log(newObjcart)  
   this.us.deletecartfrmadmin(newObjcart).subscribe(
-    (res)=>{
-      if(res["message"]=="deleted the service"){
-      alert("Deleted a service in cart")
+    ()=>{
+
       let currentUrl = this.router.url;
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.router.navigate([currentUrl]);
       });
-  
- }else{
-  alert("something went Wrong")
-}
-},
-(err)=>{
-console.log(err)
-}
-)
 
+      },
+      (err)=>{
+      console.log(err)
+      }
+      )
+    }
 
-
-}
+    
 }

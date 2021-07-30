@@ -1,3 +1,4 @@
+
 *{
     font-family:'Neuton', serif;
     font-weight:500;
@@ -6,23 +7,68 @@
     word-spacing: 1pt;
    
   }
-.bg-container{
-    background-image: url("https://ak.picdn.net/shutterstock/videos/31506349/thumb/12.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 0;
-    margin: 0 100px;
-}
+  footer{
+    clear: both;
+    position: relative;
+    height: 200px;
+    margin-top: -200px;
+  }
+ .backgrnd{
+ 
+     background-image: url("https://ak.picdn.net/shutterstock/videos/31506349/thumb/12.jpg");
+  height: 600px;
+  
+  background-size: cover;
+  background-position: center;
+ }
+ .bg-color{
+     color: rgb(250, 248, 242);
+   background: linear-gradient(to bottom, rgb(61, 89, 122) 50%, rgb(17, 36, 61) 75%);
+ }
 
-.bgrd{
-    float: right;
-    padding-left: 50px;
-}
-.button-update{
-    background-color:rgb(98, 98, 250);
-    color: white;
-}
-.button-update:hover{
-    background-color:rgb(74, 74, 209);
-    color: rgb(255, 255, 255);
-}
+@media screen and (min-width:700px){
+    *{
+        font-size:medium;
+    } 
+ }
+ @media screen and (max-width:350px){
+    *{
+        font-size:small;
+    } 
+ }
+ 
+ .text{
+    text-align: left;
+    padding-left: 130px;
+ }
+ .usertext{
+    color:black;
+ }
+ .btn-style{
+    border-radius: 40px;
+    background:linear-gradient(to left, rgb(23, 60, 226) , rgb(65, 173, 223) );
+    padding: 3px 40px;
+    color: rgb(251, 251, 251);
+    border-color: darkblue;
+ }
+ .btn-style:hover{
+    background:linear-gradient(to left, rgb(9, 30, 126) , rgb(19, 84, 114) );
+ }
+ .button-edit{
+    border-radius: 40px;
+    background:linear-gradient(to left, rgb(76, 107, 3) , rgb(115, 134, 44) );
+    padding: 3px 40px;
+    color: rgb(251, 251, 251);
+    border-color: darkblue;
+ }
+ 
+ .button-delete{
+    border-radius: 40px;
+    background:linear-gradient(to left, rgb(236, 43, 53) , rgb(116, 4, 4) );
+    padding: 3px 40px;
+    color: rgb(251, 251, 251);
+    border-color: darkblue;
+ }
+ 
+ 
+ 

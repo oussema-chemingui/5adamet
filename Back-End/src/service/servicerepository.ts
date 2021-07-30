@@ -7,8 +7,7 @@ import { CreateServiceDto } from './dto/create-service.dto';
 export class ServiceRepository extends Repository<Service> {
   
   
-  async getServices(
-  ): Promise<Service[]> {
+  async getServices(filterDto: GetServicesFilterDto): Promise<Service[]>{
     try {
       return await this.find();
     } catch (error) {

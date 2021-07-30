@@ -1,43 +1,50 @@
+<div class="container">
+  
+  <div class="container1 mt-5">
+    <div class="backgrnd">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8" >
+        <h1 class="text mt-4"><strong>Update service</strong>  </h1>
+    <form class="form mt-5" #ref="ngForm" (ngSubmit)="updateservices(ref)">
+          
+          <div class="form-floating mb-3" >
+            <select type="text" class="form-control" id="main_service" placeholder="mainservice" name="main_service" ngModel>
+              <option [value]="service" *ngFor="let service of services">{{service}}</option>
+              </select>
+            <label for="main_service" class="usertext">Main Service</label>
+          </div>
 
-<div class="bg-container">
-  <div class="container mt-5" style="margin-bottom: 200px;">
-      <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-      <form class="form mt-5 bgrd" #ref="ngForm" (ngSubmit)="updateservices(ref)" style="width:50% " >
-          <div class="form-floating mb-3"  ng-app="">
-             
-              <input type="text" ng-readonly="true"  class="form-control" name="serviceId" id="serviceid"   [(ngModel)]="userDetailsObj.serviceId" ngModel >
-              <label for="serviceid">Service Id</label>
-            </div>
-            <div class="form-floating mb-3">
-              <select type="text" class="form-control" id="mainservice" placeholder="mainservice" name="mainservice" [(ngModel)]="userDetailsObj.mainservice"  ngModel>
-                <option *ngFor="let service of services" [value]="service" >{{service}}</option>
-                </select>
-              <label for="mainservice">Main service</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="subservice" [(ngModel)]="userDetailsObj.subservice" name="subservice" ngModel >
-              <label for="subservice">Sub-Service</label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="price" [(ngModel)]="userDetailsObj.price" name="price" ngModel >
-              <label for="price">Service Price</label>
-            </div>
-            <div class="form-floating mb-3">
-              <textarea type="text" class="form-control" id="discreption"  name="discreption" [(ngModel)]="userDetailsObj.discreption">
-              </textarea>
-              <label for="discreption">Description</label>
-              
-            </div>
-            <div class="form-group mb-3">
-              <label for="uploadphoto" class="form-label">
-                <input type="file" class="form-control" id="uploadphoto" (change)="incomingfile($event)" name="image" accept="image/*" placeholder="Upload file">
-              </label>
-            </div>         
-            <div class="text-center mb-3">
-              <button class="btn button-update" value="submit">Update service </button>
-            </div>
-      </form></div></div>
+
+          <div class="form-floating mb-3" >
+            <input type="text" class="form-control" id="name" placeholder="subservice name" name="name" ngModel>
+            <label for="name" class="usertext">Sub-Service Name</label>
+          </div>
+
+
+          <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="coast" placeholder="Coast" name="coast" ngModel>
+            <label for="coast" class="usertext">Service Coast</label>
+          </div>
+
+
+          <div class="form-group mb-6">
+            <textarea type="text" class="form-control " id="description" placeholder="description" name="description" ngModel>Description
+           
+            </textarea>
+          </div>
+
+
+          <div class="form-group mb-3" >
+            <label for="uploadphoto" class="form-label">
+              <input type="file" class="form-control" id="uploadphoto" (change)="incomingfile($event)" name="image" accept="image/*" placeholder="Upload file">
+            </label>
+          </div> 
+
+          <div class="text-center mb-3">
+            <button class="btn btn-style  ms-auto" value="submit"> update Service </button>
+          </div>
+    </form>
   </div>
-  </div>
+
+</div>
