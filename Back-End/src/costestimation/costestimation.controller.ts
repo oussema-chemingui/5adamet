@@ -11,12 +11,12 @@ import { CreateCostEstimationDto } from './dto/costestimation.dto';
 export class CostestimationController {
     constructor(private costEstimationService:CostestimationService){}
 
-    @Get('costEstimation/:id')
-    getCostEstimationById(@Param('id',ParseIntPipe) id: number): Promise<CostEstimation> {
-      return this.costEstimationService.getCostEstimationById(id);
+    @Get('all')
+    getDemands() {
+      return this.costEstimationService.getAllDemands()
     }
 
-    @Post()
+    @Post('create')
     createCostEstimation(
     @Body() createCostEstimationDto:CreateCostEstimationDto,
     @GetUser() user:User

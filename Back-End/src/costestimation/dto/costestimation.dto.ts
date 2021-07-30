@@ -8,4 +8,7 @@ export class CreateCostEstimationDto {
   @IsNotEmpty()
   date: Date;
 
+  @IsNotEmpty()
+  service:string;
+
 }
