@@ -5,10 +5,8 @@ import {
   Column,
   ManyToOne,
   BaseEntity,
-  OneToMany,
 } from 'typeorm';
 import { Category } from '../category/category.entity';
-
 
 @Entity('services')
 export class Service extends BaseEntity {
@@ -21,22 +19,18 @@ export class Service extends BaseEntity {
   @Column()
   description: string;
 
-  @Column('float',{
-    default: 0.0
+  @Column({
+    default: 0.0,
   })
   coast: number;
 
-
   @Column({
-    nullable: true
+    nullable: true,
   })
   image: string;
 
-
   @Column()
   main_service: string;
-
-
 
 
   // @ManyToOne(type => Category, category => category.services, {
@@ -45,6 +39,4 @@ export class Service extends BaseEntity {
   //   onUpdate: 'CASCADE'
   // })
   // category: Category;
-
-
 }

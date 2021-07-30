@@ -17,16 +17,16 @@ export class ServiceService {
   constructor(
     @InjectRepository(ServiceRepository)
     private serviceRepository: ServiceRepository,
-    private cloudinary:CloudinaryService
+    private cloudinary: CloudinaryService,
   ) {}
+
 
 
 
   async getServices(filterDto: GetServicesFilterDto) : Promise<Service[]>{
     return await this.serviceRepository.getServices(filterDto);
+
   }
-
-
 
   async getService(serviceId: number): Promise<Service> {
     const service = await this.serviceRepository.findOne({
@@ -40,11 +40,9 @@ export class ServiceService {
     return service;
   }
 
-  
-
   async getServicesByCategory(categoryName: string): Promise<Service[]> {
     const service = await this.serviceRepository.find({
-      where: {  main_service: categoryName },
+      where: { main_service: categoryName },
     });
     if (!service) {
       throw new NotFoundException(
@@ -54,14 +52,9 @@ export class ServiceService {
     return service;
   }
 
-
-
-
-  createService(createServiceDto: CreateServiceDto,): Promise<Service> {
+  createService(createServiceDto: CreateServiceDto): Promise<Service> {
     return this.serviceRepository.createService(createServiceDto);
   }
-
-
 
   async deleteService(id: number): Promise<void> {
     const service = await this.getService(id);
@@ -71,11 +64,9 @@ export class ServiceService {
     }
   }
 
-
   async uploadImageToCloudinary(file: Express.Multer.File) {
     return await this.cloudinary.uploadImage(file).catch(() => {
       throw new BadRequestException('Invalid file type.');
     });
   }
-  
 }

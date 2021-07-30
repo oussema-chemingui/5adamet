@@ -98,7 +98,7 @@ export class CategoryService {
 
   async getServices(categoryId: number) {
     const category = await this.getCategory(categoryId);
-   // const services = category.services;
+    // const services = category.services;
     // services.forEach((serv) => {
     //   if (serv.id === 81) {
     //     console.log(serv.image.substring(55));
@@ -120,9 +120,9 @@ export class CategoryService {
   async deleteService(categoryId: number, serviceId: number) {
     const category: Category = await this.getCategory(categoryId);
     // const service = category.services.find((serv) => serv.id === serviceId);
-  //   if (service.image) {
-  //     // await this. .fileDelete(service.image);
-  //   }
-  //   await this.serviceService.deleteService(serviceId);
+    //   if (service.image) {
+    //     // await this. .fileDelete(service.image);
+    //   }
+    //   await this.serviceService.deleteService(serviceId);
   }
 }
