@@ -22,8 +22,6 @@ export class AuthController {
     return this.authService.SPSignUp(authCredentialsDto);
   }
 
-
-
   @Post('signin')
   signIn(
     @Body() authCredentialsDto: AuthCredentialsDto,

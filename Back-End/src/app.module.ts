@@ -13,6 +13,10 @@ import { CategoryModule } from './category/category.module';
 import { LinkController } from './link/link.controller';
 import { LinkService } from './link/link.service';
 import { LinkModule } from './link/link.module';
+import { PackageModule } from './package/package.module';
+import { OrderController } from './order/order.controller';
+import { OrderService } from './order/order.service';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -54,8 +58,10 @@ import { LinkModule } from './link/link.module';
       envFilePath: '.env',
     }),
     LinkModule,
+    PackageModule,
+    OrderModule,
   ],
-  controllers: [LinkController],
-  providers: [LinkService, CostestimationModule, SpresponseModule],
+  controllers: [LinkController, OrderController],
+  providers: [LinkService, CostestimationModule, SpresponseModule, OrderService],
 })
 export class AppModule {}
