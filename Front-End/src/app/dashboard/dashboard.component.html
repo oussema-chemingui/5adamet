@@ -1,8 +1,45 @@
+
+<div class="container border-bottom bg-white mt-1 pt-md-3 pt-2">
+  <div class="d-flex flex-md-row justify-content-around align-items-center">
+      <div class="d-flex flex-md-row align-items-center">
+          <div class="p-md-2 p-1" id="info">
+            <div class="text-muted">Welcome</div>
+            <h5>{{username}}</h5>
+          </div>
+      </div>
+      <div class="d-flex flex-column" id="info">
+          <div class="p-md-1 text-muted"> <span class="fa fa-envelope-o bg-light p-1 rounded-circle"></span> {{email}}</div>
+          <div class="p-md-1 pt-sm-1 text-muted"> <span class="fa fa-phone bg-light p-1 rounded-circle"></span> +(216) {{phone}}</div>
+      </div>
+  
+  </div>
+  <div class="pl-lg-5 pt-lg-2 pt-md-1">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation"> <a href="#" class="nav-link active" id="user-tab" data-toggle="tab" role="tab" aria-controls="user" aria-selected="true">User Profile</a> </li>
+          <li class="nav-item" role="presentation"> <a href="#" class="nav-link text-muted" data-toggle="tab" role="tab" aria-controls="access" aria-selected="false">Access</a> </li>
+          <li class="nav-item" role="presentation"> <a href="#" class="nav-link text-muted" data-toggle="tab" role="tab" aria-controls="settings" aria-selected="false">Settings</a> </li>
+      </ul>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="container main">
     <div class="row mt-5">
-        <div class="col-2 col-md-3">
-            <h4>Welcome {{username}}!!</h4>
-        </div>
         <div class="col-3 col-md-4"></div>
         
        <div class="cart-container col-2 col-md-2  ">
@@ -46,15 +83,12 @@
         <div class="card mt-3 m-md-5" >
             <img [src]="service?.image"  class="card-img-top" alt="...">
             <div class="card-body" >
-              <h4 class="card-title text-center"><b>{{service?.subservice}}</b></h4>
-              <h5 class="card-text text-center ">Price: {{service?.price}}</h5>
-              <p class="card-description text-center">{{service?.discreption}}</p>
+              <h4 class="card-title text-center "><b><span class="font-weight-bold text-info">NAME:</span>{{service?.name}}</b></h4>
+              <h5 class="card-text text-center "><span class="font-weight-bold text-info">COAST:</span> {{service?.coast}}</h5>
+              <p class="card-description text-center"><span class="font-weight-bold text-info">DESCRIPTION:</span>{{service?.description}}</p>
               <div class="text-center">
                 <button class="bttnadd" (click)="addtocart(service)">ADD</button>
-                
               </div>
-              
-              
             </div>
           </div>
       </div>

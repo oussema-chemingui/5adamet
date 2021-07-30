@@ -57,6 +57,9 @@ export class LoginComponent implements OnInit {
         }
 
         localStorage.setItem("name",tokenInfo.name)
+        localStorage.setItem("adress",tokenInfo.adress)
+        localStorage.setItem("phone",tokenInfo.phone)
+        localStorage.setItem("email",tokenInfo.email)
         localStorage.setItem("token",res.accessToken)
         //  if(tokenInfo.role =='user' || tokenInfo.role =='ServiceProvider'){
         //   this.router.navigateByUrl("/dashboard")
