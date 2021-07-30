@@ -10,6 +10,7 @@ import { ServiceRepository } from './servicerepository';
 import { Service } from './service.entity';
 import { CloudinaryService } from '../cloudinary/cloudinary.service';
 import { CreateServiceDto } from './dto/create-service.dto';
+import { GetServicesFilterDto } from './dto/get-services-filter.dto';
 
 @Injectable()
 export class ServiceService {
@@ -19,8 +20,12 @@ export class ServiceService {
     private cloudinary: CloudinaryService,
   ) {}
 
-  async getServices(): Promise<Service[]> {
-    return await this.serviceRepository.getServices();
+
+
+
+  async getServices(filterDto: GetServicesFilterDto) : Promise<Service[]>{
+    return await this.serviceRepository.getServices(filterDto);
+
   }
 
   async getService(serviceId: number): Promise<Service> {

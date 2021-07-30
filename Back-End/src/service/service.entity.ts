@@ -1,3 +1,4 @@
+import { Transform } from 'class-transformer';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -30,6 +31,7 @@ export class Service extends BaseEntity {
 
   @Column()
   main_service: string;
+
 
   // @ManyToOne(type => Category, category => category.services, {
   //   eager: false,
