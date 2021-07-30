@@ -19,14 +19,19 @@ import { AuthGuard } from '@nestjs/passport';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateServiceDto } from './dto/create-service.dto';
 import { Service } from './service.entity';
+import { GetServicesFilterDto } from './dto/get-services-filter.dto';
 
 @Controller('services')
 export class ServiceController {
   constructor(private readonly serviceService: ServiceService) {}
 
   @Get('getservices')
-  getServices() {
-    return this.serviceService.getServices();
+ 
+  getServices(
+    @Query() filterDto: GetServicesFilterDto,
+  
+  ): Promise<Service[]> {
+    return this.serviceService.getServices(filterDto);
   }
 
   @Get('getservices/:id')
@@ -37,13 +42,12 @@ export class ServiceController {
   @Post('createservices')
   @UsePipes(new ValidationPipe({ transform: true }))
   @UseInterceptors(FileInterceptor('image'))
-  createService(
-    @UploadedFile() image,
-    @Body() createServiceDto: CreateServiceDto,
-  ): void {
-    console.log(typeof createServiceDto.coast);
-    console.log(image);
-    // return this.serviceService.createService(createServiceDto);
+  createService( @UploadedFile() image , @Body() createServiceDto: CreateServiceDto ,
+ 
+   ) :Promise<Service>  {
+
+     return this.serviceService.createService(createServiceDto);
+
   }
 
   @Post('upload')
