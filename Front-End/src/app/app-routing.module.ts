@@ -18,10 +18,17 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
+
 import { QuotedemandComponent } from './quotedemand/quotedemand.component';
+import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
+import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
+import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
 
 const routes: Routes = [
-  {path:'costestimation',component:QuotedemandComponent},
+  {path:'quotedemands',component:QuotedemandsComponent},
+  {path:'quoteresponses',component:QuoteresponsesComponent},
+  {path:'quotedemand',component:QuotedemandComponent},
+  {path:'quoteresponse',component:QuoteresponseComponent},
   {path:'home',component:HomeComponent},
   {path:'step/:User',component:StepComponent},
   {path:'mainservices',component:MainservicesComponent},

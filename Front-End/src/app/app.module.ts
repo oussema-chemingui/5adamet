@@ -44,6 +44,9 @@ import { ErrorComponent } from './error/error.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TestemonialComponent } from './testemonial/testemonial.component';
 import { SliderComponent } from './slider/slider.component';
+import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
+import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
+import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
 
 registerLocaleData(en);
 
@@ -82,6 +85,9 @@ registerLocaleData(en);
    CarouselComponent,
    TestemonialComponent,
    SliderComponent,
+   QuoteresponseComponent,
+   QuoteresponsesComponent,
+   QuotedemandsComponent,
    
 
    
@@ -102,3 +108,4 @@ registerLocaleData(en);
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
