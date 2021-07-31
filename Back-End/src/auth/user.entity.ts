@@ -1,12 +1,18 @@
-
 import { Cart } from 'src/cart/cart.entity';
 import { CostEstimation } from 'src/costestimation/costestimation.entity';
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  id: string;
+  id: number;
 
   @Column({ unique: true })
   name: string;
@@ -17,25 +23,15 @@ export class User {
   @Column()
   email: string;
 
-  @Column({default: ''})
+  @Column({ default: '' })
   adress: string;
 
-  @Column({default: ''})
+  @Column({ default: '' })
   phone: string;
 
-  @Column({default:'user'})
-  role : string
+  @Column({ default: 'user' })
+  role: string;
 
-  
-  // @OneToOne(type => Cart, cart => cart.user, {
-  //   onDelete: 'CASCADE',
-  //   onUpdate: 'CASCADE',
-  // })
-  // @JoinColumn()
-  // cart: Cart;
-
-
-
-  @OneToMany( () => CostEstimation, costestimation => costestimation.user) //, { eager: true }
-costEstimations : CostEstimation[]
+  @OneToMany(() => CostEstimation, (costestimation) => costestimation.user) //, { eager: true }
+  costEstimations: CostEstimation[];
 }
