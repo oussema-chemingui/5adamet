@@ -16,7 +16,7 @@ export class PackageController {
 
   @Get('admin/package')
   async all() {
-    return this.packageService.find({});
+    return this.packageService.find();
   }
 
   @Post('admin/package')

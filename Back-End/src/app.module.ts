@@ -23,6 +23,7 @@ import { OrderModule } from './order/order.module';
     ConfigModule.forRoot({
       envFilePath: [`.env.stage.${process.env.STAGE}`],
       validationSchema: configValidationSchema,
+      isGlobal: true,
     }),
 
     TypeOrmModule.forRootAsync({
@@ -62,6 +63,11 @@ import { OrderModule } from './order/order.module';
     OrderModule,
   ],
   controllers: [LinkController, OrderController],
-  providers: [LinkService, CostestimationModule, SpresponseModule, OrderService],
+  providers: [
+    LinkService,
+    CostestimationModule,
+    SpresponseModule,
+    OrderService,
+  ],
 })
 export class AppModule {}
