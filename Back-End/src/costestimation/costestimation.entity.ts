@@ -1,7 +1,12 @@
-
 import { SpResponse } from 'src/spresponse/spresponse.entity';
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { User } from '../auth/user.entity'
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { User } from '../auth/user.entity';
 import { CostEstimationStatus } from './costestimation.enum';
 @Entity()
 export class CostEstimation {
@@ -15,12 +20,16 @@ export class CostEstimation {
   date: Date;
 
   @Column()
-  status: CostEstimationStatus;
+  service: string;
 
-  @ManyToOne(() => User, (user) => user.costEstimations, { eager: true }) 
+  @Column()
+  status: CostEstimationStatus; 
+
+  @ManyToOne(() => User, (user) => user.costEstimations, { eager: true })
   user: User;
 
-  @OneToMany( () => SpResponse, spResponse => spResponse.costEstimation, { eager: true }) 
-spResponse : SpResponse[]
-
+  @OneToMany(() => SpResponse, (spResponse) => spResponse.costEstimation, {
+    eager: true,
+  })
+  spResponse: SpResponse[];
 }

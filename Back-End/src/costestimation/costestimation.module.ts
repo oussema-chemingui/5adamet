@@ -10,9 +10,9 @@ import { CostestimationService } from './costestimation.service';
   imports: [
     TypeOrmModule.forFeature([CostEstimationRepository]),
     AuthModule,
-    PassportModule
+    PassportModule,
   ],
   controllers: [CostestimationController],
-  providers: [CostestimationService]
+  providers: [CostestimationService],
 })
 export class CostestimationModule {}

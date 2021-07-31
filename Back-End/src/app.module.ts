@@ -13,12 +13,14 @@ import { CategoryModule } from './category/category.module';
 import { LinkController } from './link/link.controller';
 import { LinkService } from './link/link.service';
 import { LinkModule } from './link/link.module';
+import { PackageModule } from './package/package.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: [`.env.stage.${process.env.STAGE}`],
       validationSchema: configValidationSchema,
+      isGlobal: true,
     }),
 
     TypeOrmModule.forRootAsync({
@@ -54,8 +56,15 @@ import { LinkModule } from './link/link.module';
       envFilePath: '.env',
     }),
     LinkModule,
+    PackageModule,
+    
   ],
-  controllers: [LinkController],
-  providers: [LinkService, CostestimationModule, SpresponseModule],
+  controllers: [LinkController,],
+  providers: [
+    LinkService,
+    CostestimationModule,
+    SpresponseModule,
+    
+  ],
 })
 export class AppModule {}

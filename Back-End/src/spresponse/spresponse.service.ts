@@ -20,8 +20,9 @@ export class SpresponseService {
 
     async createSpResponse (
         createSpResponseDto: CreateSpResponseDto,
-        serviceProvider:ServiceProvider
+        serviceProvider:ServiceProvider,
+        costEstimationId:number
         ): Promise<SpResponse>{
-          return this.spResponseRepository.createSpResponse(createSpResponseDto,serviceProvider)
+          return this.spResponseRepository.createSpResponse(createSpResponseDto,serviceProvider,costEstimationId)
       }
 }

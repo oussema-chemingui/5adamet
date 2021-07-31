@@ -3,6 +3,7 @@ import { ServiceProvider } from 'src/serviceProvider/serviceProvider.entity';
 import { EntityRepository, Repository } from 'typeorm';
 import { CreateSpResponseDto } from './dto/spresponse.dto';
 import { SpResponse } from './spresponse.entity';
+import { SpResponseStatus } from './spresponse.enum';
 
 @EntityRepository(SpResponse)
 export class SpResponseRepository extends Repository<SpResponse> {
@@ -18,6 +19,7 @@ export class SpResponseRepository extends Repository<SpResponse> {
   async createSpResponse(
     createSpRepository: CreateSpResponseDto,
     serviceProvider: ServiceProvider,
+    costEstimationId:number
   ): Promise<SpResponse> {
     const { cost, response, date } = createSpRepository;
     const spResponse = new SpResponse();
@@ -25,8 +27,11 @@ export class SpResponseRepository extends Repository<SpResponse> {
     spResponse.date = date;
     spResponse.response = response;
     spResponse.serviceProvider = serviceProvider;
+    spResponse.costEstimationId=costEstimationId
+    spResponse.status= SpResponseStatus.NOTBOOKED
     await this.save(spResponse);
     delete spResponse.serviceProvider;
     return spResponse;
   }
 }
+
