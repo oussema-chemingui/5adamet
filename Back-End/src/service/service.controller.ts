@@ -46,7 +46,7 @@ export class ServiceController {
  
    ) :Promise<Service>  {
 
-     return this.serviceService.createService(createServiceDto);
+     return this.serviceService.createService(createServiceDto ,image);
 
   }
 
@@ -55,4 +55,6 @@ export class ServiceController {
   uploadImage(@UploadedFile() file: Express.Multer.File) {
     return this.serviceService.uploadImageToCloudinary(file);
   }
+
+
 }

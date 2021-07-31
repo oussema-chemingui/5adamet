@@ -58,45 +58,75 @@ export class AuthService {
       const accessToken = this.jwtService.sign(payload);
       const userInfo = Object.assign(user, accessToken);
 
-      console.log(userInfo);
-      return { accessToken };
+      if (user && (await bcrypt.compare(password, user.password))) {
+        const payload: JwtPayload = {
+          email: user.email,
+          name: user.name,
+          role: user.role,
+          adress: user.adress,
+          phone: user.phone,
+        };
+
+        const accessToken = this.jwtService.sign(payload);
+        const userInfo = Object.assign(user, accessToken);
+
+        console.log(userInfo);
+        return { accessToken };
+      }
+      if (admin && (await bcrypt.compare(password, admin.password))) {
+        const payload: JwtPayload = {
+          email,
+          name: admin.name,
+          role: admin.role,
+          adress: admin.adress,
+          phone: admin.phone,
+        };
+
+        const accessToken = this.jwtService.sign(payload);
+
+        return { accessToken };
+      }
+      if (sp && (await bcrypt.compare(password, sp.password))) {
+        const payload: JwtPayload = {
+          email: sp.email,
+          name: sp.name,
+          role: sp.role,
+          adress: sp.adress,
+          phone: sp.phone,
+        };
+
+        return { accessToken };
+      }
+      if (sp && (await bcrypt.compare(password, sp.password))) {
+        const payload: JwtPayload = {
+          email: sp.email,
+          name: sp.name,
+          role: sp.role,
+        };
+
+        const accessToken = this.jwtService.sign(payload);
+
+        return { accessToken };
+      } else {
+        throw new UnauthorizedException('Please check your login credentials');
+      }
     }
-    if (admin && (await bcrypt.compare(password, admin.password))) {
-      const payload: JwtPayload = { email, name: admin.name, role: admin.role };
 
-      const accessToken = this.jwtService.sign(payload);
+    //   const p1 = new Promise(/* ... */);
+    // const p2 = new Promise(/* ... */);
+    // const promises = [ p1, p2 ];
 
-      return { accessToken };
-    }
-    if (sp && (await bcrypt.compare(password, sp.password))) {
-      const payload: JwtPayload = {
-        email: sp.email,
-        name: sp.name,
-        role: sp.role,
-      };
+    // Promise.any(promises)
+    //   .then(firstResult => { /* do whatever */ })
+    //   .catch(allErrors => { /* do whatever */ })
 
-      const accessToken = this.jwtService.sign(payload);
+    // // or when using async/await
 
-      return { accessToken };
-    } else {
-      throw new UnauthorizedException('Please check your login credentials');
-    }
+    // try {
+    //   const firstResult = await Promise.any(promises);
+    //   /* do whatever */
+    // } catch (allErrors) {
+    //   /* do whatever */
+    // }
   }
-
-  //   const p1 = new Promise(/* ... */);
-  // const p2 = new Promise(/* ... */);
-  // const promises = [ p1, p2 ];
-
-  // Promise.any(promises)
-  //   .then(firstResult => { /* do whatever */ })
-  //   .catch(allErrors => { /* do whatever */ })
-
-  // // or when using async/await
-
-  // try {
-  //   const firstResult = await Promise.any(promises);
-  //   /* do whatever */
-  // } catch (allErrors) {
-  //   /* do whatever */
-  // }
 }

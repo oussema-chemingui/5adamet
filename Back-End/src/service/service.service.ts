@@ -52,7 +52,9 @@ export class ServiceService {
     return service;
   }
 
-  createService(createServiceDto: CreateServiceDto): Promise<Service> {
+  async createService(createServiceDto: CreateServiceDto ,image: Express.Multer.File ): Promise<Service> {
+  const {url} = await this.uploadImageToCloudinary(image);
+   createServiceDto.image=url;
     return this.serviceRepository.createService(createServiceDto);
   }
 
