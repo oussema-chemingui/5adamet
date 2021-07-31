@@ -18,12 +18,14 @@ export class SpresponseController {
       return this.spResponseService.getSpResponses(costEstimationid)
     }
 
-    @Post()
+    @Post(':id')
     createSpResponse(
     @Body() createSpResponseDto:CreateSpResponseDto,
-    @GetSP() serviceProvider:ServiceProvider
+    @GetSP() serviceProvider:ServiceProvider,
+    @Param('id',ParseIntPipe)
+    costEstimationId: number
     ):Promise <SpResponse> {
-    return this.spResponseService.createSpResponse(createSpResponseDto, serviceProvider);
+    return this.spResponseService.createSpResponse(createSpResponseDto, serviceProvider,costEstimationId);
   }
 
 }
