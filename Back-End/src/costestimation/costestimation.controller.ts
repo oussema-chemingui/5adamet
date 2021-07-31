@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, UseGuards, UsePipes } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+  UseGuards,
+  UsePipes,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from 'src/auth/get-user.decorator';
 import { User } from 'src/auth/user.entity';
@@ -9,7 +18,7 @@ import { CreateCostEstimationDto } from './dto/costestimation.dto';
 @Controller('costestimation')
 @UseGuards(AuthGuard())
 export class CostestimationController {
-    constructor(private costEstimationService:CostestimationService){}
+  constructor(private costEstimationService: CostestimationService) {}
 
     @Get('all')
     getDemands() {
@@ -23,5 +32,4 @@ export class CostestimationController {
     ):Promise <CostEstimation> {
     return this.costEstimationService.createCostEstimation(createCostEstimationDto, user);
   }
-  
 }

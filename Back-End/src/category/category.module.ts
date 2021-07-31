@@ -6,16 +6,14 @@ import { CategoryRepository } from './category.repository';
 import { AuthModule } from '../auth/auth.module';
 import { ServiceModule } from '../service/service.module';
 
-
 @Module({
   imports: [
     TypeOrmModule.forFeature([CategoryRepository]),
     AuthModule,
     ServiceModule,
- 
   ],
   providers: [CategoryService],
   controllers: [CategoryController],
-  exports: [CategoryService]
+  exports: [CategoryService],
 })
 export class CategoryModule {}

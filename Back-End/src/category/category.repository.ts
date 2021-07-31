@@ -4,8 +4,9 @@ import { CreateCategoryDto } from './dto/create-category.dto';
 
 @EntityRepository(Category)
 export class CategoryRepository extends Repository<Category> {
-  
-  async createCategory(createCategoryDto: CreateCategoryDto): Promise<Category> {
+  async createCategory(
+    createCategoryDto: CreateCategoryDto,
+  ): Promise<Category> {
     const { name, description, type } = createCategoryDto;
     const category = new Category();
     category.name = name;
@@ -14,11 +15,8 @@ export class CategoryRepository extends Repository<Category> {
     try {
       await category.save();
       return category;
-
     } catch (error) {
       console.log(error);
     }
   }
-
-
 }

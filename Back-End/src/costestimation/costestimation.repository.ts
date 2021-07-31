@@ -1,8 +1,8 @@
-import { CostEstimation } from "./costestimation.entity";
-import { EntityRepository,Repository } from "typeorm";
-import { CreateCostEstimationDto } from "./dto/costestimation.dto";
-import { CostEstimationStatus } from "./costestimation.enum";
-import { User } from "src/auth/user.entity";
+import { CostEstimation } from './costestimation.entity';
+import { EntityRepository, Repository } from 'typeorm';
+import { CreateCostEstimationDto } from './dto/costestimation.dto';
+import { CostEstimationStatus } from './costestimation.enum';
+import { User } from 'src/auth/user.entity';
 
 @EntityRepository(CostEstimation)
 export class CostEstimationRepository extends Repository<CostEstimation> {
@@ -29,5 +29,4 @@ async createCostEstimation(createCostEstimationDto: CreateCostEstimationDto,user
     
         delete costEstimation.user
         return costEstimation
-}
 }
