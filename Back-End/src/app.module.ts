@@ -58,16 +58,10 @@ import { OrderModule } from './order/order.module';
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
-    LinkModule,
     PackageModule,
     OrderModule,
+    LinkModule,
   ],
-  controllers: [LinkController, OrderController],
-  providers: [
-    LinkService,
-    CostestimationModule,
-    SpresponseModule,
-    OrderService,
-  ],
+  providers: [CostestimationModule, SpresponseModule],
 })
 export class AppModule {}

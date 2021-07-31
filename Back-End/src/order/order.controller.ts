@@ -125,5 +125,7 @@ export class OrderController {
     if (!order) {
       throw new NotFoundException('Order not found!');
     }
+
+    await this.orderService.update(order.id, { complete: true });
   }
 }
