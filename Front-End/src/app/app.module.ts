@@ -35,7 +35,12 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
-import { StepComponent } from './step/step.component'
+import { CategoryComponent } from './category/category.component';
+import { StepComponent } from './step/step.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { FormComponent } from './form/form.component';
+import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
+import { ErrorComponent } from './error/error.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TestemonialComponent } from './testemonial/testemonial.component';
 import { SliderComponent } from './slider/slider.component';
@@ -69,6 +74,11 @@ registerLocaleData(en);
     PackagesComponent,
     StepComponent,
    QuotedemandComponent,
+   CategoryComponent,
+   CheckoutComponent,
+   FormComponent,
+   SuccesspurchaseComponent,
+   ErrorComponent,
    CarouselComponent,
    TestemonialComponent,
    SliderComponent,
@@ -78,7 +88,7 @@ registerLocaleData(en);
     
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

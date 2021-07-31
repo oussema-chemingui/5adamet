@@ -13,6 +13,11 @@ import { SignupComponent } from './signup/signup.component';
 import { StepComponent } from './step/step.component'
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
+import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
+import { ErrorComponent } from './error/error.component';
+import { FormComponent } from './form/form.component';
 import { QuotedemandComponent } from './quotedemand/quotedemand.component';
 
 const routes: Routes = [
@@ -28,12 +33,17 @@ const routes: Routes = [
   {path:'success',component:SuccessComponent},
   {path:'adminaddservices',component:AdminaddservicesComponent},
   {path:'update/:serviceId',component:UpdateComponent},
+  {path:'servicesdescription',component:ServicesdescriptionComponent},
+  {path:'successpurchase',component:SuccesspurchaseComponent},
+  {path:'error',component:ErrorComponent},
+  {path:':code',component:FormComponent},
+  {path:'checkout',component:CheckoutComponent},
   {path:"",redirectTo:"/home",pathMatch:"full"},
   {path:"**",component:PagenotfoundComponent} 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true, initialNavigation: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

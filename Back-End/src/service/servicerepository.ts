@@ -5,37 +5,38 @@ import { CreateServiceDto } from './dto/create-service.dto';
 
 @EntityRepository(Service)
 export class ServiceRepository extends Repository<Service> {
+
   
+  async getServices(filterDto: GetServicesFilterDto): Promise<Service[]>{
+    const { search } = filterDto;
+    const query = this.createQueryBuilder('service');
   
-  async getServices(
-  ): Promise<Service[]> {
+    if (search) {
+      query.where(
+        '(LOWER(service.name) LIKE LOWER(:search))',
+        { search: `%${search}%` },
+      );
+    }
     try {
-      return await this.find();
+      const services = await query.getMany();
+      return services;
     } catch (error) {
       console.error(error);
     }
   }
 
-  
   async createService(createServiceDto: CreateServiceDto): Promise<Service> {
-    const { name, description , coast , main_service  } = createServiceDto;
+    const { name, description, coast, main_service ,image } = createServiceDto;
 
     const service = this.create({
       name,
       description,
       coast,
       main_service,
-    
+      image,
     });
 
     await this.save(service);
     return service;
   }
-
-
-
-
-
-
-
 }

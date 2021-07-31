@@ -16,13 +16,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
     @InjectRepository(UsersRepository)
     private usersRepository: UsersRepository,
-   
+
     @InjectRepository(ServiceProviderRepository)
     private serviceProviderRepository: ServiceProviderRepository,
 
-    @InjectRepository( AdminsRepository)
+    @InjectRepository(AdminsRepository)
     private adminsRepository: AdminsRepository,
-
 
     private configService: ConfigService,
   ) {
@@ -32,24 +31,22 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: JwtPayload): Promise<User|Admin|ServiceProvider> {
+  async validate(payload: JwtPayload): Promise<User | Admin | ServiceProvider> {
     const { email } = payload;
 
     const user: User = await this.usersRepository.findOne({ email });
     const admin: Admin = await this.adminsRepository.findOne({ email });
-    const sp: ServiceProvider = await this.serviceProviderRepository.findOne({ email });
+    const sp: ServiceProvider = await this.serviceProviderRepository.findOne({
+      email,
+    });
 
-    if (user ) {
+    if (user) {
       return user;
-      
-    }else if (admin){
+    } else if (admin) {
       return admin;
-    
-    }else if (sp){
-
-         return sp;
+    } else if (sp) {
+      return sp;
     }
-        throw new UnauthorizedException();
-    
+    throw new UnauthorizedException();
   }
- }
+}

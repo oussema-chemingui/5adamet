@@ -10,22 +10,23 @@ import { ServiceRepository } from './servicerepository';
 import { Service } from './service.entity';
 import { CloudinaryService } from '../cloudinary/cloudinary.service';
 import { CreateServiceDto } from './dto/create-service.dto';
+import { GetServicesFilterDto } from './dto/get-services-filter.dto';
 
 @Injectable()
 export class ServiceService {
   constructor(
     @InjectRepository(ServiceRepository)
     private serviceRepository: ServiceRepository,
-    private cloudinary:CloudinaryService
+    private cloudinary: CloudinaryService,
   ) {}
 
 
 
-  async getServices(): Promise<Service[]> {
-    return await this.serviceRepository.getServices();
+
+  async getServices(filterDto: GetServicesFilterDto) : Promise<Service[]>{
+    return await this.serviceRepository.getServices(filterDto);
+
   }
-
-
 
   async getService(serviceId: number): Promise<Service> {
     const service = await this.serviceRepository.findOne({
@@ -39,11 +40,9 @@ export class ServiceService {
     return service;
   }
 
-  
-
   async getServicesByCategory(categoryName: string): Promise<Service[]> {
     const service = await this.serviceRepository.find({
-      where: {  main_service: categoryName },
+      where: { main_service: categoryName },
     });
     if (!service) {
       throw new NotFoundException(
@@ -53,14 +52,11 @@ export class ServiceService {
     return service;
   }
 
-
-
-
-  createService(createServiceDto: CreateServiceDto,): Promise<Service> {
+  async createService(createServiceDto: CreateServiceDto ,image: Express.Multer.File ): Promise<Service> {
+  const {url} = await this.uploadImageToCloudinary(image);
+   createServiceDto.image=url;
     return this.serviceRepository.createService(createServiceDto);
   }
-
-
 
   async deleteService(id: number): Promise<void> {
     const service = await this.getService(id);
@@ -70,11 +66,9 @@ export class ServiceService {
     }
   }
 
-
   async uploadImageToCloudinary(file: Express.Multer.File) {
     return await this.cloudinary.uploadImage(file).catch(() => {
       throw new BadRequestException('Invalid file type.');
     });
   }
-  
 }

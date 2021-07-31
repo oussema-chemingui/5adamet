@@ -9,13 +9,10 @@ import {
   Max,
   IsOptional,
   isBase64,
-
 } from 'class-validator';
 import { Transform } from 'class-transformer';
 
 export class CreateServiceDto {
-
- 
   @IsString()
   @IsNotEmpty()
   @MinLength(3)
@@ -28,9 +25,7 @@ export class CreateServiceDto {
   @MaxLength(1000)
   description: string;
 
-  @Transform(cost => 
-  Number.isNaN(+cost.value) ? 0 : +cost.value
-)
+  @Transform((cost) => (Number.isNaN(+cost.value) ? 0 : +cost.value))
   @IsNumber()
   @IsNotEmpty()
   @IsPositive()
@@ -38,16 +33,11 @@ export class CreateServiceDto {
   @Max(100000)
   coast: number;
 
-
   @IsNotEmpty()
   @IsString()
-  main_service:string;
+  main_service: string;
 
-  
-  
-
-
-  
-
+@IsOptional()
+image ?:string;
 
 }

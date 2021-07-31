@@ -70,7 +70,14 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 
 
 
+  deleteservices(serviceObj):Observable<any>{
+    return this.hc.put("/services/deleteservices",serviceObj)
+  }
 
+
+
+
+  
 
    
    getcart(username):Observable<any>{
@@ -103,9 +110,6 @@ return this.hc.get(`/cart/getservicesfrmcart/${username}`)
  return this.hc.put("/cart/deletefrmcart",serviceObj)
    }
 
-   deleteservices(serviceObj):Observable<any>{
-     return this.hc.put("/services/deleteservices",serviceObj)
-   }
 
    getUserDetails(serviceId):Observable<any>{
     return this.hc.get(`/services/getservices/${serviceId}`)

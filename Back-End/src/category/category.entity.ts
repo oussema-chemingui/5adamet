@@ -12,7 +12,6 @@ import { CategoryTypes } from './category-types.enum';
 @Entity('categories')
 @Unique(['type'])
 export class Category extends BaseEntity {
- 
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -31,6 +30,4 @@ export class Category extends BaseEntity {
 
   @Column()
   type: CategoryTypes;
-
-
 }

@@ -1,13 +1,13 @@
+import { Transform } from 'class-transformer';
+import { CartItem } from 'src/cart/cart-item.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
   BaseEntity,
-  OneToMany,
 } from 'typeorm';
 import { Category } from '../category/category.entity';
-
 
 @Entity('services')
 export class Service extends BaseEntity {
@@ -20,17 +20,15 @@ export class Service extends BaseEntity {
   @Column()
   description: string;
 
-  @Column('float',{
-    default: 0.0
+  @Column({
+    default: 0.0,
   })
   coast: number;
 
-
   @Column({
-    nullable: true
+    nullable: true,
   })
   image: string;
-
 
   @Column()
   main_service: string;
@@ -44,4 +42,10 @@ export class Service extends BaseEntity {
   // category: Category;
 
 
+  // @ManyToOne(type => CartItem, cartItem => cartItem.services, {
+  //   eager: false,
+  //   onDelete: 'CASCADE',
+  //   onUpdate: 'CASCADE'
+  // })
+  // cartItem: CartItem;
 }
