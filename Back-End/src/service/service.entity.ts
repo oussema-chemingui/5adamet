@@ -1,4 +1,5 @@
 import { Transform } from 'class-transformer';
+import { CartItem } from 'src/cart/cart-item.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -39,4 +40,12 @@ export class Service extends BaseEntity {
   //   onUpdate: 'CASCADE'
   // })
   // category: Category;
+
+
+  // @ManyToOne(type => CartItem, cartItem => cartItem.services, {
+  //   eager: false,
+  //   onDelete: 'CASCADE',
+  //   onUpdate: 'CASCADE'
+  // })
+  // cartItem: CartItem;
 }

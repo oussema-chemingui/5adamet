@@ -19,6 +19,10 @@ export class DashboardComponent implements OnInit {
   cartitemsobj:any;
   numberofitems:number;
   username=localStorage.getItem("name")
+  email=localStorage.getItem("email")
+  phone=localStorage.getItem("phone")
+  adress=localStorage.getItem("adress")
+  
   constructor(private us:ServiceService, private router:Router) { }
    id:Number=0;
 
@@ -31,7 +35,9 @@ this.router.navigateByUrl("/login")
     }
     this.us.getservices().subscribe(
       (res)=>{
-        this.servicesArray=res["message"]
+
+        console.log(res)
+        this.servicesArray=res
       },
       (err)=>{
         alert("Something went wrong")
@@ -68,7 +74,7 @@ this.router.navigateByUrl("/login")
   addtocart(service){
     
     console.log("in compo",service)
-    let serviceObj = {"username":this.username,"mainservice":service.mainservice,"subservice":service.subservice,"price":service.price,"status":true,"image":service.image};
+    let serviceObj = {"username":this.username,"mainservice":service.mainservice,"name":service.name,"price":service.price,"status":true,"image":service.image};
     console.log("in compo",serviceObj)
     this.us.addtocart(serviceObj).subscribe(
       (res)=>{
@@ -109,8 +115,9 @@ this.router.navigateByUrl("/login")
   search(){
     if(this.mainservicename!=""){
     this.servicesArray=this.servicesArray.filter(res=>{
-      return (res.subservice.toLocaleLowerCase().match(this.mainservicename.toLocaleLowerCase()))||
-      (res.mainservice.toLocaleLowerCase().match(this.mainservicename.toLocaleLowerCase()))
+      console.log('FILTEEEEEERRRRRRRR',res)
+      return (res.name.toLocaleLowerCase().match(this.mainservicename.toLocaleLowerCase()))||
+     (res.main_service.toLocaleLowerCase().match(this.mainservicename.toLocaleLowerCase()))
     })}
     else{
       this.ngOnInit();
@@ -128,7 +135,8 @@ this.router.navigateByUrl("/login")
   
         let selectedvalue="cleaning";
     this.servicesArray=this.servicesArray.filter(res=>{
-      return res.mainservice.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
+      console.log('CATEGORYYYY',res)
+      return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })} else    if( this.selectedcategory.plumbing==true){
       console.log("in comp search category ",this.selectedcategory.plumbing)
@@ -136,7 +144,7 @@ this.router.navigateByUrl("/login")
         let selectedvalue="plumbing";
       
     this.servicesArray=this.servicesArray.filter(res=>{
-      return res.mainservice.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
+      return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
     else    if( this.selectedcategory.carpenter==true){
@@ -145,7 +153,7 @@ this.router.navigateByUrl("/login")
         let selectedvalue="carpenter";
       
     this.servicesArray=this.servicesArray.filter(res=>{
-      return res.mainservice.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
+      return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
     else    if( this.selectedcategory.painter==true){
@@ -154,7 +162,7 @@ this.router.navigateByUrl("/login")
         let selectedvalue="painter";
       
     this.servicesArray=this.servicesArray.filter(res=>{
-      return res.mainservice.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
+      return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
     else    if( this.selectedcategory["saloon for men"]==true){
@@ -163,7 +171,7 @@ this.router.navigateByUrl("/login")
         let selectedvalue="saloon for men";
       
     this.servicesArray=this.servicesArray.filter(res=>{
-      return res.mainservice.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
+      return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
     else    if( this.selectedcategory["saloon for women"]==true){
@@ -172,7 +180,7 @@ this.router.navigateByUrl("/login")
         let selectedvalue="saloon for women";
       
     this.servicesArray=this.servicesArray.filter(res=>{
-      return res.mainservice.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
+      return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
     else    if( this.selectedcategory["pest control"]==true){
@@ -181,7 +189,7 @@ this.router.navigateByUrl("/login")
         let selectedvalue="pest control";
       
     this.servicesArray=this.servicesArray.filter(res=>{
-      return res.mainservice.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
+      return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
     else    if( this.selectedcategory["Applaince Repair"]==true){
@@ -190,7 +198,7 @@ this.router.navigateByUrl("/login")
         let selectedvalue="Applaince Repair";
       
     this.servicesArray=this.servicesArray.filter(res=>{
-      return res.mainservice.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
+      return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
    

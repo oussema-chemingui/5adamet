@@ -36,4 +36,8 @@ export class CreateServiceDto {
   @IsNotEmpty()
   @IsString()
   main_service: string;
+
+@IsOptional()
+image ?:string;
+
 }
