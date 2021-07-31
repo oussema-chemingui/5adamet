@@ -1,25 +1,12 @@
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
-
   <nz-form-item>
-    <nz-form-label [nzSpan]="7" nzRequired>Username</nz-form-label>
-    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your name!">
-      <input nz-input type="name" />
-    </nz-form-control>
-  </nz-form-item>
-
-  <nz-form-item>
-    <nz-form-label [nzSpan]="7" nzRequired>Phone number</nz-form-label>
-    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your phone!">
-      <input nz-input type="phone"   />
-    </nz-form-control>
-  </nz-form-item>
-
-  <nz-form-item>
-    <nz-form-label [nzSpan]="7" nzRequired>Address</nz-form-label>
-    <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Please input your address!">
-      <input nz-input type="address"   />
-    </nz-form-control>
-  </nz-form-item>
+    <nz-form-label  nzRequired>Service</nz-form-label>
+  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a service" >
+    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+  </nz-select>
+</nz-form-item>
 
   <nz-form-item>
     <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Date</nz-form-label>
@@ -35,15 +22,11 @@
     </nz-form-control>
   </nz-form-item>
     
-    <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired>Comment</nz-form-label>
-      <nz-form-control [nzSpan]="12" >
-        <textarea formControlName="comment" nz-input rows="2" placeholder="Write any comment"></textarea>
-      </nz-form-control>
-    </nz-form-item>
+   
     <nz-form-item>
       <nz-form-control [nzOffset]="7" [nzSpan]="12">
         <button nz-button nzType="primary" >Submit</button>
       </nz-form-control>
     </nz-form-item>
+  
   </form>

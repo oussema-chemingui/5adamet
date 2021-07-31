@@ -15,7 +15,10 @@ export class CostEstimation {
   date: Date;
 
   @Column()
-  status: CostEstimationStatus;
+  service: string;
+
+  @Column()
+  status: CostEstimationStatus; 
 
   @ManyToOne(() => User, (user) => user.costEstimations, { eager: true }) 
   user: User;

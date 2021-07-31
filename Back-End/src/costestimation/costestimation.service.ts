@@ -12,15 +12,10 @@ export class CostestimationService {
         private costEstimationRepository :CostEstimationRepository,
     ){}
 
-    async getCostEstimationById(id: number): Promise<CostEstimation> {
-        const found = await this.costEstimationRepository.findOne(id);
-    
-        if (!found) {
-          throw new NotFoundException(`CostEstimation with ID "${id}" not found`);
-        }
-    
-        return found;
-      }
+    async getAllDemands(): Promise<CostEstimation[]> {
+      return await this.costEstimationRepository.getAllDemands();
+    }
+
 
     async createCostEstimation (
       createCostEstimationDto: CreateCostEstimationDto,
