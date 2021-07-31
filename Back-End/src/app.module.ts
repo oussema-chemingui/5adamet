@@ -14,9 +14,6 @@ import { LinkController } from './link/link.controller';
 import { LinkService } from './link/link.service';
 import { LinkModule } from './link/link.module';
 import { PackageModule } from './package/package.module';
-import { OrderController } from './order/order.controller';
-import { OrderService } from './order/order.service';
-import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -60,14 +57,14 @@ import { OrderModule } from './order/order.module';
     }),
     LinkModule,
     PackageModule,
-    OrderModule,
+    
   ],
-  controllers: [LinkController, OrderController],
+  controllers: [LinkController,],
   providers: [
     LinkService,
     CostestimationModule,
     SpresponseModule,
-    OrderService,
+    
   ],
 })
 export class AppModule {}
