@@ -73,22 +73,22 @@ export class OrderController {
 
       //create order-item
       for (const p of body.packages) {
-        const package: Package = await this.packageService.findOne({
+        const pack: Package = await this.packageService.findOne({
           id: p.package_id,
         });
 
         const orderItem = new OrderItem();
         orderItem.order = order;
-        orderItem.package_title = package.title;
-        orderItem.price = package.price;
+        orderItem.package_title = pack.title;
+        orderItem.price = pack.price;
         orderItem.quantity = p.quantity;
 
         await queryRunner.manager.save(orderItem);
 
         line_items.push({
-          name: package.title,
-          description: package.description,
-          amount: package.price,
+          name: pack.title,
+          description: pack.description,
+          amount: pack.price,
           currency: 'dt',
           quantity: p.quantity,
         });

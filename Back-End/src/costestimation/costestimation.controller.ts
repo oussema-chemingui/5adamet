@@ -20,22 +20,8 @@ import { CreateCostEstimationDto } from './dto/costestimation.dto';
 export class CostestimationController {
   constructor(private costEstimationService: CostestimationService) {}
 
-  getCostEstimationById(
-    @Param('id', ParseIntPipe) id: number,
-  ): Promise<CostEstimation> {
-    return this.costEstimationService.getCostEstimationById(id);
-  }
-
-  @Post()
-  createCostEstimation(
-    @Body() createCostEstimationDto: CreateCostEstimationDto,
-    @GetUser() user: User,
-  ): Promise<CostEstimation> {
-    return this.costEstimationService.createCostEstimation(
-      createCostEstimationDto,
-      user,
-    );
     @Get('all')
+    getDemands() {
       return this.costEstimationService.getAllDemands()
     }
 
