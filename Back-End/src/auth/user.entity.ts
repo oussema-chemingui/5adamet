@@ -24,7 +24,7 @@ export class User {
   email: string;
 
   @Column({ default: '' })
-  adress: string;
+  address: string;
 
   @Column({ default: '' })
   phone: string;
@@ -34,4 +34,7 @@ export class User {
 
   @OneToMany(() => CostEstimation, (costestimation) => costestimation.user) //, { eager: true }
   costEstimations: CostEstimation[];
+
+
+
 }

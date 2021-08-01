@@ -14,6 +14,7 @@ import { LinkController } from './link/link.controller';
 import { LinkService } from './link/link.service';
 import { LinkModule } from './link/link.module';
 import { PackageModule } from './package/package.module';
+import { CartModule } from './cart/cart.module';
 
 @Module({
   imports: [
@@ -50,6 +51,7 @@ import { PackageModule } from './package/package.module';
 
     ServiceModule,
     CategoryModule,
+    CartModule,
 
     CloudinaryModule,
     ConfigModule.forRoot({

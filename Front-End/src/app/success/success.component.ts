@@ -22,7 +22,7 @@ newprof=[]
    
     
     this.username=localStorage.getItem("name")
-    this.us.getservicetocart(this.username).subscribe(
+    this.us.getservicetocart().subscribe(
       res=>{
         console.log(res["message"])
         this.cartitemsobj=res["message"]

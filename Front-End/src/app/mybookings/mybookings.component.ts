@@ -29,20 +29,14 @@ export class MybookingsComponent implements OnInit {
         alert("Unauthorized access")
         this.router.navigateByUrl("/login")
       }
-      this.us.getservicetocart(this.username).subscribe(
+      this.us.getservicetocart().subscribe(
         res=>{
-          console.log(res)
-          this.cartitemsobj=res["message"]
-          this.totalprice=this.cartitemsobj.reduce((acc,curr)=>{
-            return acc+(curr.quantity*curr.price)
-          },0)
-          console.log(this.totalprice)
-          this.numberofitems=this.cartitemsobj.reduce((acc,curr)=>{
-   return acc+curr.quantity;
-          },0)
-          console.log(this.quantity)
-          this.skills=this.cartitemsobj.map((res)=>res.mainservice )
-          console.log(this.skills)
+          
+          this.cartitemsobj=res.filter(res =>{
+           console.log('RESSSSS',res)
+            return (res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase()))
+          })
+         
         },
         err=>{alert("something went wrong")
       console.log(err)}

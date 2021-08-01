@@ -41,14 +41,14 @@ export class CategoryService {
     id: number,
     name: string,
     description: string,
-    coast: number,
+    cost: number,
     image: any,
   ) {
     const category: Category = await this.getCategory(id);
     const service = new Service();
     // service.name = name;
     // service.description = description;
-    // service.coast = coast;
+    // service.cost = cost;
     // service.category = category;
     // service.image = image; //await this. .fileupload(image);
     // console.log(service.image);
@@ -60,7 +60,7 @@ export class CategoryService {
     serviceId: number,
     name: string,
     description: string,
-    coast: number,
+    cost: number,
     image: any,
   ): Promise<void> {
     const category: Category = await this.getCategory(categoryId);
@@ -71,8 +71,8 @@ export class CategoryService {
     // if (description) {
     //   service.description = description;
     // }
-    // if (coast) {
-    //   service.coast = coast;
+    // if (cost) {
+    //   service.cost = cost;
     // }
 
     if (image) {

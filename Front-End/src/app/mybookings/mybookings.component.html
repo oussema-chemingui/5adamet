@@ -8,8 +8,7 @@
         <th scope="col">Images</th>
       
         <th scope="col">Sub-Service Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Quantity</th>
+        <th scope="col">Cost</th>
         <th scope="col">Update/Delete</th>
       </tr>
     </thead>
@@ -17,8 +16,8 @@
       <tr *ngFor="let service of cartitemsobj">
         <th scope="row"><img [src]="service?.image" height="200px" width="auto"></th>
   
-        <td id="editrow">{{service.subservice}}</td>
-        <td id="editrow">{{service.price}}</td>
+        <td id="editrow">{{service.service_name}}</td>
+        <td id="editrow">{{service.cost}}</td>
         <td id="editrow">{{service.quantity}}</td>
         <td >
           <div class="row justify-content-around">

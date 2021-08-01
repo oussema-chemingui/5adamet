@@ -16,7 +16,7 @@ export class Admin {
   email: string;
 
   @Column({default: ''})
-  adress: string;
+  address: string;
 
   @Column({default: ''})
   phone: string;

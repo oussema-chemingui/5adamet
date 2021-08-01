@@ -13,7 +13,7 @@ export class ServiceService {
   
  constructor(private hc:HttpClient) {}
 
-
+//users
  postadminsignup(userobj):Observable<any>{
   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
 }
@@ -54,7 +54,7 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 // }));
    }
 
-
+//services
   postservices(servicesObj):Observable<null>{
     return this.hc.post<null>(`${this.API_SERVER}/services/createservices`,servicesObj)
   }
@@ -71,28 +71,39 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 
 
   deleteservices(serviceObj):Observable<any>{
-    return this.hc.put("/services/deleteservices",serviceObj)
+    return this.hc.put(`${this.API_SERVER}/services/deleteservices`,serviceObj)
   }
 
 
+//cart
+  addtocart(cartObj):Observable<any>{
+    return this.hc.post(`${this.API_SERVER}/cart/addtocart`,cartObj)
+  }
 
 
-  
+  getservicetocart():Observable<any>{
+    return this.hc.get(`${this.API_SERVER}/cart/getitems`)
+       }
+
 
    
    getcart(username):Observable<any>{
      return this.hc.post("/cart/getitems",username)
    }
 
+
+ 
+
+
+
+
+
+
    postprofdata(profObj):Observable<any>{
      return this.hc.post("/professional/createprof",profObj)
    }
 
 
-
-   addtocart(cartObj):Observable<any>{
-     return this.hc.post(`/cart/addtocart`,cartObj)
-   }
 
    addquantitytocart(cartObj):Observable<any>{
      return this.hc.put("/cart/addquantitytocart",cartObj)
@@ -102,9 +113,7 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
     return this.hc.put("/cart/removequantitytocart",cartObj)
   }
 
-   getservicetocart(username):Observable<any>{
-return this.hc.get(`/cart/getservicesfrmcart/${username}`)
-   }
+   
 
    deletefrmcart(serviceObj):Observable<any>{
  return this.hc.put("/cart/deletefrmcart",serviceObj)

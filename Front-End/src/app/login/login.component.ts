@@ -50,14 +50,16 @@ export class LoginComponent implements OnInit {
         if(tokenInfo.role =='user'){
           this.router.navigateByUrl("/dashboard")
          }
+
         else if (tokenInfo.role =='ServiceProvider'){
-          this.router.navigateByUrl("/adminaddservices")
+          this.router.navigateByUrl("/profilesp")
+
         } else if (tokenInfo.role =='admin'){
           this.router.navigateByUrl("/adminaddservices")
         }
 
         localStorage.setItem("name",tokenInfo.name)
-        localStorage.setItem("adress",tokenInfo.adress)
+        localStorage.setItem("address",tokenInfo.address)
         localStorage.setItem("phone",tokenInfo.phone)
         localStorage.setItem("email",tokenInfo.email)
         localStorage.setItem("token",res.accessToken)

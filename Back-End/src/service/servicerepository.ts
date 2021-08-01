@@ -26,12 +26,12 @@ export class ServiceRepository extends Repository<Service> {
   }
 
   async createService(createServiceDto: CreateServiceDto): Promise<Service> {
-    const { name, description, coast, main_service ,image } = createServiceDto;
+    const { name, description, cost, main_service ,image } = createServiceDto;
 
     const service = this.create({
       name,
       description,
-      coast,
+      cost,
       main_service,
       image,
     });
