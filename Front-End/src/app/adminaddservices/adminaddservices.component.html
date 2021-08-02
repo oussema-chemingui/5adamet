@@ -23,8 +23,8 @@
 
 
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="coast" placeholder="Coast" name="coast" ngModel>
-            <label for="coast" class="usertext">Service Coast</label>
+            <input type="number" class="form-control" id="cost" placeholder="cost" name="cost" ngModel>
+            <label for="cost" class="usertext">Service cost</label>
           </div>
 
 
@@ -64,7 +64,7 @@
         
         <th scope="col">Main Service Name</th>
         <th scope="col">Sub-Service Name</th>
-        <th scope="col">Coast</th>
+        <th scope="col">cost</th>
         <th scope="col">Images</th>
         <th scope="col">Update/Delete</th>
       </tr>
@@ -75,7 +75,7 @@
        
         <td id="editrow">{{service.main_service}}</td>
         <td id="editrow">{{service.name}}</td>
-        <td id="editrow">{{service.coast}}</td>
+        <td id="editrow">{{service.cost}}</td>
         <th scope="row"><img [src]="service?.image" height="200px" width="auto"></th>
         
         <td >

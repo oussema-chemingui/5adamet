@@ -6,27 +6,33 @@ import {
   OneToOne,
   JoinColumn,
 } from 'typeorm';
-import { CartItem } from './cart-item.entity';
+
 import { User } from '../auth/user.entity';
 
-@Entity('carts')
+@Entity('cart')
 export class Cart extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
-  
-  // @OneToOne(type => USER, user => user.cart, {
-  //   onDelete: 'CASCADE',
-  //   onUpdate: 'CASCADE',
-  // })
-  // user: User;
-
-  @OneToOne(type => CartItem, cart_item => cart_item.cart, {
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE'
-  })
-  @JoinColumn()
-  cart_item: CartItem;
 
   @Column()
-  cartItemId: number;
+  cost: number;
+
+  @Column()
+  service_name: string;
+
+  @Column()
+  main_service: string;
+
+  @Column()
+  username: string;
+  
+  @Column({ default: 1 } )
+  quantity: number;
+
+  @Column({
+    nullable: true,
+  })
+  image: string;
+
+
 }

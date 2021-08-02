@@ -15,7 +15,8 @@ constructor(private us:ServiceService, private router:Router){}
   ngOnInit(){
     
     let tokenverify=localStorage.getItem("token")
-    if(tokenverify==null){
+    if(tokenverify==null || localStorage.getItem("role")!=='admin'){
+      localStorage.clear();
       alert("Unauthorized access")
    this.router.navigateByUrl("/home")
     }
@@ -53,13 +54,13 @@ constructor(private us:ServiceService, private router:Router){}
 
   addservices(ref){
 
-    let {name,coast,description,main_service} = ref.value
+    let {name,cost,description,main_service} = ref.value
 
     //serviceObj.status=true;
     this.formData.append("image",this.file,this.file.name)
     //this.formData.append("serviceObj",JSON.stringify(serviceObj))
  this.formData.append('name',name)
- this.formData.append('coast',coast)
+ this.formData.append('cost',cost)
  this.formData.append('description',description)
  this.formData.append('main_service',main_service)
 
@@ -89,7 +90,7 @@ update(serviceId){
   var newObj={
     main_service :serviceObj.mainservice,
     name:serviceObj.name,
-    coast:serviceObj.prcoastice,
+    cost:serviceObj.prcostice,
     description:serviceObj.description,
     image:serviceObj.image
       };
@@ -113,7 +114,7 @@ update(serviceId){
 
   var newObjcart={
     name:serviceObj.name,
-    coast:serviceObj.coast,
+    cost:serviceObj.cost,
     image:serviceObj.image,
     main_service:serviceObj.main_service
       };

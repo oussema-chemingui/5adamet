@@ -1,5 +1,5 @@
 import { Transform } from 'class-transformer';
-import { CartItem } from 'src/cart/cart-item.entity';
+
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -23,7 +23,7 @@ export class Service extends BaseEntity {
   @Column({
     default: 0.0,
   })
-  coast: number;
+  cost: number;
 
   @Column({
     nullable: true,

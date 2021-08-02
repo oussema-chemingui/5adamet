@@ -30,7 +30,7 @@ export class StepComponent implements OnInit {
      name:new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(30),Validators.pattern("[a-zA-Z ]*$")]),
      password:new FormControl(null,[Validators.required,Validators.pattern("[a-zA-Z0-9]*$")]),
      email:new FormControl(null,[Validators.required,Validators.email]),
-     adress:new FormControl(null, Validators.required),
+     address:new FormControl(null, Validators.required),
      phone:new FormControl(null, Validators.required),
 
    })
@@ -116,6 +116,7 @@ export class StepComponent implements OnInit {
       this.us.postSPsignup(this.registerForm.value).subscribe(
         ()=>{
             this.router.navigateByUrl("/login")
+            
         },
             err=>{ console.log(err)})
       }
