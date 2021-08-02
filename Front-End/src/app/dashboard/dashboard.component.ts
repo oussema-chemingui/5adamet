@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   username=localStorage.getItem("name")
   email=localStorage.getItem("email")
   phone=localStorage.getItem("phone")
-  adress=localStorage.getItem("adress")
+  address=localStorage.getItem("address")
   
   constructor(private us:ServiceService, private router:Router) { }
    id:Number=0;
@@ -29,7 +29,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     let tokenverify=localStorage.getItem("token")
-    if(tokenverify==null){
+    if(tokenverify==null || localStorage.getItem("role")!=='user'){
+      localStorage.clear();
       alert("Please login to access dashboard")
 this.router.navigateByUrl("/login")
     }
@@ -45,10 +46,10 @@ this.router.navigateByUrl("/login")
       }
     )
     
-    this.us.getservicetocart(this.username).subscribe(
+    this.us.getservicetocart().subscribe(
      res=>{
        console.log(res)
-       this.cartitemsobj=res["message"]
+       this.cartitemsobj=res
        this.numberofitems=this.cartitemsobj.length;
      },
      err=>{alert("something went wrong")
@@ -73,17 +74,17 @@ this.router.navigateByUrl("/login")
 
   addtocart(service){
     
-    console.log("in compo",service)
-    let serviceObj = {"username":this.username,"mainservice":service.mainservice,"name":service.name,"price":service.price,"status":true,"image":service.image};
+   // console.log("SERVICEEEEEE",service)
+    let serviceObj = {"username":this.username,"main_service":service.main_service,"service_name":service.name,"cost":service.cost,"image":service.image ,"quantity":1};
     console.log("in compo",serviceObj)
     this.us.addtocart(serviceObj).subscribe(
       (res)=>{
-        if(res["message"]=="added to the cart"){
-       alert("added to cart")
-       this.us.getservicetocart(this.username).subscribe(
+        if(res){
+      console.log('successssss')
+       this.us.getservicetocart().subscribe(
         res=>{
           console.log(res)
-          this.cartitemsobj=res["message"]
+          
           this.numberofitems=this.cartitemsobj.length;
         },
         err=>{alert("something went wrong")
@@ -99,6 +100,11 @@ this.router.navigateByUrl("/login")
       }
     )
   }
+
+  askforcost(){
+    this.router.navigateByUrl('costestimation')
+  }
+
 
 
 
@@ -206,6 +212,8 @@ this.router.navigateByUrl("/login")
       this.ngOnInit();
     }
   }
+  
+
   
 }
 

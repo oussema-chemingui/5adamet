@@ -12,6 +12,7 @@ import { ServiceService } from '../service.service';
 })
 export class MybookingsComponent implements OnInit {
   cartitemsobj:any[];
+  costs: Array<any> =  [];
   totalprice:any;
   username:any;
   numberofitems:any;
@@ -25,24 +26,28 @@ export class MybookingsComponent implements OnInit {
 
       this.username=localStorage.getItem("name")
       let token=localStorage.getItem("token")
-      if(token==null){
+      if(token==null || localStorage.getItem("role")!=='user'){
+        localStorage.clear();
         alert("Unauthorized access")
         this.router.navigateByUrl("/login")
       }
-      this.us.getservicetocart(this.username).subscribe(
+      this.us.getservicetocart().subscribe(
         res=>{
-          console.log(res)
-          this.cartitemsobj=res["message"]
-          this.totalprice=this.cartitemsobj.reduce((acc,curr)=>{
-            return acc+(curr.quantity*curr.price)
-          },0)
-          console.log(this.totalprice)
-          this.numberofitems=this.cartitemsobj.reduce((acc,curr)=>{
-   return acc+curr.quantity;
-          },0)
-          console.log(this.quantity)
-          this.skills=this.cartitemsobj.map((res)=>res.mainservice )
-          console.log(this.skills)
+          
+          this.cartitemsobj=res.filter(res =>{
+          console.log('ITEMMM',res)
+            return (res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase()))
+          })
+          this.numberofitems = this.cartitemsobj.length
+
+         this.cartitemsobj.forEach(elem =>{
+              this.costs.push(elem.cost)
+
+         })
+
+     this.totalprice=this.costs.reduce((a, b) => a + b, 0)
+     console.log('totaaall',this.totalprice)
+         
         },
         err=>{alert("something went wrong")
       console.log(err)}
@@ -92,20 +97,15 @@ export class MybookingsComponent implements OnInit {
     }
    
     formData=new FormData()
-    deletefrmcart(serviceObj){
-    var newObj={
-      username:this.username,
-  subservice:serviceObj.subservice,
-  price:serviceObj.price,
-  status:false,
-  image:serviceObj.image
-    };
+    deletefrmcart(obj){
+ 
 
-    console.log(newObj)  
-this.us.deletefrmcart(newObj).subscribe(
-  (res)=>{
-    if(res["message"]=="deleted the service"){
-    alert("Deleted a service")
+    console.log('idddd',obj.id) 
+
+this.us.deletefrmcart(obj.id).subscribe(
+  ()=>{
+
+    console.log('service deleted')
    
 
     let currentUrl = this.router.url;
@@ -113,9 +113,6 @@ this.us.deletefrmcart(newObj).subscribe(
         this.router.navigate([currentUrl]);
     });
 
-    }else{
-      alert("something went Wrong")
-    }
   },
   (err)=>{
     console.log(err)
@@ -132,9 +129,11 @@ this.us.deletefrmcart(newObj).subscribe(
     onSubmit(){
  console.log(this.checkoutForm.value)
     }
+    
+    
     addquantitytocart(service){
       console.log("in compo",service)
-      let serviceObj = {"username":this.username,"subservice":service.subservice,"price":service.price,"status":true,"quantity":1+service.quantity,"image":service.image};
+      let serviceObj = {"username":this.username,"subservice":service.subservice,"cost":service.cost,"status":true,"quantity":1+service.quantity,"image":service.image};
       console.log("in compo",serviceObj)
       this.us.addquantitytocart(serviceObj).subscribe(
         (res)=>{
@@ -158,7 +157,7 @@ this.us.deletefrmcart(newObj).subscribe(
 
     removequantitytocart(service){
       console.log("in compo",service)
-      let serviceObj = {"username":this.username,"subservice":service.subservice,"price":service.price,"status":true,"quantity":service.quantity-1,"image":service.image};
+      let serviceObj = {"username":this.username,"subservice":service.subservice,"cost":service.cost,"status":true,"quantity":service.quantity-1,"image":service.image};
       console.log("in compo",serviceObj)
       this.us.removequantitytocart(serviceObj).subscribe(
         (res)=>{
@@ -184,4 +183,13 @@ this.us.deletefrmcart(newObj).subscribe(
 
       this.router.navigateByUrl(`success`)}
     }
+
+
+
+    askforcost(){
+      this.router.navigateByUrl('costestimation')
+    }
+
+    
+
 }
