@@ -23,22 +23,22 @@ import { QuotedemandComponent } from './quotedemand/quotedemand.component';
 
 import { FormRevComponent } from './formrev/formrev.component';
 import { RatingsComponent } from './ratings/ratings.component';
-
-const routes: Routes = [
-  {path:'feedbackform',component:FormRevComponent },
-  {path:'ratings',component: RatingsComponent},
-  {path:'costestimation',component:QuotedemandComponent},
-
-import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
-import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
+import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
+import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
 
 const routes: Routes = [
+
+
   {path:'quotedemands',component:QuotedemandsComponent},
   {path:'quoteresponses',component:QuoteresponsesComponent},
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
 
+
+  {path:'feedbackform',component:FormRevComponent },
+  {path:'ratings',component: RatingsComponent},
+  {path:'costestimation',component:QuotedemandComponent},
   {path:'home',component:HomeComponent},
   {path:'step/:User',component:StepComponent},
   {path:'mainservices',component:MainservicesComponent},
