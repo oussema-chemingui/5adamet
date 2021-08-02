@@ -23,6 +23,7 @@ import { QuotedemandComponent } from './quotedemand/quotedemand.component';
 
 import { FormRevComponent } from './formrev/formrev.component';
 import { RatingsComponent } from './ratings/ratings.component';
+
  
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
@@ -33,12 +34,17 @@ const routes: Routes = [
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},
   {path:'costestimation',component:QuotedemandComponent},
+
   {path:'quotedemands',component:QuotedemandsComponent},
   {path:'quoteresponses',component:QuoteresponsesComponent},
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteinfo',component:QuoteinfoComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
 
+
+  {path:'feedbackform',component:FormRevComponent },
+  {path:'ratings',component: RatingsComponent},
+  {path:'costestimation',component:QuotedemandComponent},
   {path:'home',component:HomeComponent},
   {path:'step/:User',component:StepComponent},
   {path:'mainservices',component:MainservicesComponent},

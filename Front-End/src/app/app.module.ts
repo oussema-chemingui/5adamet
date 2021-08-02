@@ -81,8 +81,8 @@ registerLocaleData(en);
     ServicesComponent,
     ServiceItemComponent,
 
-    PackagesComponent,
-    StepComponent,
+   PackagesComponent,
+   StepComponent,
    QuotedemandComponent,
    CategoryComponent,
    CheckoutComponent,

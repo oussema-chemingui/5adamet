@@ -25,9 +25,7 @@ export class FormRevComponent implements OnInit {
       userName: ['', Validators.required],
       contact: ['', Validators.required],
       city:[''],
-      country:[''],
-      smlink:[''],
-      feedback: ['']
+      feedback: ['', Validators.required]
     });
   }
   rateFive(){
@@ -57,25 +55,26 @@ export class FormRevComponent implements OnInit {
   }
   submit(form: NgForm){
     this.date = this.createDate();
-    var verbool = true;
+    
     if(!form.valid){
       return;
     }
     console.log(form.value.city);
     this.obj = {
       userName:form.value.name,
+      contact:form.value.contact,
       rating:this.rating,
       date:this.date,
       city:form.value.city,
-      verified:verbool,
+      
       feedback:form.value.feedback,
-
+     
     }
     console.log(this.obj);
     this.us.postreview( this.obj).subscribe(resData =>{
       console.log(resData);
     });
-    this.router.navigate(['/']);
+   // this.router.navigate(['/']);
     form.reset();
   }
 
@@ -83,12 +82,10 @@ export class FormRevComponent implements OnInit {
 interface UserReview{
   rating:number;
   userName:string;
-  url?:string;
   city?:string;
-  country?:string;
   feedback?:string;
-  verified?:boolean;
-  date:String;
+  contact:string;
+  date:string;
   dp?: File;
 
 }
