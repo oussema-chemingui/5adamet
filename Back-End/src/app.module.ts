@@ -15,6 +15,8 @@ import { LinkService } from './link/link.service';
 import { LinkModule } from './link/link.module';
 import { PackageModule } from './package/package.module';
 import { CartModule } from './cart/cart.module';
+import { ContactModule } from './contact/contact.module';
+import { NodemailerDrivers, NodemailerModule, NodemailerOptions } from '@crowdlinker/nestjs-mailer';
 
 @Module({
   imports: [
@@ -46,13 +48,29 @@ import { CartModule } from './cart/cart.module';
         };
       },
     }),
+    NodemailerModule.forRoot({
+      transport: {
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'user',
+          pass:'pass',
+        },
+        tls: {
+          // do not fail on invalid certs
+          rejectUnauthorized: false
+        }
+      },
+    } as NodemailerOptions<NodemailerDrivers.SMTP>),
 
     AuthModule,
 
     ServiceModule,
     CategoryModule,
     CartModule,
-
+    //ContactModule,
+    
     CloudinaryModule,
     ConfigModule.forRoot({
       envFilePath: '.env',

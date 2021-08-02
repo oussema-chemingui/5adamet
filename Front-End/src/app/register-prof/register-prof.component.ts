@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators,FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 
 @Component({
@@ -12,7 +14,7 @@ export class RegisterProfComponent implements OnInit {
   contactForm: FormGroup;
   submitted:boolean;
   
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder ,private us:ServiceService , private router: Router,) { }
   ngOnInit(): void {
     
     this.contactForm=new FormGroup({
@@ -28,7 +30,16 @@ export class RegisterProfComponent implements OnInit {
 
 
   onSubmit() {
+    if(this.contactForm.valid){
 
+      console.log('SUBMIIIIIITTTTT',this.contactForm.value);
+      this.us.postcontactdata(this.contactForm.value).subscribe(
+        ()=>{
+           alert('Message Delivered Please Check Your Email')
+        },
+            err=>{ console.log(err)})
+
+    }
     
   }
 

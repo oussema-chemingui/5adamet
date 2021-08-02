@@ -44,6 +44,8 @@ import { ErrorComponent } from './error/error.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { TestemonialComponent } from './testemonial/testemonial.component';
 import { SliderComponent } from './slider/slider.component';
+import { RatingsComponent } from './ratings/ratings.component';
+import { FormRevComponent } from './formrev/formrev.component';
 
 registerLocaleData(en);
 
@@ -82,8 +84,8 @@ registerLocaleData(en);
    CarouselComponent,
    TestemonialComponent,
    SliderComponent,
-   
-
+   RatingsComponent,
+   FormRevComponent,
    
     
   ],

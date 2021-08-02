@@ -12,6 +12,7 @@ import {
   Body,
   UsePipes,
   ValidationPipe,
+  Delete,
 } from '@nestjs/common';
 
 import { ServiceService } from './service.service';
@@ -49,6 +50,14 @@ export class ServiceController {
      return this.serviceService.createService(createServiceDto ,image);
 
   }
+
+  @Delete('/deleteservices/:id')
+  deleteService(@Param('id',ParseIntPipe) id : number): Promise<any> {
+    console.log(id)
+    return this.serviceService.deleteService(id);
+  }
+
+
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))

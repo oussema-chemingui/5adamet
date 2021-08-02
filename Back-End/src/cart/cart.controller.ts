@@ -47,7 +47,7 @@ console.log(createCartItemDto)
 
 
   @Delete(':id')
-  deleteCartItem(@Param('id') id : number): Promise<any> {
+  deleteCartItem(@Param('id',ParseIntPipe) id : number): Promise<any> {
     console.log(id)
     return this.cartService.deleteCartItem(id);
   }
