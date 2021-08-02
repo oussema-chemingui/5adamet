@@ -17,6 +17,7 @@ import { PackageModule } from './package/package.module';
 import { CartModule } from './cart/cart.module';
 import { ContactModule } from './contact/contact.module';
 import { NodemailerDrivers, NodemailerModule, NodemailerOptions } from '@crowdlinker/nestjs-mailer';
+import { ReviewModule } from './reviews/review.module';
 
 @Module({
   imports: [
@@ -65,12 +66,12 @@ import { NodemailerDrivers, NodemailerModule, NodemailerOptions } from '@crowdli
     } as NodemailerOptions<NodemailerDrivers.SMTP>),
 
     AuthModule,
-
     ServiceModule,
     CategoryModule,
     CartModule,
     //ContactModule,
-    
+    ReviewModule,
+
     CloudinaryModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
