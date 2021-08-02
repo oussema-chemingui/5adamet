@@ -37,7 +37,6 @@ import en from '@angular/common/locales/en';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { CategoryComponent } from './category/category.component';
 import { StepComponent } from './step/step.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { FormComponent } from './form/form.component';
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
@@ -83,17 +82,14 @@ registerLocaleData(en);
    StepComponent,
    QuotedemandComponent,
    CategoryComponent,
-   CheckoutComponent,
    FormComponent,
    SuccesspurchaseComponent,
    ErrorComponent,
    CarouselComponent,
    TestemonialComponent,
    SliderComponent,
-
    RatingsComponent,
    FormRevComponent,
-
    QuoteresponseComponent,
    QuoteresponsesComponent,
    QuotedemandsComponent,

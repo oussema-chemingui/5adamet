@@ -14,7 +14,6 @@ import { StepComponent } from './step/step.component'
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
 import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
@@ -29,12 +28,12 @@ import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component'
 
 const routes: Routes = [
 
+  {path:"",redirectTo:"/home",pathMatch:"full"},
 
   {path:'quotedemands',component:QuotedemandsComponent},
   {path:'quoteresponses',component:QuoteresponsesComponent},
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
-
 
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},
@@ -52,11 +51,12 @@ const routes: Routes = [
   {path:'update/:serviceId',component:UpdateComponent},
   {path:'servicesdescription',component:ServicesdescriptionComponent},
   {path:'successpurchase',component:SuccesspurchaseComponent},
-  {path:'error',component:ErrorComponent},
   {path:':code',component:FormComponent},
-  {path:'checkout',component:CheckoutComponent},
-  {path:"",redirectTo:"/home",pathMatch:"full"},
-  {path:"**",component:PagenotfoundComponent} 
+  {path:'error',component:ErrorComponent},
+  
+
+  {path: '404', component: PagenotfoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

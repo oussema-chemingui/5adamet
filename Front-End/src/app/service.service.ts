@@ -54,6 +54,12 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 // }));
    }
 
+//serviceProvider
+getserviceproviders():Observable<any>{
+  return this.hc.get(`${this.API_SERVER}/serviceproviders/getall`)
+}
+
+
 //services
   postservices(servicesObj):Observable<null>{
     return this.hc.post<null>(`${this.API_SERVER}/services/createservices`,servicesObj)
@@ -107,12 +113,20 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
    
 
 
-
+         //reviews
 
       postreview(reviewObj):Observable<any>{
-        return this.hc.post(`${this.API_SERVER}/review/addreview`,reviewObj)
+        return this.hc.post(`${this.API_SERVER}/reviews/addreview`,reviewObj)
       }
       
+
+      getreviews():Observable<any>{
+        return this.hc.get(`${this.API_SERVER}/reviews/getreviews`)
+      }
+
+
+
+
 
 
 
