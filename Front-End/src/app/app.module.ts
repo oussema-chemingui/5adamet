@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -51,6 +52,7 @@ import { FormRevComponent } from './formrev/formrev.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
+import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
 
 
 registerLocaleData(en);
@@ -97,6 +99,7 @@ registerLocaleData(en);
    QuoteresponseComponent,
    QuoteresponsesComponent,
    QuotedemandsComponent,
+   QuoteinfoComponent,
    
 
 
@@ -110,7 +113,7 @@ registerLocaleData(en);
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    DemoNgZorroAntdModule
+    DemoNgZorroAntdModule,
    
 
   ],

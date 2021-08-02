@@ -27,6 +27,7 @@ import { RatingsComponent } from './ratings/ratings.component';
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
+import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
 
 const routes: Routes = [
   {path:'feedbackform',component:FormRevComponent },
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path:'quotedemands',component:QuotedemandsComponent},
   {path:'quoteresponses',component:QuoteresponsesComponent},
   {path:'quotedemand',component:QuotedemandComponent},
+  {path:'quoteinfo',component:QuoteinfoComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
 
   {path:'home',component:HomeComponent},
