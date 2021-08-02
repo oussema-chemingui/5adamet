@@ -116,6 +116,7 @@ export class StepComponent implements OnInit {
       this.us.postSPsignup(this.registerForm.value).subscribe(
         ()=>{
             this.router.navigateByUrl("/login")
+            
         },
             err=>{ console.log(err)})
       }

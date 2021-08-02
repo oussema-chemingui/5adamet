@@ -29,7 +29,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     let tokenverify=localStorage.getItem("token")
-    if(tokenverify==null){
+    if(tokenverify==null || localStorage.getItem("role")!=='user'){
+      localStorage.clear();
       alert("Please login to access dashboard")
 this.router.navigateByUrl("/login")
     }
@@ -48,7 +49,7 @@ this.router.navigateByUrl("/login")
     this.us.getservicetocart().subscribe(
      res=>{
        console.log(res)
-       this.cartitemsobj=res["message"]
+       this.cartitemsobj=res
        this.numberofitems=this.cartitemsobj.length;
      },
      err=>{alert("something went wrong")
@@ -101,10 +102,9 @@ this.router.navigateByUrl("/login")
   }
 
   askforcost(){
-
-
-    
+    this.router.navigateByUrl('costestimation')
   }
+
 
 
 
@@ -212,6 +212,8 @@ this.router.navigateByUrl("/login")
       this.ngOnInit();
     }
   }
+  
+
   
 }
 

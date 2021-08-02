@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup
   submitted:boolean
 
+
   constructor(private us:ServiceService, private router:Router) { }
 
   ngOnInit(): void {
@@ -49,17 +50,27 @@ export class LoginComponent implements OnInit {
 
         if(tokenInfo.role =='user'){
           this.router.navigateByUrl("/dashboard")
+          setTimeout(()=>{
+            window.location.reload();
+          },10)
          }
 
         else if (tokenInfo.role =='ServiceProvider'){
           this.router.navigateByUrl("/profilesp")
+          setTimeout(()=>{
+            window.location.reload();
+          },10)
 
         } else if (tokenInfo.role =='admin'){
           this.router.navigateByUrl("/adminaddservices")
+          setTimeout(()=>{
+            window.location.reload();
+          },10)
         }
 
         localStorage.setItem("name",tokenInfo.name)
         localStorage.setItem("address",tokenInfo.address)
+        localStorage.setItem("role",tokenInfo.role)
         localStorage.setItem("phone",tokenInfo.phone)
         localStorage.setItem("email",tokenInfo.email)
         localStorage.setItem("token",res.accessToken)

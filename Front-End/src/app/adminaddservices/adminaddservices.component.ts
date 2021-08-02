@@ -15,7 +15,8 @@ constructor(private us:ServiceService, private router:Router){}
   ngOnInit(){
     
     let tokenverify=localStorage.getItem("token")
-    if(tokenverify==null){
+    if(tokenverify==null || localStorage.getItem("role")!=='admin'){
+      localStorage.clear();
       alert("Unauthorized access")
    this.router.navigateByUrl("/home")
     }

@@ -39,5 +39,14 @@ async uploadImageToCloudinary(file: Express.Multer.File) {
   }
 
 
+
+  async deleteCartItem(id): Promise<any> {
+    //console.log(id)
+    const result = await this.cartRepository.delete(id);
+
+    if (result.affected === 0) {
+      throw new NotFoundException(`Cart Item with ID "${id}" not found`);
+    }
+  }
   
 }

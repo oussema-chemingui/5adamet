@@ -87,11 +87,14 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 
 
    
-   getcart(username):Observable<any>{
-     return this.hc.post("/cart/getitems",username)
-   }
+  //  getcart(username):Observable<any>{
+  //    return this.hc.post("/cart/getitems",username)
+  //  }
 
 
+   deletefrmcart(cartItemId):Observable<any>{
+    return this.hc.delete(`${this.API_SERVER}/cart/:id`,cartItemId)
+      }
  
 
 
@@ -115,9 +118,7 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 
    
 
-   deletefrmcart(serviceObj):Observable<any>{
- return this.hc.put("/cart/deletefrmcart",serviceObj)
-   }
+   
 
 
    getUserDetails(serviceId):Observable<any>{

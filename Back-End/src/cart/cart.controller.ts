@@ -12,6 +12,7 @@ import {
   Body,
   UsePipes,
   ValidationPipe,
+  Delete,
 } from '@nestjs/common';
 
 import { CartService } from './cart.service';
@@ -42,6 +43,15 @@ console.log(createCartItemDto)
      return this.cartService.createCartItem(createCartItemDto );
 
   }
+
+
+
+  @Delete(':id')
+  deleteCartItem(@Param('id') id : number): Promise<any> {
+    console.log(id)
+    return this.cartService.deleteCartItem(id);
+  }
+
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
