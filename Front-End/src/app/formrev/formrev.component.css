@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  margin: auto;
+  position: relative;
+  width: 700px;
+  background: white;
+  padding: 20px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+h3 {
+  color: #0a3977;
+  text-align: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+
+p {
+  text-align: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  color: rgba(180, 178, 178, 0.863);
+  font: 13px;
+}
+
+form input[type=text], form input[type=tel] {
+  border-radius: 10px;
+  line-height: 30px;
+  width: 100%;
+  border: 0.3px solid #b9b9b9;
+  outline: none;
+}
+
+form .lbls {
+  color: #3333ff;
+  font-weight: 100;
+}
+
+.container .star-widget input[type=radio] {
+  display: none;
+}
+
+.star-widget .fa {
+  font-size: 26px;
+  color: #575656;
+  padding: 10px;
+  float: right;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+  color: #fd4;
+}
+
+input#rate-4:checked ~ label {
+  color: #fd4;
+}
+
+input#rate-3:checked ~ label {
+  color: #fd4;
+}
+
+input#rate-2:checked ~ label {
+  color: #fd4;
+}
+
+input#rate-1:checked ~ label {
+  color: #fd4;
+}
+
+input#rate-5:checked ~ label {
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+
+input:checked ~ form {
+  display: block;
+}
+
+textarea {
+  height: 100%;
+  width: 100%;
+  line-height: 1.2em;
+  border-radius: 10px;
+  border: 0.3px solid #b9b9b9;
+  outline: none;
+}
+
+.textarea textarea:focus {
+  border: 0.3px solid #b9b9b9;
+  border-radius: 10px;
+}
+
+form .btn {
+  height: 50px;
+  width: 100%;
+  margin: 15px 0;
+}
+
+form .btn button {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #3333ff;
+  color: white;
+  font-size: 17px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+form .btn button:hover {
+  background: white;
+  border: 1px solid #3333ff;
+  color: #3333ff;
+}
+/*# sourceMappingURL=form.component.css.map */

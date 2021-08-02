@@ -20,6 +20,15 @@ import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
 
 import { QuotedemandComponent } from './quotedemand/quotedemand.component';
+
+import { FormRevComponent } from './formrev/formrev.component';
+import { RatingsComponent } from './ratings/ratings.component';
+
+const routes: Routes = [
+  {path:'feedbackform',component:FormRevComponent },
+  {path:'ratings',component: RatingsComponent},
+  {path:'costestimation',component:QuotedemandComponent},
+
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
@@ -29,6 +38,7 @@ const routes: Routes = [
   {path:'quoteresponses',component:QuoteresponsesComponent},
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
+
   {path:'home',component:HomeComponent},
   {path:'step/:User',component:StepComponent},
   {path:'mainservices',component:MainservicesComponent},

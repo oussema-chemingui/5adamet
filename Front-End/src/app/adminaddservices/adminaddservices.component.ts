@@ -87,16 +87,10 @@ update(serviceId){
 }
 
  delete(serviceObj){
-  var newObj={
-    main_service :serviceObj.mainservice,
-    name:serviceObj.name,
-    cost:serviceObj.prcostice,
-    description:serviceObj.description,
-    image:serviceObj.image
-      };
   
-      console.log(newObj)  
-  this.us.deleteservices(newObj).subscribe(
+  
+      console.log(serviceObj.id)  
+  this.us.deleteservices(serviceObj.id).subscribe(
     ()=>{
       
         
