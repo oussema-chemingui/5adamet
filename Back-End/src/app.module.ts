@@ -10,9 +10,9 @@ import { SpresponseModule } from './spresponse/spresponse.module';
 
 import { ServiceModule } from './service/service.module';
 import { CategoryModule } from './category/category.module';
-import { LinkController } from './link/link.controller';
-import { LinkService } from './link/link.service';
-import { LinkModule } from './link/link.module';
+// import { LinkController } from './link/link.controller';
+// import { LinkService } from './link/link.service';
+// import { LinkModule } from './link/link.module';
 import { PackageModule } from './package/package.module';
 import { CartModule } from './cart/cart.module';
 import { ContactModule } from './contact/contact.module';
@@ -76,13 +76,13 @@ import { ReviewModule } from './reviews/review.module';
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
-    LinkModule,
+    // LinkModule,
     PackageModule,
     
   ],
-  controllers: [LinkController,],
+  // controllers: [LinkController,],
   providers: [
-    LinkService,
+    // LinkService,
     CostestimationModule,
     SpresponseModule,
     
