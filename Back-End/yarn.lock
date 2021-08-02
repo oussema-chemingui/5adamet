@@ -6238,7 +6238,11 @@
   "resolved" "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
   "version" "3.1.1"
 
+<<<<<<< HEAD
+"stripe@*", "stripe@^8.0.0", "stripe@^8.167.0":
+=======
 "stripe@*", "stripe@^8.0.0", "stripe@^8.167.0", "stripe@^8.39.0":
+>>>>>>> 8f716c409ad17d1cd38b2729e1bf123915c13508
   "integrity" "sha512-iWrof4zc/TRjzKr181Tj5Tz/RaxpNQjqkkVjjfqmzXuSY1tNV4HTbS26ucsBNkw2MJZr/q1Hx8gWDRdhZ8FG2g=="
   "resolved" "https://registry.npmjs.org/stripe/-/stripe-8.167.0.tgz"
   "version" "8.167.0"

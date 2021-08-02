@@ -1,5 +1,11 @@
-  
-import { Module } from '@nestjs/common';
+// import { Module } from '@nestjs/common';
+// import { TypeOrmModule } from '@nestjs/typeorm';
+// import { Link } from './link.entity';
+// import { LinkService } from './link.service';
 
-@Module({})
-export class LinkModule {}
+// @Module({
+//   imports: [TypeOrmModule.forFeature([Link])],
+//   providers: [LinkService],
+//   exports: [LinkService],
+// })
+// export class LinkModule {}
