@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+<h3>We can't wait to read your review</h3>
+<p>Please fill the details below so we can get in contact with you</p>
+<!--<div class="post">
+<div class="text">Thanks for leaving a feedback!</div><div class="edit">EDIT</div></div>-->
+<br><br>
+<div class="star-widget">
+<form #fbForm="ngForm" (ngSubmit)="submit(fbForm)">
+        <div class="form-group">
+        <label for="name" class="lbls">Please enter your name</label>
+        <i style='font-size:14px;display:none;color:red;' class='fas'>&#xf06a;</i>
+        <input type="text" name="name" id="name" class="form-control" ngModel required>
+        </div>
+        <div class="form-group">
+        <label for="contact" class="lbls">Please enter a phone number</label>
+        <input type="tel" name="contact" id="contact" class="form-control" ngModel>
+        </div>
+        <div class="form-group">
+        <label for="city" class="lbls">City</label>
+        <input type="text" name="city" id="city" class="form-control" ngModel>
+        </div>
+    <div class="form-group">
+        <input type="radio" name="rate_5" id="rate-5" (click)="rateFive()">
+        <label for="rate-5" class="fa fa-star"></label>
+        <input type="radio" name="rate_4" id="rate-4" (click)="rateFour()">
+        <label for="rate-4" class="fa fa-star"></label>
+        <input type="radio" name="rate_3" id="rate-3" (click)="rateThree()">
+        <label for="rate-3" class="fa fa-star"></label>
+        <input type="radio" name="rate_2" id="rate-2"  (click)="rateTwo()">
+        <label for="rate-2" class="fa fa-star"></label>
+        <input type="radio" name="rate_1" id="rate-1" (click)="rateOne()">
+        <label for="rate-1" class="fa fa-star"></label></div>
+        <header></header>
+            <div class="form-group">
+        <label for="feedback" class="lbls">Please leave a feedback</label>
+        <textarea rows="4" cols="50" name="feedback" ngModel></textarea></div>
+        
+            <div class="form-group">
+        <div class="btn">
+        <button type="submit" >Post</button></div>
+        </div>
+        </form>
+</div>
+</div>

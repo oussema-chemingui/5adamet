@@ -71,7 +71,7 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 
 
   deleteservices(serviceObj):Observable<any>{
-    return this.hc.put(`${this.API_SERVER}/services/deleteservices`,serviceObj)
+    return this.hc.delete(`${this.API_SERVER}/services/deleteservices/${serviceObj}`)
   }
 
 
@@ -93,12 +93,26 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 
 
    deletefrmcart(cartItemId):Observable<any>{
-    return this.hc.delete(`${this.API_SERVER}/cart/:id`,cartItemId)
+    return this.hc.delete(`${this.API_SERVER}/cart/${cartItemId}`)
       }
  
 
 
 
+
+      //contact
+      postcontactdata(contactObj):Observable<any>{
+        return this.hc.post(`${this.API_SERVER}/contacts/new-mail`,contactObj)
+      }
+   
+
+
+
+
+      postreview(reviewObj):Observable<any>{
+        return this.hc.post(`${this.API_SERVER}/review/addreview`,reviewObj)
+      }
+      
 
 
 
