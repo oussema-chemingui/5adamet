@@ -19,7 +19,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UpdateComponent } from './update/update.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MainservicesComponent } from './mainservices/mainservices.component';
-import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
+
 import { SuccessComponent } from './success/success.component'
 
 
@@ -35,7 +35,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
-import { CategoryComponent } from './category/category.component';
+
 import { StepComponent } from './step/step.component';
 import { FormComponent } from './form/form.component';
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
@@ -50,6 +50,8 @@ import { FormRevComponent } from './formrev/formrev.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
+import { ServProvidersComponent } from './serv-providers/serv-providers.component';
+import { ServiceCardsComponent } from './service-cards/service-cards.component';
 
 
 registerLocaleData(en);
@@ -71,7 +73,6 @@ registerLocaleData(en);
     FooterComponent,
     UpdateComponent,
     MainservicesComponent,
-    ServicesdescriptionComponent,
     SuccessComponent,
     NavbarComponent,
     AboutComponent,
@@ -81,7 +82,7 @@ registerLocaleData(en);
    PackagesComponent,
    StepComponent,
    QuotedemandComponent,
-   CategoryComponent,
+
    FormComponent,
    SuccesspurchaseComponent,
    ErrorComponent,
@@ -93,6 +94,8 @@ registerLocaleData(en);
    QuoteresponseComponent,
    QuoteresponsesComponent,
    QuotedemandsComponent,
+   ServProvidersComponent,
+   ServiceCardsComponent,
    
 
 

@@ -13,7 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { StepComponent } from './step/step.component'
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
-import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
+
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
@@ -25,6 +25,7 @@ import { RatingsComponent } from './ratings/ratings.component';
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
+import { ServProvidersComponent } from './serv-providers/serv-providers.component';
 
 const routes: Routes = [
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path:'quoteresponses',component:QuoteresponsesComponent},
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
+  {path:'serviceproviders',component:ServProvidersComponent},
 
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},
@@ -49,7 +51,6 @@ const routes: Routes = [
   {path:'success',component:SuccessComponent},
   {path:'adminaddservices',component:AdminaddservicesComponent},
   {path:'update/:serviceId',component:UpdateComponent},
-  {path:'servicesdescription',component:ServicesdescriptionComponent},
   {path:'successpurchase',component:SuccesspurchaseComponent},
   {path:':code',component:FormComponent},
   {path:'error',component:ErrorComponent},

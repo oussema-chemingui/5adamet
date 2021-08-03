@@ -60,6 +60,13 @@ getserviceproviders():Observable<any>{
 }
 
 
+deleteprovider(providerObj):Observable<any>{
+  return this.hc.delete(`${this.API_SERVER}/serviceproviders/${providerObj}`)
+}
+
+
+
+
 //services
   postservices(servicesObj):Observable<null>{
     return this.hc.post<null>(`${this.API_SERVER}/services/createservices`,servicesObj)
@@ -136,18 +143,8 @@ getserviceproviders():Observable<any>{
 
 
 
-   addquantitytocart(cartObj):Observable<any>{
-     return this.hc.put("/cart/addquantitytocart",cartObj)
-   }
-
-   removequantitytocart(cartObj):Observable<any>{
-    return this.hc.put("/cart/removequantitytocart",cartObj)
-  }
-
+  
    
-
-   
-
 
    getUserDetails(serviceId):Observable<any>{
     return this.hc.get(`/services/getservices/${serviceId}`)

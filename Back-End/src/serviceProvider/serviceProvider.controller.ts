@@ -32,7 +32,17 @@ export class ServiceProviderController {
   }
 
 
+  @Get('getprovider/:id')
+  getService(@Param('id', ParseIntPipe) serviceId) {
+    return this.serviceProviderService.getProvider(serviceId);
+  }
 
+
+  @Delete(':id')
+  deleteService(@Param('id',ParseIntPipe) id : number): Promise<any> {
+    console.log(id)
+    return this.serviceProviderService.deleteProvider(id);
+  }
 
 
 }
