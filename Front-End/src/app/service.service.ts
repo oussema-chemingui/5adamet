@@ -18,24 +18,14 @@ export class ServiceService {
   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
 }
 
-
-
 postSPsignup(userobj):Observable<null>{
   return this.hc.post<null>(`${this.API_SERVER}/auth/serviceprovider/signup`,userobj)
 }
 
 
-
-
-
-
 postusersignup(userobj):Observable<null>{
   return this.hc.post<null>(`${this.API_SERVER}/auth/users/signup`,userobj)
 }
-
-
-
-
 
 
  getadminlogin(userObj):Observable<{ accessToken: string }>{
@@ -73,20 +63,14 @@ deleteprovider(providerObj):Observable<any>{
   }
 
 
-
-
-
   getservices():Observable<any>{
     return this.hc.get(`${this.API_SERVER}/services/getservices`)
   }
 
 
-
-
   deleteservices(serviceObj):Observable<any>{
     return this.hc.delete(`${this.API_SERVER}/services/deleteservices/${serviceObj}`)
   }
-
 
 //cart
   addtocart(cartObj):Observable<any>{
@@ -109,42 +93,25 @@ deleteprovider(providerObj):Observable<any>{
     return this.hc.delete(`${this.API_SERVER}/cart/${cartItemId}`)
       }
  
-
-
-
-
       //contact
       postcontactdata(contactObj):Observable<any>{
         return this.hc.post(`${this.API_SERVER}/contacts/new-mail`,contactObj)
       }
    
 
-
-         //reviews
-
       postreview(reviewObj):Observable<any>{
         return this.hc.post(`${this.API_SERVER}/reviews/addreview`,reviewObj)
       }
       
 
-      getreviews():Observable<any>{
-        return this.hc.get(`${this.API_SERVER}/reviews/getreviews`)
-      }
-
-
-
-
-
-
-
    postprofdata(profObj):Observable<any>{
      return this.hc.post("/professional/createprof",profObj)
    }
 
+   addquantitytocart(cartObj):Observable<any>{
+     return this.hc.put("/cart/addquantitytocart",cartObj)
+   }
 
-
-  
-   
 
    getUserDetails(serviceId):Observable<any>{
     return this.hc.get(`/services/getservices/${serviceId}`)
@@ -165,5 +132,22 @@ deleteprovider(providerObj):Observable<any>{
      return this.hc.get("/professional/getdetails")
    }
    
+   ////////////oussema//////////////////////////////////
+
+  //  createQuotedemand():Observable<any>{
+  //    return this.hc.post(`${this.API_SERVER}/costestimation/create`,quoteDemandObj)
+  //  }
+
+   getAllDemands():Observable<any>{
+     return this.hc.get(`${this.API_SERVER}/costestimation/all`)
+   }
+
+   getAllResponsesById(id):Observable<any>{
+     return this.hc.get(`${this.API_SERVER}/spresponse/spresponses/${id}`)
+   }
+
+  //  createQuoteResponse(id):Observable<any>{
+  //    return this.hc.post(`${this.API_SERVER}/spresponse/${id}`,quoteResponseObj)
+  //  }
   
 }

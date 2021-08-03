@@ -42,7 +42,9 @@ const routes: Routes = [
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteinfo',component:QuoteinfoComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
+
   {path:'serviceproviders',component:ServProvidersComponent},
+
 
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},
