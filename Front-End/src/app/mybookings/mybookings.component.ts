@@ -131,51 +131,6 @@ this.us.deletefrmcart(obj.id).subscribe(
     }
     
     
-    addquantitytocart(service){
-      console.log("in compo",service)
-      let serviceObj = {"username":this.username,"subservice":service.subservice,"cost":service.cost,"status":true,"quantity":1+service.quantity,"image":service.image};
-      console.log("in compo",serviceObj)
-      this.us.addquantitytocart(serviceObj).subscribe(
-        (res)=>{
-          if(res["message"]=="added to the cart")
-         alert("added to cart")
-         
-         let currentUrl = this.router.url;
-         this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-             this.router.navigate([currentUrl]);
-         });
-     
-        },
-        (err)=>{
-          alert("Something went wrong")
-          console.log(err)
-        }
-      )
-    }
-
-
-
-    removequantitytocart(service){
-      console.log("in compo",service)
-      let serviceObj = {"username":this.username,"subservice":service.subservice,"cost":service.cost,"status":true,"quantity":service.quantity-1,"image":service.image};
-      console.log("in compo",serviceObj)
-      this.us.removequantitytocart(serviceObj).subscribe(
-        (res)=>{
-          if(res["message"]=="removed to the cart")
-         alert("removed from cart")
-         
-         let currentUrl = this.router.url;
-         this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-             this.router.navigate([currentUrl]);
-         });
-     
-        },
-        (err)=>{
-          alert("Something went wrong")
-          console.log(err)
-        }
-      )
-    }
 
     submitorder(){
       if(this.checkoutForm.valid){

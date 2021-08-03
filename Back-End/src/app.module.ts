@@ -18,6 +18,8 @@ import { CartModule } from './cart/cart.module';
 import { ContactModule } from './contact/contact.module';
 import { NodemailerDrivers, NodemailerModule, NodemailerOptions } from '@crowdlinker/nestjs-mailer';
 import { ReviewModule } from './reviews/review.module';
+import { ServiceProviderModule } from './serviceProvider/serviceProvider.module';
+
 
 @Module({
   imports: [
@@ -71,6 +73,8 @@ import { ReviewModule } from './reviews/review.module';
     CartModule,
     //ContactModule,
     ReviewModule,
+    ServiceProviderModule,
+    
 
     CloudinaryModule,
     ConfigModule.forRoot({

@@ -80,6 +80,7 @@
 
 .star-widget {
   display: inline-block;
+  margin-left: 120px;
 }
 
 .star-widget span {
@@ -113,6 +114,7 @@
 
 .fb-text {
   text-align: left;
+  margin-left: 150px;
 }
 
 .fb-text .more-text {

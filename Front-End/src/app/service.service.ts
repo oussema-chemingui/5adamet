@@ -44,6 +44,19 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 // }));
    }
 
+//serviceProvider
+getserviceproviders():Observable<any>{
+  return this.hc.get(`${this.API_SERVER}/serviceproviders/getall`)
+}
+
+
+deleteprovider(providerObj):Observable<any>{
+  return this.hc.delete(`${this.API_SERVER}/serviceproviders/${providerObj}`)
+}
+
+
+
+
 //services
   postservices(servicesObj):Observable<null>{
     return this.hc.post<null>(`${this.API_SERVER}/services/createservices`,servicesObj)
@@ -85,8 +98,9 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
         return this.hc.post(`${this.API_SERVER}/contacts/new-mail`,contactObj)
       }
    
+
       postreview(reviewObj):Observable<any>{
-        return this.hc.post(`${this.API_SERVER}/review/addreview`,reviewObj)
+        return this.hc.post(`${this.API_SERVER}/reviews/addreview`,reviewObj)
       }
       
 
@@ -98,9 +112,6 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
      return this.hc.put("/cart/addquantitytocart",cartObj)
    }
 
-   removequantitytocart(cartObj):Observable<any>{
-    return this.hc.put("/cart/removequantitytocart",cartObj)
-  }
 
    getUserDetails(serviceId):Observable<any>{
     return this.hc.get(`/services/getservices/${serviceId}`)

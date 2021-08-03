@@ -18,15 +18,42 @@ export class FormRevComponent implements OnInit {
   day:string;
   month:string;
   year:string;
+
+  serviceProviderObjects:any[];
+  serviceProvider: Array<any> =  [];
+
   constructor(private fb: FormBuilder, private us:ServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.fbForm = this.fb.group({
-      userName: ['', Validators.required],
+      username: ['', Validators.required],
+      sp_name: ['', Validators.required],
       contact: ['', Validators.required],
       city:[''],
       feedback: ['', Validators.required]
     });
+
+    
+
+
+    this.us.getserviceproviders().subscribe(
+      (res)=>{
+
+      
+        this.serviceProviderObjects=res;
+        
+        this.serviceProviderObjects.forEach(elem =>{
+          this.serviceProvider.push(elem.name)
+     })
+     console.log(this.serviceProvider)
+      },
+      (err)=>{
+        alert("Something went wrong")
+        console.log(err)
+      }
+    )
+
+    
   }
   rateFive(){
     this.rating = 5;
@@ -53,39 +80,52 @@ export class FormRevComponent implements OnInit {
     this.date = this.day + "/" + this.month + "/" + this.year;
     return this.date;
   }
+
   submit(form: NgForm){
     this.date = this.createDate();
     
     if(!form.valid){
       return;
     }
-    console.log(form.value.city);
+    console.log(form.value.sp_name);
     this.obj = {
-      userName:form.value.name,
+      username:form.value.name,
+      sp_name:form.value.sp_name,
       contact:form.value.contact,
       rating:this.rating,
       date:this.date,
       city:form.value.city,
-      
       feedback:form.value.feedback,
      
     }
-    console.log(this.obj);
-    this.us.postreview( this.obj).subscribe(resData =>{
-      console.log(resData);
-    });
-   // this.router.navigate(['/']);
-    form.reset();
+    console.log('Reviews',this.obj);
+    this.us.postreview( this.obj).subscribe(
+      () =>{
+    
+      console.log('review added')
+   
+      form.reset();
+      let currentUrl = this.router.url;
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+          this.router.navigate([currentUrl]);
+      });
+  
+    },
+    (err)=>{
+      console.log(err)
+    })
+     
   }
 
 }
 interface UserReview{
   rating:number;
-  userName:string;
+  username:string;
   city?:string;
   feedback?:string;
   contact:string;
   date:string;
+  sp_name:string;
   dp?: File;
 
 }

@@ -3,13 +3,31 @@ import {
     InternalServerErrorException,
   } from '@nestjs/common';
   import { EntityRepository, Repository } from 'typeorm';
-  import { AuthCredentialsDto } from '../auth/dto/auth-credentials.dto';
+ 
   import { ServiceProvider } from './serviceProvider.entity';
   import * as bcrypt from 'bcrypt';
 import { SignUpDto } from 'src/auth/dto/auth-credentials-signup.dto';
   
   @EntityRepository(ServiceProvider)
   export class ServiceProviderRepository extends Repository<ServiceProvider> {
+   
+    async getAllItems(): Promise<ServiceProvider[]>{
+
+
+      const query = this.createQueryBuilder('serviceProvider')
+
+      try {
+          const ServiceProviders = await query.getMany()
+          return ServiceProviders;
+        } catch (error) {
+          console.error(error);
+        }
+     
+  }
+    
+    
+    
+    
     
     async createServiceProvider(authCredentialsDto: SignUpDto): Promise<void> {
       const { email, password ,name} = authCredentialsDto;
