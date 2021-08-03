@@ -40,8 +40,6 @@ const routes: Routes = [
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteinfo',component:QuoteinfoComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
-
-
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},
   {path:'costestimation',component:QuotedemandComponent},
