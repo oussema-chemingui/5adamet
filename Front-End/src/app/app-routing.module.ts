@@ -22,18 +22,25 @@ import { QuotedemandComponent } from './quotedemand/quotedemand.component';
 
 import { FormRevComponent } from './formrev/formrev.component';
 import { RatingsComponent } from './ratings/ratings.component';
+
+ 
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
-import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
+import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
+import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
+
 import { ServProvidersComponent } from './serv-providers/serv-providers.component';
 
 const routes: Routes = [
 
   {path:"",redirectTo:"/home",pathMatch:"full"},
 
+
+
   {path:'quotedemands',component:QuotedemandsComponent},
   {path:'quoteresponses',component:QuoteresponsesComponent},
   {path:'quotedemand',component:QuotedemandComponent},
+  {path:'quoteinfo',component:QuoteinfoComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
   {path:'serviceproviders',component:ServProvidersComponent},
 
