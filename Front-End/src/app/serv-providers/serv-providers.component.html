@@ -1,7 +1,7 @@
 <div class="container">
     <div class="m-4 text-center">
       <button class="btn btn-style"type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Preview
+        Preview Service Providers
       </button></div>
     </div>
     <div class="collapse" id="collapseExample">
@@ -38,3 +38,42 @@
       </table>
     </div>
     
+    <div class="container">
+      <div class="m-4 text-center">
+        <button class="btn btn-style"type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Preview Users
+        </button></div>
+      </div>
+      <div class="collapse" id="collapseExample">
+        <table class="table table-striped table-hover align-middle">
+          <thead>
+            <tr>
+              
+              
+              <th scope="col">User Name</th>
+              <th scope="col">User Email</th>
+              <th scope="col">User Address</th>
+              <th scope="col">User Phone</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of usersObjects">
+              
+             
+              <td id="editrow">{{user.name}}</td>
+              <td id="editrow">{{user.email}}</td>
+              <td id="editrow">{{user.adress}}</td>
+              <td id="editrow">{{user.Phone}}</td>
+              
+              
+              <td >
+                <div class="row ">
+                <div class="col-md-5 col-12 m-3 m-md-0"><button class="btn button-delete" (click)="delete2(user)">Delete</button></div>
+              </div>
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+      </div>

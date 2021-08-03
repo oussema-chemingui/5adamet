@@ -19,6 +19,7 @@ import { ContactModule } from './contact/contact.module';
 import { NodemailerDrivers, NodemailerModule, NodemailerOptions } from '@crowdlinker/nestjs-mailer';
 import { ReviewModule } from './reviews/review.module';
 import { ServiceProviderModule } from './serviceProvider/serviceProvider.module';
+import { UserModule } from './auth/user.module';
 
 
 @Module({
@@ -74,7 +75,7 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
     //ContactModule,
     ReviewModule,
     ServiceProviderModule,
-    
+    UserModule,
 
     CloudinaryModule,
     ConfigModule.forRoot({

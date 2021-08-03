@@ -19,11 +19,12 @@
     <div class="card-left">
       <img class="card-img" src="../../assets/images/userano.png">
       <br><br>
+      <p class="card-text">{{rev.city}} </p>
       <p><i class="fa fa-check-circle" style="color:#3333ff;" aria-hidden="true"></i>&nbsp;&nbsp;Verified</p>
       
     </div>
 
-    <div class="profile-info"><p class="card-title">{{rev.username}}</p><p class="card-text">{{rev.city}}</p>
+    <div class="profile-info"><p class="card-title">{{rev.username}}</p><p class="card-text">SP : {{rev.sp_name}} </p>
       </div>
     </div>
       <br>
@@ -40,7 +41,9 @@
         <p class="fb-text">{{rev.feedback}}</p>
      
     </div>
-  
+    
+      <button *ngIf="isAdmin && !isUser" class="btn button-delete btn-danger" (click)="delete(rev)">Delete</button>
+   
 </div>
 
 </div>

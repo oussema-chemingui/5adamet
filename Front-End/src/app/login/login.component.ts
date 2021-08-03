@@ -84,6 +84,7 @@ export class LoginComponent implements OnInit {
       },
       (err)=>{
         console.log(err)
+        alert('Please check your Entries')
       }
     )
  }

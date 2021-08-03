@@ -65,6 +65,15 @@ deleteprovider(providerObj):Observable<any>{
 }
 
 
+//users
+
+getusers():Observable<any>{
+  return this.hc.get(`${this.API_SERVER}/users/getall`)
+}
+
+deleteuser(userObj):Observable<any>{
+  return this.hc.delete(`${this.API_SERVER}/users/${userObj}`)
+}
 
 
 //services
@@ -132,6 +141,9 @@ deleteprovider(providerObj):Observable<any>{
       }
 
 
+      deletereview(reviewObj):Observable<any>{
+        return this.hc.delete(`${this.API_SERVER}/reviews/${reviewObj}`)
+      }
 
 
 
