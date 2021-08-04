@@ -92,14 +92,10 @@ update(serviceId){
       console.log(serviceObj.id)  
   this.us.deleteservices(serviceObj.id).subscribe(
     ()=>{
-      
-        
       let currentUrl = this.router.url;
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
           this.router.navigate([currentUrl]);
       });
-  
-  
     },
     (err)=>{
       console.log(err)

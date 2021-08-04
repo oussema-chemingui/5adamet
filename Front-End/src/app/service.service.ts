@@ -123,9 +123,9 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
    
    ////////////oussema//////////////////////////////////
 
-  //  createQuotedemand():Observable<any>{
-  //    return this.hc.post(`${this.API_SERVER}/costestimation/create`,quoteDemandObj)
-  //  }
+   createQuotedemand(quoteDemandObj):Observable<any>{
+     return this.hc.post(`${this.API_SERVER}/costestimation/create`,quoteDemandObj)
+   }
 
    getAllDemands():Observable<any>{
      return this.hc.get(`${this.API_SERVER}/costestimation/all`)

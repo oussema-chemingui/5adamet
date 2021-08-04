@@ -16,7 +16,6 @@ import { CostestimationService } from './costestimation.service';
 import { CreateCostEstimationDto } from './dto/costestimation.dto';
 
 @Controller('costestimation')
-@UseGuards(AuthGuard())
 export class CostestimationController {
   constructor(private costEstimationService: CostestimationService) {}
 

@@ -71,7 +71,8 @@ import { ReviewModule } from './reviews/review.module';
     CartModule,
     //ContactModule,
     ReviewModule,
-
+    CostestimationModule,
+    SpresponseModule,
     CloudinaryModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
@@ -83,8 +84,7 @@ import { ReviewModule } from './reviews/review.module';
   // controllers: [LinkController,],
   providers: [
     // LinkService,
-    CostestimationModule,
-    SpresponseModule,
+    
     
   ],
 })

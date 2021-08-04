@@ -23,8 +23,6 @@ services=["cleaning","plumbing","carpenter","painter","saloon for men","saloon f
         res=>{
           console.log(res["message"])
           this.userDetailsObj=res["message"]
-
-         
         },
         err=>{}
       )
