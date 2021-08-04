@@ -38,7 +38,9 @@ export class StepComponent implements OnInit {
      role:this.User.role,
      name:this.User.name,
      password:this.User.password,
-     email:this.User.email
+     email:this.User.email,
+     phone:this.User.phone,
+     address:this.User.address,
     })
   }
   current = 0;
