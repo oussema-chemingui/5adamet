@@ -32,7 +32,7 @@ export class RatingsComponent implements OnInit {
     
     this.username=localStorage.getItem("name")
     let token=localStorage.getItem("token")
-    if (token==null || localStorage.getItem("role")=='ServiceProvider' ){
+    if (token==null ){
       localStorage.clear();
       alert("Unauthorized access")
       this.router.navigateByUrl("/login")

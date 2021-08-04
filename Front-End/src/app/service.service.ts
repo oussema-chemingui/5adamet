@@ -13,7 +13,7 @@ export class ServiceService {
   
  constructor(private hc:HttpClient) {}
 
-//users
+//users autentification
  postadminsignup(userobj):Observable<any>{
   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
 }
@@ -113,6 +113,8 @@ deleteuser(userObj):Observable<any>{
       }
    
 
+      //reviews
+
       postreview(reviewObj):Observable<any>{
         return this.hc.post(`${this.API_SERVER}/reviews/addreview`,reviewObj)
       }
@@ -129,15 +131,21 @@ deleteuser(userObj):Observable<any>{
 
 
 
+      //cost estimation
+
+      postcostestimation(costObj):Observable<null>{
+        return this.hc.post<null>(`${this.API_SERVER}/costestimations/createcost`,costObj)
+      }
 
 
-   postprofdata(profObj):Observable<any>{
-     return this.hc.post("/professional/createprof",profObj)
-   }
 
-   addquantitytocart(cartObj):Observable<any>{
-     return this.hc.put("/cart/addquantitytocart",cartObj)
-   }
+      getcostestimations():Observable<any>{
+        return this.hc.get(`${this.API_SERVER}/costestimations/getcosts`)
+      }
+
+
+
+
 
 
    getUserDetails(serviceId):Observable<any>{

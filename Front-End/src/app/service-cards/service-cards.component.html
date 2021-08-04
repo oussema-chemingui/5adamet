@@ -16,3 +16,22 @@
   
 </div>
 
+<section id="gallery">
+  <div class="container">
+    <div class="row">
+    <div class="col-lg-4 mb-4" *ngFor="let cost of costestimationsArray">
+    <div class="card">
+      <img [src]="service?.image" height="200px" width="auto">
+      <div class="card-body">
+        <h5 class="card-title">{{cost.city}}</h5>
+        <p class="card-text">{{cost.description}}</p>
+       <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+        <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+      </div>
+     </div>
+    </div>
+  
+    
+  </div>
+</div>
+</section>

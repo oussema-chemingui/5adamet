@@ -78,7 +78,7 @@ import { UserModule } from './auth/user.module';
     ReviewModule,
     ServiceProviderModule,
     UserModule,
-
+    CostestimationModule,
     CloudinaryModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
@@ -90,8 +90,7 @@ import { UserModule } from './auth/user.module';
   // controllers: [LinkController,],
   providers: [
     // LinkService,
-    CostestimationModule,
-    SpresponseModule,
+   
     
   ],
 })

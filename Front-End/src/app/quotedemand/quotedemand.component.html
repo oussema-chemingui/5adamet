@@ -1,23 +1,46 @@
-<form #fbForm="ngForm" (ngSubmit)="submit(fbForm)" ngModel>
-     
-    <label for="spname" class="lbls">Please Select The Service You Wish To Ask a Cost For</label>
-        <select name="sp_name" class="form-control" id="sp_name" ngModel>
-        <option value="default">--Select A Service--</option>
-        <option *ngFor="let service of services" [value]="sp">{{service}}</option> 
-      </select>
-        
-	  <div class="form-group">
-        <label for="city" class="lbls">City</label>
-        <input type="text" name="city" id="city" class="form-control" ngModel>
-        </div>
-		
-        <header></header>
-            <div class="form-group">
-        <label for="feedback" class="lbls">Please Describe your Need</label>
-        <textarea rows="4" cols="50" name="feedback" ngModel></textarea></div>
-        
-            <div class="form-group">
-        <div class="btn">
-        <button type="submit" >Send</button></div>
-        </div>
-        </form>
+<div class="container">
+  
+  <div class="container1 mt-5">
+    <div class="backgrnd">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8" >
+        <h1 class="text mt-4"><strong>COST ESTIMATION REQUEST</strong></h1>
+    <form class="form mt-5" #fbForm="ngForm" (ngSubmit)="submit(fbForm)">
+      <label>Please Choose The Main Service You Need</label>
+          <div class="form-floating mb-3" >
+            <select type="text" class="form-control" id="service" placeholder="mainservice" name="service" ngModel>
+              <option [value]="service" *ngFor="let service of services">{{service}}</option>
+              </select>
+            <label for="main_service" class="usertext">Main Service</label>
+          </div>
+
+          
+          <label>Your City ?</label>
+          <div class="form-floating mb-3" >
+            <input type="text" class="form-control" id="city" placeholder="city" name="city" ngModel>
+            <label for="city" class="usertext">city</label>
+          </div>
+
+
+          <div class="form-group mb-6">
+            <label>Please Give Us a Detailed Description For Your Need</label>
+            <textarea type="text" class="form-control " id="description" placeholder="description" name="description" ngModel>Description
+           
+            </textarea>
+          </div>
+
+
+         <div class="form-group mb-3" >
+            <label for="uploadphoto" class="form-label">
+              <input type="file" class="form-control" id="uploadphoto" (change)="incomingfile($event)" name="image" accept="image/*" placeholder="Upload file">
+            </label>
+          </div>  
+<br>
+          <div class="text-center mb-3">
+            <button class="btn btn-style  ms-auto" value="submit"> Ask For Cost Estimation </button>
+          </div>
+    </form>
+  </div>
+  
+  </div>

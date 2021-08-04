@@ -25,7 +25,4 @@ export class ServiceProvider {
   @Column({default: 'ServiceProvider'})
   role : string
 
-  @OneToMany( () => SpResponse, spResponse => spResponse.serviceProvider, { eager: true }) 
-spResponse : SpResponse[]
-
 }

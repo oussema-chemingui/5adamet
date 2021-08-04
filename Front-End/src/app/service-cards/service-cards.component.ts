@@ -19,7 +19,27 @@ export class ServiceCardsComponent implements OnInit {
   constructor(private us:ServiceService, private router:Router) { }
 
   ngOnInit(): void {
+    let tokenverify=localStorage.getItem("token")
+    if(tokenverify==null || localStorage.getItem("role")!=='ServiceProvider'){
+      localStorage.clear();
+      alert("Unauthorized access")
+   this.router.navigateByUrl("/home")
+   setTimeout(()=>{
+    window.location.reload();
+  },10)
+    }
+   
+    this.us.getcostestimations().subscribe(
+      (res)=>{
 
+        console.log(res)
+        this.costestimationsArray=res
+      },
+      (err)=>{
+        alert("Something went wrong")
+        console.log(err)
+      }
+    )
    
   }
   

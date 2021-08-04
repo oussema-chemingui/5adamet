@@ -1,14 +1,29 @@
-import { IsNotEmpty,IsOptional } from 'class-validator';
+import { IsNotEmpty,IsOptional, IsString } from 'class-validator';
 
 export class CreateCostEstimationDto {
   
   @IsNotEmpty()
-  description: string;
+  @IsString()
+  description:string;
 
   @IsNotEmpty()
-  date: Date;
+  @IsString()
+  date:string;
 
   @IsNotEmpty()
+  @IsString()
   service:string;
+  
+  @IsNotEmpty()
+  @IsString()
+  city:string;
 
+  @IsNotEmpty()
+  @IsString()
+  username:string;
+
+  @IsOptional()
+  image ?:string;
+
+ 
 }

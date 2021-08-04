@@ -34,13 +34,13 @@ export class QuotedemandComponent  {
       window.location.reload();
     },10)
    }
-
+this.username=localStorage.getItem("name")
 
 
    this.fbForm = this.fb.group({
     username: [''],
     service: ['', Validators.required],
-    city:[''],
+    city:['', Validators.required],
     description: ['', Validators.required]
   });
 
@@ -49,13 +49,77 @@ export class QuotedemandComponent  {
 
   }
 
-  submit(form: NgForm){}
+  createDate(){
+    var numday = new Date().getDate();
+    this.day = numday.toString();
+    numday = new Date().getMonth();
+    this.month = numday.toString();
+    numday = new Date().getFullYear();
+    this.year = numday.toString();
+    this.date = this.day + "/" + this.month + "/" + this.year;
+    return this.date;
+  }
+
+
+
+  file:File;
+  incomingfile(event){
+
+   this.file = event.target.files[0]
+  
+  }
+
+  formData = new FormData()
+
+  submit(fbForm){
+
+    let {service,city,description} = fbForm.value
+
+    this.date = this.createDate();
+
+    // this.obj = {
+    //   username:this.username,
+    //   service:form.value.service,
+    //   date:this.date,
+    //   city:form.value.city,
+    //   description:form.value.description,
+     
+    // }
+
+
+    //serviceObj.status=true;
+    this.formData.append("image",this.file,this.file.name)
+    //this.formData.append("serviceObj",JSON.stringify(serviceObj))
+ this.formData.append('username',this.username)
+ this.formData.append('date',this.date)
+ this.formData.append('description',description)
+ this.formData.append('service',service)
+ this.formData.append('city',city)
+
+    console.log('OBJJ',this.obj)
+    this.us.postcostestimation(this.formData).subscribe(
+      () =>{
+    
+      alert('cost estimation sent we will contact you ASAP!')
+   
+     // form.reset();
+      let currentUrl = this.router.url;
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+          this.router.navigate([currentUrl]);
+      });
+  
+    },
+    (err)=>{
+      console.log(err)
+    })
+
+  }
 
 
 }
 
 interface UserCost{
-  service:number;
+  service:string;
   username:string;
   city?:string;
   description?:string;
