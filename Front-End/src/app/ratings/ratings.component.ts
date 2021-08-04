@@ -41,10 +41,6 @@ export class RatingsComponent implements OnInit {
       },10)
     }
 
-if(localStorage.getItem("role")=='admin'){
-  this.isAdmin ==true ; 
- 
-}
 
 
     const s = this.renderer2.createElement('script');

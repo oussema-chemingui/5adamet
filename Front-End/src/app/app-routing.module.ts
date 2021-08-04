@@ -28,6 +28,7 @@ import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
+import { ServiceCardsComponent } from './service-cards/service-cards.component';
 
 
 
@@ -42,7 +43,9 @@ const routes: Routes = [
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteinfo',component:QuoteinfoComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
+
   {path:'serviceproviders',component:ServProvidersComponent},
+  {path:'serviceproviderprofil',component:ServiceCardsComponent},
 
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},

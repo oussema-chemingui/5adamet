@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
          }
 
         else if (tokenInfo.role =='ServiceProvider'){
-          this.router.navigateByUrl("/profilesp")
+          this.router.navigateByUrl("/serviceproviderprofil")
           setTimeout(()=>{
             window.location.reload();
           },10)
