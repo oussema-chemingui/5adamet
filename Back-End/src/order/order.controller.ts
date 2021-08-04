@@ -19,7 +19,7 @@ import { Connection } from 'typeorm';
 import { InjectStripe } from 'nestjs-stripe';
 import Stripe from 'stripe';
 import { ConfigService } from '@nestjs/config';
-import { string } from '@hapi/joi';
+import { EventEmitter2 } from '@nestjs/event-emitter';
 
 @Controller()
 export class OrderController {
@@ -31,6 +31,7 @@ export class OrderController {
     private connection: Connection,
     @InjectStripe() private readonly stripeClient: Stripe,
     private configService: ConfigService,
+    private eventEmitter: EventEmitter2,
   ) {}
 
   @Get('admin/order')
@@ -127,5 +128,7 @@ export class OrderController {
     }
 
     await this.orderService.update(order.id, { complete: true });
+
+    await this.eventEmitter.emit('order completed', order);
   }
 }
