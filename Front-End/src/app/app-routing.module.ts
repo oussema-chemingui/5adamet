@@ -30,6 +30,7 @@ import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.compone
 import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
 
 import { ServProvidersComponent } from './serv-providers/serv-providers.component';
+import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.component';
 
 const routes: Routes = [
 
@@ -61,8 +62,10 @@ const routes: Routes = [
   {path:'adminaddservices',component:AdminaddservicesComponent},
   {path:'update/:serviceId',component:UpdateComponent},
   {path:'successpurchase',component:SuccesspurchaseComponent},
-  {path:':code',component:FormComponent},
+  {path:'stripe',component:StripeCheckoutComponent},
   {path:'error',component:ErrorComponent},
+  // {path:':code',component:FormComponent},
+
   
 
   {path: '404', component: PagenotfoundComponent},

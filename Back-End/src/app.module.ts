@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
+import { StripeModule } from '@golevelup/nestjs-stripe';
 
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { CostestimationModule } from './costestimation/costestimation.module';
@@ -30,6 +31,13 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
       envFilePath: [`.env.stage.${process.env.STAGE}`],
       validationSchema: configValidationSchema,
       isGlobal: true,
+    }),
+
+    StripeModule.forRoot(StripeModule, {
+      apiKey: '123',
+      webhookConfig: {
+        stripeWebhookSecret: 'abc',
+      },
     }),
 
     TypeOrmModule.forRootAsync({

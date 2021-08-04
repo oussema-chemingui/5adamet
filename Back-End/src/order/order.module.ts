@@ -6,10 +6,10 @@ import { OrderItem } from './order-item.entity';
 import { OrderItemService } from './order-item.service';
 import { OrderController } from './order.controller';
 import { Order } from './order.entity';
-import { OrderService } from './order.service';
 import { StripeModule } from 'nestjs-stripe';
 import { ConfigService } from '@nestjs/config';
 import { OrderListener } from './listener/order.listener';
+import { OrderService } from './order.service';
 
 @Module({
   imports: [
