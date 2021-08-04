@@ -10,19 +10,18 @@ export class ContactService {
 
    mailing(
    name: string, 
-   phone: string, 
    email: string, 
-   title: string, 
+   subject: string, 
    message: string, 
    ) {
        this.nodeMailerService.sendMail({
         to: config.default.mail.email,
         from: email,
-        subject: title,
+        subject: subject,
         text: message,
         html: `<h2>hey ${name} i want to greet to you</h2>
           <br />
-          <h2>check your phone number: ${phone} for any additional details</h2>`,
+          <h2>please contact us by phone for any additional details</h2>`,
       }).then(value => {
       console.log(value);
       }).catch(err => {

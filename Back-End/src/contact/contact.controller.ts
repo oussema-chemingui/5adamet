@@ -9,11 +9,10 @@ export class ContactController {
   newMail
   (
   @Body('name') name: string, 
-  @Body('phone') phone: string, 
   @Body('email') email: string, 
-  @Body('title') title: string, 
+  @Body('subject') subject: string, 
   @Body('message') message: string, 
   ) {
-    this.contactService.mailing(name, phone, email, title, message);
+    this.contactService.mailing(name, email, subject, message);
   }
 }

@@ -42,14 +42,14 @@ export class CategoryController {
     @Param('id', ParseIntPipe) categoryId: number,
     @Body('name') name: string,
     @Body('description') description: string,
-    @Body('coast') coast: number,
+    @Body('cost') cost: number,
     @UploadedFile() image,
   ) {
     return this.categoryService.createService(
       categoryId,
       name,
       description,
-      coast,
+      cost,
       image
     );
   }
@@ -66,7 +66,7 @@ export class CategoryController {
     @Param('serviceId', ParseIntPipe) serviceId: number,
     @Body('name') name: string,
     @Body('description') description: string,
-    @Body('coast') coast: number,
+    @Body('cost') cost: number,
     @UploadedFile() image,
   ) {
     return this.categoryService.updateService(
@@ -74,7 +74,7 @@ export class CategoryController {
       serviceId,
       name,
       description,
-      coast,
+      cost,
       image,
     );
   }

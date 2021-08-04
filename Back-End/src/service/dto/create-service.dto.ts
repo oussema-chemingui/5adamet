@@ -31,7 +31,7 @@ export class CreateServiceDto {
   @IsPositive()
   @Min(5)
   @Max(100000)
-  coast: number;
+  cost: number;
 
   @IsNotEmpty()
   @IsString()

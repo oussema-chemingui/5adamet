@@ -12,6 +12,7 @@ import {
   Body,
   UsePipes,
   ValidationPipe,
+  Delete,
 } from '@nestjs/common';
 
 import { ServiceService } from './service.service';
@@ -26,11 +27,7 @@ export class ServiceController {
   constructor(private readonly serviceService: ServiceService) {}
 
   @Get('getservices')
- 
-  getServices(
-    @Query() filterDto: GetServicesFilterDto,
-  
-  ): Promise<Service[]> {
+  getServices(@Query() filterDto: GetServicesFilterDto): Promise<Service[]> {
     return this.serviceService.getServices(filterDto);
   }
 
@@ -42,12 +39,17 @@ export class ServiceController {
   @Post('createservices')
   @UsePipes(new ValidationPipe({ transform: true }))
   @UseInterceptors(FileInterceptor('image'))
-  createService( @UploadedFile() image , @Body() createServiceDto: CreateServiceDto ,
- 
-   ) :Promise<Service>  {
+  createService(
+    @UploadedFile() image,
+    @Body() createServiceDto: CreateServiceDto,
+  ): Promise<Service> {
+    return this.serviceService.createService(createServiceDto, image);
+  }
 
-     return this.serviceService.createService(createServiceDto ,image);
-
+  @Delete('/deleteservices/:id')
+  deleteService(@Param('id', ParseIntPipe) id: number): Promise<any> {
+    console.log(id);
+    return this.serviceService.deleteService(id);
   }
 
   @Post('upload')
@@ -55,6 +57,4 @@ export class ServiceController {
   uploadImage(@UploadedFile() file: Express.Multer.File) {
     return this.serviceService.uploadImageToCloudinary(file);
   }
-
-
 }

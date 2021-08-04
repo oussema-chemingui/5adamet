@@ -1,32 +1,48 @@
-<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm(validateForm.value)">
-  <nz-form-item>
-    <nz-form-label  nzRequired>Service</nz-form-label>
-  <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a service" >
-    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
-  </nz-select>
-</nz-form-item>
+<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" >
+				<span class="contact100-form-title">
+					Get cost estimation
+				</span>
 
-  <nz-form-item>
-    <nz-form-label [nzSm]="8" [nzXs]="24" nzRequired>Date</nz-form-label>
-    <nz-form-control [nzSm]="16" [nzXs]="24">
-      <nz-date-picker formControlName="datePicker"></nz-date-picker>
-    </nz-form-control>
-  </nz-form-item>
+				
 
-  <nz-form-item>
-    <nz-form-label [nzSpan]="7" nzRequired>Description</nz-form-label>
-    <nz-form-control [nzSpan]="12" nzErrorTip="Please write something here!">
-      <textarea formControlName="comment" nz-input rows="2" placeholder="Describe you demand precisely"></textarea>
-    </nz-form-control>
-  </nz-form-item>
-    
-   
-    <nz-form-item>
-      <nz-form-control [nzOffset]="7" [nzSpan]="12">
-        <button nz-button nzType="primary" >Submit</button>
-      </nz-form-control>
-    </nz-form-item>
-  
-  </form>
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="inputGroupSelect01">Services</label>
+					<select class="form-select" id="inputGroupSelect01">
+					  <option selected>Choose...</option>
+					  <option value="1">One</option>
+					  <option value="2">Two</option>
+					  <option value="3">Three</option>
+					</select>
+				  </div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<span class="label-input100 fs-5">Description</span>
+					<textarea class="input100" name="message" placeholder="Describe your project precisly ..."></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="md-form md-outline input-with-post-icon datepicker">
+					<span class="label-input100 fs-5 h-100">Select starting date</span>
+					<input placeholder="Select date" type="date" id="example" class="form-control">
+				  </div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>

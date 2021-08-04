@@ -1,0 +1,123 @@
+.container {
+  padding: 0px;
+}
+
+.logo {
+  float: right;
+  width: 300px;
+}
+
+.admin-text {
+  margin-top: 100px;
+}
+
+.admin-text > h3 {
+  font-weight: bold;
+}
+
+.admin-text > p {
+  width: 900px;
+  text-align: justify;
+}
+
+.card {
+  width: 80%;
+  height: 100%;
+  border: 1px solid #3333;
+  border-radius: 10px;
+  -webkit-box-shadow: 20px 20px 50px #b6b6f3;
+          box-shadow: 20px 20px 50px #b6b6f3;
+  margin-top: 3%;
+}
+
+.card-body {
+  padding: 0px;
+  width: 300px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.card-img {
+  border-radius: 50%;
+  border: none;
+  width: 100px;
+  height: 100px;
+}
+
+.card-left {
+  float: left;
+  margin-left: 7%;
+  width: 40%;
+}
+
+.profile-info {
+  margin-left: -2%;
+}
+
+.feedback {
+  float: right;
+  margin-top: -15%;
+  height: 110px;
+  width: 640px;
+}
+
+.card-title {
+  margin-top: 3%;
+  font-size: 14px;
+  color: #333fff;
+  font-weight: bold;
+}
+
+.card-text {
+  color: grey;
+  font-size: small;
+  margin-top: -1%;
+}
+
+.star-widget {
+  display: inline-block;
+  margin-left: 120px;
+}
+
+.star-widget span {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.star-widget .fa {
+  font-size: 26px;
+  padding: 10px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.star-widget .card-date {
+  font-size: 14px !important;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: -40px;
+  margin-left: 10px;
+  color: grey;
+}
+
+.btn {
+  float: right;
+  border: 2px solid #333fff;
+  border-radius: 5px;
+}
+
+.fb-text {
+  text-align: left;
+  margin-left: 150px;
+}
+
+.fb-text .more-text {
+  display: none;
+}
+/*# sourceMappingURL=ratings.component.css.map */

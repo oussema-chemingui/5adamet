@@ -14,14 +14,14 @@ export class DashboardComponent implements OnInit {
   servicesArray=[];
   checkbox:any;
   mainservicename:any;
-  maincategories=["cleaning","plumbing","carpenter","painter","saloon for men","saloon for women","pest control","Applaince Repair"]
+  maincategories=["Cleaning","Plumbing","Carpenter","Painter","Gardening","HVAC ","Pest control","Applaince Repair"]
   selectedcategory:any;
   cartitemsobj:any;
   numberofitems:number;
   username=localStorage.getItem("name")
   email=localStorage.getItem("email")
   phone=localStorage.getItem("phone")
-  adress=localStorage.getItem("adress")
+  address=localStorage.getItem("address")
   
   constructor(private us:ServiceService, private router:Router) { }
    id:Number=0;
@@ -29,7 +29,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     let tokenverify=localStorage.getItem("token")
-    if(tokenverify==null){
+    if(tokenverify==null || localStorage.getItem("role")!=='user'){
+      localStorage.clear();
       alert("Please login to access dashboard")
 this.router.navigateByUrl("/login")
     }
@@ -45,10 +46,10 @@ this.router.navigateByUrl("/login")
       }
     )
     
-    this.us.getservicetocart(this.username).subscribe(
+    this.us.getservicetocart().subscribe(
      res=>{
        console.log(res)
-       this.cartitemsobj=res["message"]
+       this.cartitemsobj=res
        this.numberofitems=this.cartitemsobj.length;
      },
      err=>{alert("something went wrong")
@@ -73,17 +74,17 @@ this.router.navigateByUrl("/login")
 
   addtocart(service){
     
-    console.log("in compo",service)
-    let serviceObj = {"username":this.username,"mainservice":service.mainservice,"name":service.name,"price":service.price,"status":true,"image":service.image};
+   // console.log("SERVICEEEEEE",service)
+    let serviceObj = {"username":this.username,"main_service":service.main_service,"service_name":service.name,"cost":service.cost,"image":service.image ,"quantity":1};
     console.log("in compo",serviceObj)
     this.us.addtocart(serviceObj).subscribe(
       (res)=>{
-        if(res["message"]=="added to the cart"){
-       alert("added to cart")
-       this.us.getservicetocart(this.username).subscribe(
+        if(res){
+      console.log('successssss')
+       this.us.getservicetocart().subscribe(
         res=>{
           console.log(res)
-          this.cartitemsobj=res["message"]
+          
           this.numberofitems=this.cartitemsobj.length;
         },
         err=>{alert("something went wrong")
@@ -99,6 +100,11 @@ this.router.navigateByUrl("/login")
       }
     )
   }
+
+  askforcost(){
+    this.router.navigateByUrl('costestimation')
+  }
+
 
 
 
@@ -130,63 +136,63 @@ this.router.navigateByUrl("/login")
   searchcategory(ref){
     this.selectedcategory=ref.value;
     console.log(this.selectedcategory)
-    if(this.selectedcategory!=""&& this.selectedcategory.cleaning==true){
-      console.log("in comp search category ",this.selectedcategory.cleaning)
+    if(this.selectedcategory!=""&& this.selectedcategory.Cleaning==true){
+      console.log("in comp search category ",this.selectedcategory.Cleaning)
   
-        let selectedvalue="cleaning";
+        let selectedvalue="Cleaning";
     this.servicesArray=this.servicesArray.filter(res=>{
       console.log('CATEGORYYYY',res)
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
-    })} else    if( this.selectedcategory.plumbing==true){
-      console.log("in comp search category ",this.selectedcategory.plumbing)
+    })} else    if( this.selectedcategory.Plumbing==true){
+      console.log("in comp search category ",this.selectedcategory.Plumbing)
   
-        let selectedvalue="plumbing";
+        let selectedvalue="Plumbing";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory.carpenter==true){
-      console.log("in comp search category ",this.selectedcategory.carpenter)
+    else    if( this.selectedcategory.Carpenter==true){
+      console.log("in comp search category ",this.selectedcategory.Carpenter)
   
-        let selectedvalue="carpenter";
+        let selectedvalue="Carpenter";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory.painter==true){
-      console.log("in comp search category ",this.selectedcategory.painter)
+    else    if( this.selectedcategory.Painter==true){
+      console.log("in comp search category ",this.selectedcategory.Painter)
   
-        let selectedvalue="painter";
+        let selectedvalue="Painter";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory["saloon for men"]==true){
-      console.log("in comp search category ",this.selectedcategory["saloon for men"])
+    else    if( this.selectedcategory["Gardening"]==true){
+      console.log("in comp search category ",this.selectedcategory["Gardening"])
   
-        let selectedvalue="saloon for men";
+        let selectedvalue="Gardening";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory["saloon for women"]==true){
-      console.log("in comp search category ",this.selectedcategory["saloon for women"])
+    else    if( this.selectedcategory["HVAC "]==true){
+      console.log("in comp search category ",this.selectedcategory["HVAC "])
   
-        let selectedvalue="saloon for women";
+        let selectedvalue="HVAC ";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory["pest control"]==true){
-      console.log("in comp search category ",this.selectedcategory["pest control"])
+    else    if( this.selectedcategory["Pest control"]==true){
+      console.log("in comp search category ",this.selectedcategory["Pest control"])
   
-        let selectedvalue="pest control";
+        let selectedvalue="Pest control";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
@@ -206,6 +212,8 @@ this.router.navigateByUrl("/login")
       this.ngOnInit();
     }
   }
+  
+
   
 }
 

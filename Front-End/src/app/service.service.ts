@@ -13,29 +13,19 @@ export class ServiceService {
   
  constructor(private hc:HttpClient) {}
 
-
+//users
  postadminsignup(userobj):Observable<any>{
   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
 }
-
-
 
 postSPsignup(userobj):Observable<null>{
   return this.hc.post<null>(`${this.API_SERVER}/auth/serviceprovider/signup`,userobj)
 }
 
 
-
-
-
-
 postusersignup(userobj):Observable<null>{
   return this.hc.post<null>(`${this.API_SERVER}/auth/users/signup`,userobj)
 }
-
-
-
-
 
 
  getadminlogin(userObj):Observable<{ accessToken: string }>{
@@ -54,13 +44,23 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 // }));
    }
 
+//serviceProvider
+getserviceproviders():Observable<any>{
+  return this.hc.get(`${this.API_SERVER}/serviceproviders/getall`)
+}
 
+
+deleteprovider(providerObj):Observable<any>{
+  return this.hc.delete(`${this.API_SERVER}/serviceproviders/${providerObj}`)
+}
+
+
+
+
+//services
   postservices(servicesObj):Observable<null>{
     return this.hc.post<null>(`${this.API_SERVER}/services/createservices`,servicesObj)
   }
-
-
-
 
 
   getservices():Observable<any>{
@@ -68,46 +68,48 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
   }
 
 
-
-
   deleteservices(serviceObj):Observable<any>{
-    return this.hc.put("/services/deleteservices",serviceObj)
+    return this.hc.delete(`${this.API_SERVER}/services/deleteservices/${serviceObj}`)
+  }
+
+//cart
+  addtocart(cartObj):Observable<any>{
+    return this.hc.post(`${this.API_SERVER}/cart/addtocart`,cartObj)
   }
 
 
+  getservicetocart():Observable<any>{
+    return this.hc.get(`${this.API_SERVER}/cart/getitems`)
+       }
 
-
-  
 
    
-   getcart(username):Observable<any>{
-     return this.hc.post("/cart/getitems",username)
-   }
+  //  getcart(username):Observable<any>{
+  //    return this.hc.post("/cart/getitems",username)
+  //  }
+
+
+   deletefrmcart(cartItemId):Observable<any>{
+    return this.hc.delete(`${this.API_SERVER}/cart/${cartItemId}`)
+      }
+ 
+      //contact
+      postcontactdata(contactObj):Observable<any>{
+        return this.hc.post(`${this.API_SERVER}/contacts/new-mail`,contactObj)
+      }
+   
+
+      postreview(reviewObj):Observable<any>{
+        return this.hc.post(`${this.API_SERVER}/reviews/addreview`,reviewObj)
+      }
+      
 
    postprofdata(profObj):Observable<any>{
      return this.hc.post("/professional/createprof",profObj)
    }
 
-
-
-   addtocart(cartObj):Observable<any>{
-     return this.hc.post(`/cart/addtocart`,cartObj)
-   }
-
    addquantitytocart(cartObj):Observable<any>{
      return this.hc.put("/cart/addquantitytocart",cartObj)
-   }
-
-   removequantitytocart(cartObj):Observable<any>{
-    return this.hc.put("/cart/removequantitytocart",cartObj)
-  }
-
-   getservicetocart(username):Observable<any>{
-return this.hc.get(`/cart/getservicesfrmcart/${username}`)
-   }
-
-   deletefrmcart(serviceObj):Observable<any>{
- return this.hc.put("/cart/deletefrmcart",serviceObj)
    }
 
 
@@ -130,5 +132,22 @@ return this.hc.get(`/cart/getservicesfrmcart/${username}`)
      return this.hc.get("/professional/getdetails")
    }
    
+   ////////////oussema//////////////////////////////////
+
+  //  createQuotedemand():Observable<any>{
+  //    return this.hc.post(`${this.API_SERVER}/costestimation/create`,quoteDemandObj)
+  //  }
+
+   getAllDemands():Observable<any>{
+     return this.hc.get(`${this.API_SERVER}/costestimation/all`)
+   }
+
+   getAllResponsesById(id):Observable<any>{
+     return this.hc.get(`${this.API_SERVER}/spresponse/spresponses/${id}`)
+   }
+
+  //  createQuoteResponse(id):Observable<any>{
+  //    return this.hc.post(`${this.API_SERVER}/spresponse/${id}`,quoteResponseObj)
+  //  }
   
 }

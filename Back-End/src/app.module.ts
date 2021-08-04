@@ -10,9 +10,19 @@ import { SpresponseModule } from './spresponse/spresponse.module';
 
 import { ServiceModule } from './service/service.module';
 import { CategoryModule } from './category/category.module';
-import { LinkModule } from './link/link.module';
+// import { LinkController } from './link/link.controller';
+// import { LinkService } from './link/link.service';
+// import { LinkModule } from './link/link.module';
 import { PackageModule } from './package/package.module';
-import { OrderModule } from './order/order.module';
+import { CartModule } from './cart/cart.module';
+import { ContactModule } from './contact/contact.module';
+import {
+  NodemailerDrivers,
+  NodemailerModule,
+  NodemailerOptions,
+} from '@crowdlinker/nestjs-mailer';
+import { ReviewModule } from './reviews/review.module';
+import { ServiceProviderModule } from './serviceProvider/serviceProvider.module';
 
 @Module({
   imports: [
@@ -44,20 +54,42 @@ import { OrderModule } from './order/order.module';
         };
       },
     }),
+    NodemailerModule.forRoot({
+      transport: {
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'user',
+          pass: 'pass',
+        },
+        tls: {
+          // do not fail on invalid certs
+          rejectUnauthorized: false,
+        },
+      },
+    } as NodemailerOptions<NodemailerDrivers.SMTP>),
 
     AuthModule,
-
     ServiceModule,
     CategoryModule,
+    CartModule,
+    //ContactModule,
+    ReviewModule,
+    ServiceProviderModule,
 
     CloudinaryModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
+    // LinkModule,
     PackageModule,
-    OrderModule,
-    LinkModule,
   ],
-  providers: [CostestimationModule, SpresponseModule],
+  // controllers: [LinkController,],
+  providers: [
+    // LinkService,
+    CostestimationModule,
+    SpresponseModule,
+  ],
 })
 export class AppModule {}

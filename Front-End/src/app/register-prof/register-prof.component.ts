@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators,FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 
 
 @Component({
@@ -9,57 +11,38 @@ import { FormControl,FormGroup,Validators,FormBuilder } from '@angular/forms';
 })
 export class RegisterProfComponent implements OnInit {
 
-  personalDetails!: FormGroup;
-  addressDetails!: FormGroup;
-  personal_step = false;
-  address_step = false;
-  step = 1;
-  constructor(private formBuilder: FormBuilder) { }
-  ngOnInit() {
-        this.personalDetails = this.formBuilder.group({
-            name: ['', Validators.required],
-            email: ['', Validators.required],
-            phone: ['',Validators.required]
-        });
-        this.addressDetails = this.formBuilder.group({
-            city: ['', Validators.required],
-            address: ['', Validators.required],
-            pincode: ['',Validators.required]
-        });
+  contactForm: FormGroup;
+  submitted:boolean;
+  
+  constructor(private formBuilder: FormBuilder ,private us:ServiceService , private router: Router,) { }
+  ngOnInit(): void {
+    
+    this.contactForm=new FormGroup({
+   
+     name:new FormControl(null,[Validators.required,Validators.minLength(5),Validators.maxLength(30),Validators.pattern("[a-zA-Z ]*$")]),
+     email:new FormControl(null,[Validators.required,Validators.email]),
+     subject:new FormControl(null, Validators.required),
+     message:new FormControl(null, Validators.required),
+
+   })
+
+  }
+
+
+  onSubmit() {
+    if(this.contactForm.valid){
+
+      console.log('SUBMIIIIIITTTTT',this.contactForm.value);
+      this.us.postcontactdata(this.contactForm.value).subscribe(
+        ()=>{
+           alert('Message Delivered Please Check Your Email')
+        },
+            err=>{ console.log(err)})
+
+    }
+    
+  }
+
         
   }
-  get personal() { return this.personalDetails.controls; }
-  get address() { return this.addressDetails.controls; }
-  next(){
-    if(this.step==1){
-          this.personal_step = true;
-          if (this.personalDetails.invalid) { return  }
-          this.step++
-    }
 
-    if(this.step==2){
-        this.address_step = true;
-        if (this.addressDetails.invalid) { return }
-            this.step++;
-    }
-  }
-  previous(){
-    this.step--
-    if(this.step==1){
-      this.personal_step = false;
-    }
-    if(this.step==2){
-      this.address_step = false;
-    }
-  }
-  submit(){
-    if(this.step==2){
-      this.address_step = true;
-      if (this.addressDetails.invalid) { return }
-    }
-
-
-    console.log(this.personal)
-
-  }
-}
