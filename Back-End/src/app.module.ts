@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
+import { StripeModule } from '@golevelup/nestjs-stripe';
 
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { CostestimationModule } from './costestimation/costestimation.module';
@@ -16,10 +17,13 @@ import { CategoryModule } from './category/category.module';
 import { PackageModule } from './package/package.module';
 import { CartModule } from './cart/cart.module';
 import { ContactModule } from './contact/contact.module';
-import { NodemailerDrivers, NodemailerModule, NodemailerOptions } from '@crowdlinker/nestjs-mailer';
+import {
+  NodemailerDrivers,
+  NodemailerModule,
+  NodemailerOptions,
+} from '@crowdlinker/nestjs-mailer';
 import { ReviewModule } from './reviews/review.module';
 import { ServiceProviderModule } from './serviceProvider/serviceProvider.module';
-
 
 @Module({
   imports: [
@@ -27,6 +31,13 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
       envFilePath: [`.env.stage.${process.env.STAGE}`],
       validationSchema: configValidationSchema,
       isGlobal: true,
+    }),
+
+    StripeModule.forRoot(StripeModule, {
+      apiKey: '123',
+      webhookConfig: {
+        stripeWebhookSecret: 'abc',
+      },
     }),
 
     TypeOrmModule.forRootAsync({
@@ -58,12 +69,12 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
         secure: true,
         auth: {
           user: 'user',
-          pass:'pass',
+          pass: 'pass',
         },
         tls: {
           // do not fail on invalid certs
-          rejectUnauthorized: false
-        }
+          rejectUnauthorized: false,
+        },
       },
     } as NodemailerOptions<NodemailerDrivers.SMTP>),
 
@@ -74,7 +85,6 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
     //ContactModule,
     ReviewModule,
     ServiceProviderModule,
-    
 
     CloudinaryModule,
     ConfigModule.forRoot({
@@ -82,14 +92,12 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
     }),
     // LinkModule,
     PackageModule,
-    
   ],
   // controllers: [LinkController,],
   providers: [
     // LinkService,
     CostestimationModule,
     SpresponseModule,
-    
   ],
 })
 export class AppModule {}

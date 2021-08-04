@@ -56,6 +56,7 @@ import { ServProvidersComponent } from './serv-providers/serv-providers.componen
 import { ServiceCardsComponent } from './service-cards/service-cards.component';
 
 import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
+import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.component';
 
 
 
@@ -104,6 +105,7 @@ registerLocaleData(en);
    ServiceCardsComponent,
 
    QuoteinfoComponent,
+    StripeCheckoutComponent,
 
    
 
