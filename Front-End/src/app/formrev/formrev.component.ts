@@ -21,10 +21,27 @@ export class FormRevComponent implements OnInit {
 
   serviceProviderObjects:any[];
   serviceProvider: Array<any> =  [];
+  username:any;
 
   constructor(private fb: FormBuilder, private us:ServiceService, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.username=localStorage.getItem("name")
+    let token=localStorage.getItem("token")
+    if(token==null || localStorage.getItem("role")=='ServiceProvider' ){
+      localStorage.clear();
+      alert("Unauthorized access")
+      this.router.navigateByUrl("/login")
+      setTimeout(()=>{
+        window.location.reload();
+      },10)
+    }
+
+
+
+
+
     this.fbForm = this.fb.group({
       username: ['', Validators.required],
       sp_name: ['', Validators.required],

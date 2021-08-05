@@ -25,11 +25,6 @@ export class SpResponse {
   @Column()
   status: SpResponseStatus;
 
-  @ManyToOne(() => CostEstimation, (costEstimation) => costEstimation.spResponse, { eager: false })
-  costEstimation : CostEstimation;
-
-  @ManyToOne(() => ServiceProvider, (serviceProvider) => serviceProvider.spResponse, { eager: false })
-  serviceProvider : ServiceProvider;
 
  
 }

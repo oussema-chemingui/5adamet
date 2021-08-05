@@ -186,5 +186,21 @@
 
   /* cards */
 
+  .strongx{
 
+    font-size: 30px;
+    font-family: fantasy;
+  }
   
+  .strongy{
+
+    font-size: 20px;
+    color : grey;
+  }
+  
+  .strongz{
+
+    font-family: revert;
+   
+  }
+

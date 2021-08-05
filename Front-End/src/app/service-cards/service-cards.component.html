@@ -1,25 +1,38 @@
-
+<div class="container border-bottom bg-white mt-1 pt-md-3 pt-2">
+  <div class="d-flex flex-md-row justify-content-around align-items-center">
+      <div class="d-flex flex-md-row align-items-center">
+          <div class="p-md-2 p-1" id="info">
+            <div class="text-muted">Welcome</div>
+            <h5>{{username}}</h5>
+          </div>
+      </div>
+      <div class="d-flex flex-column" id="info">
+          <div class="p-md-1 text-muted"> <span class="fa fa-envelope-o bg-light p-1 rounded-circle"></span> {{email}}</div>
+          <div class="p-md-1 pt-sm-1 text-muted"> <span class="fa fa-phone bg-light p-1 rounded-circle"></span> +(216) {{phone}}</div>
+          
+      </div>
   
-<section id="gallery">
-    <div class="container">
-      <div class="row">
-      <div class="col-lg-4 mb-4" *ngFor="let service of servicesArray">
-      <div class="card">
-        <img [src]="service?.image" alt="" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title text-center"><strong>{{service?.name}}</strong></h5>
-          <h4 class="card-text text-center ">{{service?.cost}} DT / Hour</h4>
-          <p class="card-text text-center">{{service?.description}}</p>
-          <div class="col-md-12 text-center">
-          <a class="btn btn-outline-success btn-sm" (click)="addtocart(service)">Add To Cart</a>
-        </div>
-        </div>
-       </div>
-      </div>
-    <div class="col-lg-4 mb-4">
-    
-      </div>
-    </div>
   </div>
-  </section>
   
+</div>
+<br>
+<br>
+<section id="gallery">
+  <div class="container">
+    <div class="row">
+    <div class="col-lg-4 mb-4" *ngFor="let cost of costestimationsArray">
+    <div class="card">
+      <img [src]="cost?.image" height="200px" width="auto">
+      <div class="card-body">
+        <h5 class="card-title">{{cost.city}}</h5>
+        <p class="card-text">{{cost.description}}</p>
+       <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+        <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+      </div>
+     </div>
+    </div>
+  
+    
+  </div>
+</div>
+</section>

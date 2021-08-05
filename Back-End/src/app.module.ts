@@ -16,14 +16,18 @@ import { CategoryModule } from './category/category.module';
 // import { LinkModule } from './link/link.module';
 import { PackageModule } from './package/package.module';
 import { CartModule } from './cart/cart.module';
+
 import { ContactModule } from './contact/contact.module';
+
 import {
   NodemailerDrivers,
   NodemailerModule,
   NodemailerOptions,
 } from '@crowdlinker/nestjs-mailer';
+
 import { ReviewModule } from './reviews/review.module';
 import { ServiceProviderModule } from './serviceProvider/serviceProvider.module';
+import { UserModule } from './auth/user.module';
 
 @Module({
   imports: [
@@ -62,6 +66,7 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
         };
       },
     }),
+
     NodemailerModule.forRoot({
       transport: {
         host: 'smtp.gmail.com',
@@ -82,9 +87,11 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
     ServiceModule,
     CategoryModule,
     CartModule,
-    //ContactModule,
+    ContactModule,
     ReviewModule,
     ServiceProviderModule,
+    UserModule,
+    CostestimationModule,
 
     CloudinaryModule,
     ConfigModule.forRoot({
@@ -96,8 +103,7 @@ import { ServiceProviderModule } from './serviceProvider/serviceProvider.module'
   // controllers: [LinkController,],
   providers: [
     // LinkService,
-    CostestimationModule,
-    SpresponseModule,
+
   ],
 })
 export class AppModule {}

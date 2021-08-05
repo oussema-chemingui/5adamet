@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService } from '../service.service';
 
@@ -10,5 +10,120 @@ import { ServiceService } from '../service.service';
   styleUrls: ['./quotedemand.component.css']
 })
 export class QuotedemandComponent  {
+  services=["Cleaning","Plumbing","Carpenter","Painter","Gardening","HVAC ","Pest control","Applaince Repair"]
 
+
+  fbForm: FormGroup;
+  service:string;
+  obj:UserCost;
+  date:string;
+  day:string;
+  month:string;
+  year:string;
+  username:any;
+  constructor(private fb: FormBuilder, private us:ServiceService, private router: Router){}
+
+
+  ngOnInit(): void {
+  let token=localStorage.getItem("token")
+  if (token==null || localStorage.getItem("role")=='ServiceProvider' ){
+    localStorage.clear();
+    alert("Unauthorized access")
+    this.router.navigateByUrl("/login")
+    setTimeout(()=>{
+      window.location.reload();
+    },10)
+   }
+this.username=localStorage.getItem("name")
+
+
+   this.fbForm = this.fb.group({
+    username: [''],
+    service: ['', Validators.required],
+    city:['', Validators.required],
+    description: ['', Validators.required]
+  });
+
+
+
+
+  }
+
+  createDate(){
+    var numday = new Date().getDate();
+    this.day = numday.toString();
+    numday = new Date().getMonth();
+    this.month = numday.toString();
+    numday = new Date().getFullYear();
+    this.year = numday.toString();
+    this.date = this.day + "/" + this.month + "/" + this.year;
+    return this.date;
+  }
+
+
+
+  file:File;
+  incomingfile(event){
+
+   this.file = event.target.files[0]
+  
+  }
+
+  formData = new FormData()
+
+  submit(fbForm){
+
+    let {service,city,description} = fbForm.value
+
+    this.date = this.createDate();
+
+    // this.obj = {
+    //   username:this.username,
+    //   service:form.value.service,
+    //   date:this.date,
+    //   city:form.value.city,
+    //   description:form.value.description,
+     
+    // }
+
+
+    //serviceObj.status=true;
+    this.formData.append("image",this.file,this.file.name)
+    //this.formData.append("serviceObj",JSON.stringify(serviceObj))
+ this.formData.append('username',this.username)
+ this.formData.append('date',this.date)
+ this.formData.append('description',description)
+ this.formData.append('service',service)
+ this.formData.append('city',city)
+
+    console.log('OBJJ',this.obj)
+    this.us.postcostestimation(this.formData).subscribe(
+      () =>{
+    
+      alert('cost estimation sent we will contact you ASAP!')
+   
+     // form.reset();
+      let currentUrl = this.router.url;
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+          this.router.navigate([currentUrl]);
+      });
+  
+    },
+    (err)=>{
+      console.log(err)
+    })
+
+  }
+
+
+}
+
+interface UserCost{
+  service:string;
+  username:string;
+  city?:string;
+  description?:string;
+  date:string;
+
+ 
 }
