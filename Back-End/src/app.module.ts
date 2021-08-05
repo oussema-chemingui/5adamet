@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { configValidationSchema } from './config.schema';
+import { StripeModule } from '@golevelup/nestjs-stripe';
 
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { CostestimationModule } from './costestimation/costestimation.module';
@@ -17,12 +18,16 @@ import { PackageModule } from './package/package.module';
 import { CartModule } from './cart/cart.module';
 
 import { ContactModule } from './contact/contact.module';
-import { NodemailerDrivers, NodemailerModule, NodemailerOptions } from '@crowdlinker/nestjs-mailer';
+
+import {
+  NodemailerDrivers,
+  NodemailerModule,
+  NodemailerOptions,
+} from '@crowdlinker/nestjs-mailer';
 
 import { ReviewModule } from './reviews/review.module';
 import { ServiceProviderModule } from './serviceProvider/serviceProvider.module';
 import { UserModule } from './auth/user.module';
-
 
 @Module({
   imports: [
@@ -30,6 +35,13 @@ import { UserModule } from './auth/user.module';
       envFilePath: [`.env.stage.${process.env.STAGE}`],
       validationSchema: configValidationSchema,
       isGlobal: true,
+    }),
+
+    StripeModule.forRoot(StripeModule, {
+      apiKey: '123',
+      webhookConfig: {
+        stripeWebhookSecret: 'abc',
+      },
     }),
 
     TypeOrmModule.forRootAsync({
@@ -54,7 +66,23 @@ import { UserModule } from './auth/user.module';
         };
       },
     }),
-   
+
+    NodemailerModule.forRoot({
+      transport: {
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'user',
+          pass: 'pass',
+        },
+        tls: {
+          // do not fail on invalid certs
+          rejectUnauthorized: false,
+        },
+      },
+    } as NodemailerOptions<NodemailerDrivers.SMTP>),
+
     AuthModule,
     ServiceModule,
     CategoryModule,
@@ -64,19 +92,18 @@ import { UserModule } from './auth/user.module';
     ServiceProviderModule,
     UserModule,
     CostestimationModule,
+
     CloudinaryModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
     // LinkModule,
     PackageModule,
-    
   ],
   // controllers: [LinkController,],
   providers: [
     // LinkService,
-   
-    
+
   ],
 })
 export class AppModule {}

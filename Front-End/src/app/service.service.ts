@@ -184,5 +184,9 @@ deleteuser(userObj):Observable<any>{
   //  createQuoteResponse(id):Observable<any>{
   //    return this.hc.post(`${this.API_SERVER}/spresponse/${id}`,quoteResponseObj)
   //  }
+
+  addQuote(number):Observable<any>{
+    return this.hc.put("/serviceprovider/quotenumber",number)
+  }
   
 }

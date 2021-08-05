@@ -6,6 +6,14 @@ import { CostEstimationStatus } from './costestimation.enum';
 
 @EntityRepository(CostEstimation)
 export class CostEstimationRepository extends Repository<CostEstimation> {
+  async getAllDemands(): Promise<CostEstimation[]> {
+    try {
+      return await this.find();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
 
   async getCostEstimations(): Promise<CostEstimation[]>{
 
