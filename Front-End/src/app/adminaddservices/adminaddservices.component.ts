@@ -10,7 +10,7 @@ import { ServiceService } from '../service.service';
 })
 export class AdminaddservicesComponent implements OnInit {
   servicesArray:any[];
-services=["cleaning","plumbing","carpenter","painter","saloon for men","saloon for women","pest control","Applaince Repair"]
+services=["Cleaning","Plumbing","Carpenter","Painter","Gardening","HVAC ","Pest control","Applaince Repair"]
 constructor(private us:ServiceService, private router:Router){}
   ngOnInit(){
     

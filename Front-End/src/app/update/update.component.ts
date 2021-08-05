@@ -12,7 +12,7 @@ export class UpdateComponent implements OnInit {
   serviceObj:any;
   userDetailsObj:any;
   id:any;
-services=["cleaning","plumbing","carpenter","painter","saloon for men","saloon for women","pest control","Applaince Repair"]
+services=["Cleaning","Plumbing","Carpenter","Painter","Gardening","HVAC ","Pest control","Applaince Repair"]
   constructor(private us:ServiceService  ,private router:Router, private ac:ActivatedRoute) { }
 
   ngOnInit(): void {

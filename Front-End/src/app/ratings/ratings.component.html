@@ -11,22 +11,23 @@
     <p style="text-align:left;color:grey;">{{count}} Reviews</p>
     <br>
   
-    <p >This is the website review for a website lorem ipsum lorem ipsum lorem ipsum. This is the website review for a website lorem ipsum lorem ipsum lorem ipsum. This is the website review for a website lorem ipsum lorem ipsum lorem ipsum. This is the website review for a website lorem ipsum lorem ipsum lorem ipsum. This is the website review for a website lorem ipsum lorem ipsum lorem ipsum. This is the website review for a website lorem ipsum lorem ipsum lorem ipsum. This is the website review for a website lorem ipsum lorem ipsum lorem ipsum. </p>
+    <p >Find the best service provider for your needs, based on our costumers reviews, ratings and recommendations. </p>
   </div>
 <div class="card" *ngFor="let rev of reviews">
   <div class="card-body clearfix">
 
     <div class="card-left">
-      <img class="card-img" src="assets/imgs/user_avatar.png">
-      <a href='{{rev.url}}' class="card-link">{{rev.url}}</a>
+      <img class="card-img" src="../../assets/images/userano.png">
       <br><br>
-      <p *ngIf="rev.verified;"><i class="fa fa-check-circle" style="color:#3333ff;" aria-hidden="true"></i>&nbsp;&nbsp;Verified</p>
+      <p><i class="fa fa-check-circle" style="color:#3333ff;" aria-hidden="true"></i>&nbsp;&nbsp;Verified</p>
       
     </div>
 
-    <div class="profile-info"><p class="card-title">{{rev.userName}}</p>
-      <p class="card-text">{{rev.city}}, {{rev.country}}</p></div></div>
-      
+    <div class="profile-info"><p class="card-title">{{rev.username}}</p><p class="card-text">{{rev.city}}</p>
+      </div>
+    </div>
+      <br>
+      <br>
     <div class="feedback">
       
       <div class="star-widget">

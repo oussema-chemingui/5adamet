@@ -13,8 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { StepComponent } from './step/step.component'
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
-import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
-import { CheckoutComponent } from './checkout/checkout.component';
+
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
@@ -30,16 +29,24 @@ import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component'
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
 
+import { ServProvidersComponent } from './serv-providers/serv-providers.component';
+import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.component';
+
 const routes: Routes = [
-  {path:'feedbackform',component:FormRevComponent },
-  {path:'ratings',component: RatingsComponent},
-  {path:'costestimation',component:QuotedemandComponent},
+
+  {path:"",redirectTo:"/home",pathMatch:"full"},
+
+
 
   {path:'quotedemands',component:QuotedemandsComponent},
   {path:'quoteresponses',component:QuoteresponsesComponent},
   {path:'quotedemand',component:QuotedemandComponent},
   {path:'quoteinfo',component:QuoteinfoComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
+
+  {path:'serviceproviders',component:ServProvidersComponent},
+
+
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},
   {path:'costestimation',component:QuotedemandComponent},
@@ -54,13 +61,15 @@ const routes: Routes = [
   {path:'success',component:SuccessComponent},
   {path:'adminaddservices',component:AdminaddservicesComponent},
   {path:'update/:serviceId',component:UpdateComponent},
-  {path:'servicesdescription',component:ServicesdescriptionComponent},
   {path:'successpurchase',component:SuccesspurchaseComponent},
+  {path:'stripe',component:StripeCheckoutComponent},
   {path:'error',component:ErrorComponent},
-  {path:':code',component:FormComponent},
-  {path:'checkout',component:CheckoutComponent},
-  {path:"",redirectTo:"/home",pathMatch:"full"},
-  {path:"**",component:PagenotfoundComponent} 
+  // {path:':code',component:FormComponent},
+
+  
+
+  {path: '404', component: PagenotfoundComponent},
+  {path: '**', redirectTo: '/404'}
 ];
 
 @NgModule({

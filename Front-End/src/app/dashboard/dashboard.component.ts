@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   servicesArray=[];
   checkbox:any;
   mainservicename:any;
-  maincategories=["cleaning","plumbing","carpenter","painter","saloon for men","saloon for women","pest control","Applaince Repair"]
+  maincategories=["Cleaning","Plumbing","Carpenter","Painter","Gardening","HVAC ","Pest control","Applaince Repair"]
   selectedcategory:any;
   cartitemsobj:any;
   numberofitems:number;
@@ -136,63 +136,63 @@ this.router.navigateByUrl("/login")
   searchcategory(ref){
     this.selectedcategory=ref.value;
     console.log(this.selectedcategory)
-    if(this.selectedcategory!=""&& this.selectedcategory.cleaning==true){
-      console.log("in comp search category ",this.selectedcategory.cleaning)
+    if(this.selectedcategory!=""&& this.selectedcategory.Cleaning==true){
+      console.log("in comp search category ",this.selectedcategory.Cleaning)
   
-        let selectedvalue="cleaning";
+        let selectedvalue="Cleaning";
     this.servicesArray=this.servicesArray.filter(res=>{
       console.log('CATEGORYYYY',res)
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
-    })} else    if( this.selectedcategory.plumbing==true){
-      console.log("in comp search category ",this.selectedcategory.plumbing)
+    })} else    if( this.selectedcategory.Plumbing==true){
+      console.log("in comp search category ",this.selectedcategory.Plumbing)
   
-        let selectedvalue="plumbing";
+        let selectedvalue="Plumbing";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory.carpenter==true){
-      console.log("in comp search category ",this.selectedcategory.carpenter)
+    else    if( this.selectedcategory.Carpenter==true){
+      console.log("in comp search category ",this.selectedcategory.Carpenter)
   
-        let selectedvalue="carpenter";
+        let selectedvalue="Carpenter";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory.painter==true){
-      console.log("in comp search category ",this.selectedcategory.painter)
+    else    if( this.selectedcategory.Painter==true){
+      console.log("in comp search category ",this.selectedcategory.Painter)
   
-        let selectedvalue="painter";
+        let selectedvalue="Painter";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory["saloon for men"]==true){
-      console.log("in comp search category ",this.selectedcategory["saloon for men"])
+    else    if( this.selectedcategory["Gardening"]==true){
+      console.log("in comp search category ",this.selectedcategory["Gardening"])
   
-        let selectedvalue="saloon for men";
+        let selectedvalue="Gardening";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory["saloon for women"]==true){
-      console.log("in comp search category ",this.selectedcategory["saloon for women"])
+    else    if( this.selectedcategory["HVAC "]==true){
+      console.log("in comp search category ",this.selectedcategory["HVAC "])
   
-        let selectedvalue="saloon for women";
+        let selectedvalue="HVAC ";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())
     
     })}
-    else    if( this.selectedcategory["pest control"]==true){
-      console.log("in comp search category ",this.selectedcategory["pest control"])
+    else    if( this.selectedcategory["Pest control"]==true){
+      console.log("in comp search category ",this.selectedcategory["Pest control"])
   
-        let selectedvalue="pest control";
+        let selectedvalue="Pest control";
       
     this.servicesArray=this.servicesArray.filter(res=>{
       return res.main_service.toLocaleLowerCase().match(selectedvalue.toLocaleLowerCase())

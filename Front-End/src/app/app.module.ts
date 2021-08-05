@@ -20,7 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { UpdateComponent } from './update/update.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MainservicesComponent } from './mainservices/mainservices.component';
-import { ServicesdescriptionComponent } from './servicesdescription/servicesdescription.component';
+
 import { SuccessComponent } from './success/success.component'
 
 
@@ -36,9 +36,8 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
-import { CategoryComponent } from './category/category.component';
+
 import { StepComponent } from './step/step.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { FormComponent } from './form/form.component';
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
@@ -52,7 +51,13 @@ import { FormRevComponent } from './formrev/formrev.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
+
+import { ServProvidersComponent } from './serv-providers/serv-providers.component';
+import { ServiceCardsComponent } from './service-cards/service-cards.component';
+
 import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
+import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.component';
+
 
 
 registerLocaleData(en);
@@ -74,7 +79,6 @@ registerLocaleData(en);
     FooterComponent,
     UpdateComponent,
     MainservicesComponent,
-    ServicesdescriptionComponent,
     SuccessComponent,
     NavbarComponent,
     AboutComponent,
@@ -84,22 +88,25 @@ registerLocaleData(en);
    PackagesComponent,
    StepComponent,
    QuotedemandComponent,
-   CategoryComponent,
-   CheckoutComponent,
+
    FormComponent,
    SuccesspurchaseComponent,
    ErrorComponent,
    CarouselComponent,
    TestemonialComponent,
    SliderComponent,
-
    RatingsComponent,
    FormRevComponent,
-
    QuoteresponseComponent,
    QuoteresponsesComponent,
    QuotedemandsComponent,
+
+   ServProvidersComponent,
+   ServiceCardsComponent,
+
    QuoteinfoComponent,
+    StripeCheckoutComponent,
+
    
 
 

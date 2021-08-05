@@ -33,9 +33,8 @@ export class ReviewController {
   }
 
 
-  @Post('addtoreview')
+  @Post('addreview')
   @UsePipes(new ValidationPipe({ transform: true }))
-  //@UseInterceptors(FileInterceptor('image'))
   createService(  @Body() createReviewItemDto: CreateReviewDto ,
  
    ) :Promise<Review>  {

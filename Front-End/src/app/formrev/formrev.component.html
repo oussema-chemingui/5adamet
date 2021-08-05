@@ -11,7 +11,14 @@
 <div class="text">Thanks for leaving a feedback!</div><div class="edit">EDIT</div></div>-->
 <br><br>
 <div class="star-widget">
-<form #fbForm="ngForm" (ngSubmit)="submit(fbForm)">
+<form #fbForm="ngForm" (ngSubmit)="submit(fbForm)" ngModel>
+     
+    <label for="spname" class="lbls">Please Select The Service Provider Name You Wish To Rate</label>
+        <select name="sp_name" class="form-control" id="sp_name" ngModel>
+        <option value="default">--Select A Service Provider--</option>
+        <option *ngFor="let sp of serviceProvider" [value]="sp">{{sp}}</option> 
+      </select>
+
         <div class="form-group">
         <label for="name" class="lbls">Please enter your name</label>
         <i style='font-size:14px;display:none;color:red;' class='fas'>&#xf06a;</i>
