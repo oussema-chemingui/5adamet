@@ -18,11 +18,9 @@
 </div>
 <div class="pl-lg-5 pt-lg-2 pt-md-1">
    <div class="container h-100">
-    <div class="d-flex justify-content-center h-100">
+    <div class="d-flex justify-content-center h-100 gap-2">
       <button type="button" class="btn btn-success" (click)="bookings()"><span class="cart-hide">My Bookings </span><i class="fas fa-shopping-cart"></i></button>
       <button type="button" class="btn btn-primary" (click)="askforcost()"><span class="cart-hide">Cost Requests </span></button>
-      
-    
       <div class="searchbar">
         <input class="search_input" type="text" name="" placeholder="Search..."  [(ngModel)]="mainservicename" (input)="search()">
         <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
@@ -31,20 +29,6 @@
   </div>
   
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="container main">
@@ -69,10 +53,10 @@
             <form  #ref="ngForm" (ngSubmit)="searchcategory(ref)">
             <div *ngFor="let category of maincategories">
              <a> <input type="checkbox" class="form-check-inline" [id]="category" [value]="category" [name]="category" ngModel >
-                <label [for]="category">{{category}}</label></a>
+                <label [for]="category" class="fs-5">{{category}}</label></a>
         
             </div>
-            <div class="text-center"><button class="filter btn btn-light">FILTER</button></div>
+            <div class="text-center"><button class="filter btn btn-light m-3">FILTER</button></div>
           </form>
           </aside>
       
