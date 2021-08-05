@@ -10,18 +10,14 @@ export class HomeComponent implements OnInit {
 
 
   array = [1, 2, 3, 4];
-  public users:Array<string> = ["TUNIS","ARIANA","BIZERTE","BEN AROUS","MANOUBA","SOUSSE"];
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
 
   }
 
-formsubmit(ref){
-  let locationObj=ref.value
-console.log(ref.value)
- this.router.navigateByUrl(`/mainservices/${this.users.indexOf(locationObj.location)}`)
-}
+
 gotologin(){
   return this.router.navigateByUrl("/mainservices")
 }

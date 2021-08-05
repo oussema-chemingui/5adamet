@@ -19,6 +19,9 @@ constructor(private us:ServiceService, private router:Router){}
       localStorage.clear();
       alert("Unauthorized access")
    this.router.navigateByUrl("/home")
+   setTimeout(()=>{
+    window.location.reload();
+  },10)
     }
       this.us.getservices().subscribe(
       (res)=>{

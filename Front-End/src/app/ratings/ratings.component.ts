@@ -3,6 +3,8 @@ import { Renderer2, Inject } from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { ServiceService } from '../service.service';
 @Component({
   selector: 'app-ratings',
   templateUrl: './ratings.component.html',
@@ -10,11 +12,37 @@ import {map} from 'rxjs/operators';
 })
 export class RatingsComponent implements OnInit {
 
+
+  username:any;
   count: number = 0;
   reviews:Array<UserReview> = [];
-  constructor(private http:HttpClient, private renderer2: Renderer2, @Inject(DOCUMENT) private _document) { }
+ 
+  isAdmin=false;
+  isUser=false;
+  constructor(private http:HttpClient, private renderer2: Renderer2, @Inject(DOCUMENT) private _document, private router:Router,private us:ServiceService,) { }
 
   ngOnInit(): void {
+ 
+    if (localStorage.getItem("token")&&(localStorage.getItem("role")=='admin')){
+      this.isAdmin =true ; 
+
+    }if (localStorage.getItem("token")&&(localStorage.getItem("role")=='user')){
+      this.isUser =true ;
+    }
+    
+    this.username=localStorage.getItem("name")
+    let token=localStorage.getItem("token")
+    if (token==null ){
+      localStorage.clear();
+      alert("Unauthorized access")
+      this.router.navigateByUrl("/login")
+      setTimeout(()=>{
+        window.location.reload();
+      },10)
+    }
+
+
+
     const s = this.renderer2.createElement('script');
    s.onload = this.loadNextScript.bind(this);
    s.type = 'text/javascript';
@@ -22,7 +50,15 @@ export class RatingsComponent implements OnInit {
    s.text = ``;
    this.renderer2.appendChild(this._document.body, s);
     this.getData();
+
+
+
+
+
+
   }
+
+
   loadNextScript() {
     const s = this.renderer2.createElement('script');
     s.text = `
@@ -47,6 +83,30 @@ export class RatingsComponent implements OnInit {
       console.log('Reviewssss',this.reviews);
     })
   }
+
+  
+  delete(rev){
+
+    this.us.deletereview(rev.id).subscribe(
+      ()=>{
+        
+          
+        let currentUrl = this.router.url;
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+            this.router.navigate([currentUrl]);
+        });
+    
+    
+      },
+      (err)=>{
+        console.log(err)
+      }
+    )
+
+  }
+
+
+
 
 }
 interface UserReview{

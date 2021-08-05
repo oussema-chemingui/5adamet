@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 .jarallax {
     position: relative;
     z-index: 0;
@@ -21,4 +23,15 @@
 
 .card{
     border-radius: 10px;
+}
+
+h1{
+
+    font-weight: bolder;
+    font-family: serif;
+    font-size: -webkit-xxx-large;
+}
+h2{
+
+    font-size: x-large;
 }

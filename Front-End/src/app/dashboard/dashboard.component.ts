@@ -81,6 +81,7 @@ this.router.navigateByUrl("/login")
       (res)=>{
         if(res){
       console.log('successssss')
+      alert('service added please check your cart')
        this.us.getservicetocart().subscribe(
         res=>{
           console.log(res)

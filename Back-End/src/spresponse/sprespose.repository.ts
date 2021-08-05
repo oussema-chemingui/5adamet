@@ -26,11 +26,10 @@ export class SpResponseRepository extends Repository<SpResponse> {
     spResponse.cost = cost;
     spResponse.date = date;
     spResponse.response = response;
-    spResponse.serviceProvider = serviceProvider;
     spResponse.costEstimationId=costEstimationId
     spResponse.status= SpResponseStatus.NOTBOOKED
     await this.save(spResponse);
-    delete spResponse.serviceProvider;
+
     return spResponse;
   }
 }

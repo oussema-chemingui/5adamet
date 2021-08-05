@@ -6,9 +6,12 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { User } from '../auth/user.entity';
 import { CostEstimationStatus } from './costestimation.enum';
-@Entity()
+
+
+
+
+@Entity('costestimations')
 export class CostEstimation {
   @PrimaryGeneratedColumn()
   id: number;
@@ -17,19 +20,26 @@ export class CostEstimation {
   description: string;
 
   @Column()
-  date: Date;
+  date: string;
 
   @Column()
   service: string;
 
   @Column()
+  username: string;
+
+  @Column()
+  city: string;
+
+  @Column()
   status: CostEstimationStatus; 
 
-  @ManyToOne(() => User, (user) => user.costEstimations, { eager: true })
-  user: User;
-
-  @OneToMany(() => SpResponse, (spResponse) => spResponse.costEstimation, {
-    eager: true,
+  @Column({
+    nullable: true,
   })
-  spResponse: SpResponse[];
+  image: string;
+
+
+
+
 }

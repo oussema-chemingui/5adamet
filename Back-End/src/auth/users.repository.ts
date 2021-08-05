@@ -11,7 +11,22 @@ import { SignUpDto } from './dto/auth-credentials-signup.dto';
 @EntityRepository(User)
 export class UsersRepository extends Repository<User> {
   
-  
+  async getAllItems(): Promise<User[]>{
+
+
+    const query = this.createQueryBuilder('user')
+
+    try {
+        const Users = await query.getMany()
+        return Users;
+      } catch (error) {
+        console.error(error);
+      }
+   
+}
+
+
+
   async createUser(authCredentialsDto: SignUpDto): Promise<void> {
     const {name, email, password } = authCredentialsDto;
 

@@ -1,9 +1,8 @@
-
 <div class="container border-bottom bg-white mt-1 pt-md-3 pt-2">
   <div class="d-flex flex-md-row justify-content-around align-items-center">
       <div class="d-flex flex-md-row align-items-center">
           <div class="p-md-2 p-1" id="info">
-            <div class="text-muted">Welcome</div>
+            <div class="text-muted">Welcome Dear :</div>
             <h5>{{username}}</h5>
           </div>
       </div>
@@ -63,7 +62,20 @@
       </div>
       <div class="col-8">
     <div class="d-flex flex-wrap justify-content-evenly mx-3 m-md-1" >
-      <app-service-cards></app-service-cards>
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let service of servicesArray">
+        <div class="card mt-5 m-md-8" >
+            <img [src]="service?.image"  class="card-img-top" alt="...">
+            <div class="card-body" >
+              <h4 class="card-title text-center "><b><strong class ="strongx">{{service?.name}}</strong></b></h4>
+              <h4 class="card-text text-center strongy "><b class ="strongy"> {{service?.cost}} DT/H</b></h4>
+              <p class="card-description text-center strongz">{{service?.description}}</p>
+              <div class="text-center">
+
+                <button type="button" class="btn btn-success" (click)="addtocart(service)"><span class="cart-hide">ADD </span></button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
- 
-  
+  </div>
