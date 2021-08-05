@@ -37,8 +37,8 @@ export class CostestimationController {
   }
 
   @Post('createcost')
-  @UsePipes(new ValidationPipe({ transform: true }))
   @UseInterceptors(FileInterceptor('image'))
+  @UsePipes(new ValidationPipe({ transform: true }))
   createCostEstimation(@UploadedFile() image , @Body() createCostEstimationDto: CreateCostEstimationDto 
  
    ) :Promise<CostEstimation>  {

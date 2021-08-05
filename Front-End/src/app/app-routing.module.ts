@@ -62,7 +62,7 @@ const routes: Routes = [
   {path:'adminaddservices',component:AdminaddservicesComponent},
   {path:'update/:serviceId',component:UpdateComponent},
   {path:'successpurchase',component:SuccesspurchaseComponent},
-  {path:':code',component:FormComponent},
+  {path:'form/:code',component:FormComponent},
   {path:'error',component:ErrorComponent},
   
 

@@ -54,27 +54,12 @@ import { UserModule } from './auth/user.module';
         };
       },
     }),
-    NodemailerModule.forRoot({
-      transport: {
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-          user: 'user',
-          pass:'pass',
-        },
-        tls: {
-          // do not fail on invalid certs
-          rejectUnauthorized: false
-        }
-      },
-    } as NodemailerOptions<NodemailerDrivers.SMTP>),
-
+   
     AuthModule,
     ServiceModule,
     CategoryModule,
     CartModule,
-    //ContactModule,
+    ContactModule,
     ReviewModule,
     ServiceProviderModule,
     UserModule,
