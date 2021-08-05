@@ -18,15 +18,15 @@
 <br>
 <br>
 <section id="gallery">
-  <div class="container">
+  <div class="container-fluid content-row">
     <div class="row">
-    <div class="col-lg-4 mb-4" *ngFor="let cost of costestimationsArray">
-    <div class="card">
+    <div class="col-sm-12 col-lg-4 mb-4" *ngFor="let cost of costestimationsArray">
+    <div class="card h-100">
       <img [src]="cost?.image" height="200px" width="auto">
       <div class="card-body">
-        <h5 class="card-title">{{cost.city}}</h5>
-        <p class="card-text">{{cost.description}}</p>
-       <a href="" class="btn btn-outline-success btn-sm">Read More</a>
+        <h5 class="card-title text-center fs-5">{{cost.city}}</h5>
+        <p class="card-text text-center fs-6 lh-sm">{{cost.description}}</p>
+       <a href="" class="btn btn-outline-primary btn-sm">Read More</a>
         <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
       </div>
      </div>

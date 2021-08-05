@@ -1,4 +1,3 @@
-
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
@@ -15,14 +14,12 @@ export class Admin {
   @Column()
   email: string;
 
-  @Column({default: ''})
+  @Column({ default: '' })
   address: string;
 
-  @Column({default: ''})
+  @Column({ default: '' })
   phone: string;
 
-  
-  @Column({default: 'admin'})
-  role : string
-
+  @Column({ default: 'admin' })
+  role: string;
 }
