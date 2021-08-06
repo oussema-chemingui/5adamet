@@ -129,6 +129,7 @@ this.us.deletefrmcart(obj.id).subscribe(
      localStorage.clear();
      this.router.navigateByUrl("/home")
     }
+    
     onSubmit(){
  console.log(this.checkoutForm.value)
     }

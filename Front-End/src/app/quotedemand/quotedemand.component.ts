@@ -21,6 +21,10 @@ export class QuotedemandComponent  {
   month:string;
   year:string;
   username:any;
+  costanswersArray=[];
+
+
+
   constructor(private fb: FormBuilder, private us:ServiceService, private router: Router){}
 
 
@@ -45,7 +49,20 @@ this.username=localStorage.getItem("name")
   });
 
 
+  this.us.getcostanswers().subscribe(
+    (res)=>{
 
+      console.log('ANSWERS',res)
+      this.costanswersArray=res.filter(res =>{
+        console.log('ITEMMM',res)
+          return (res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase()))
+        })
+    },
+    (err)=>{
+      alert("Something went wrong")
+      console.log(err)
+    }
+  )
 
   }
 
@@ -70,24 +87,12 @@ this.username=localStorage.getItem("name")
   }
 
   formData = new FormData()
-
   submit(fbForm){
 
     let {service,city,description} = fbForm.value
 
     this.date = this.createDate();
 
-    // this.obj = {
-    //   username:this.username,
-    //   service:form.value.service,
-    //   date:this.date,
-    //   city:form.value.city,
-    //   description:form.value.description,
-     
-    // }
-
-
-    //serviceObj.status=true;
     this.formData.append("image",this.file,this.file.name)
     //this.formData.append("serviceObj",JSON.stringify(serviceObj))
  this.formData.append('username',this.username)
@@ -115,6 +120,15 @@ this.username=localStorage.getItem("name")
 
   }
 
+  accept(){
+
+  }
+
+
+  decline(){
+
+    
+  }
 
 }
 
