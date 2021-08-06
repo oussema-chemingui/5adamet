@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "stripe-khadamet",
+    "stripe": "stripe-khadamet"
+  }
+}
