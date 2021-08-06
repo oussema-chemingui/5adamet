@@ -61,14 +61,14 @@
       
       </div>
       <div class="col-8">
-    <div class="d-flex flex-wrap justify-content-evenly mx-3 m-md-1" >
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let service of servicesArray">
-        <div class="card mt-5 m-md-8" >
-            <img [src]="service?.image"  class="card-img-top" alt="...">
+    <div class="d-flex flex-wrap justify-content-evenly mx-3 m-md-1" height="180px" width="auto" >
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let service of servicesArray" height="180px" width="auto">
+        <div class="card mt-5 m-md-8" height="180px" width="auto" >
+            <img [src]="service?.image" height="180px" width="auto"  class="card-img-top" alt="...">
             <div class="card-body" >
-              <h4 class="card-title text-center "><b><strong class ="strongx">{{service?.name}}</strong></b></h4>
-              <h4 class="card-text text-center strongy "><b class ="strongy"> {{service?.cost}} DT/H</b></h4>
-              <p class="card-description text-center strongz">{{service?.description}}</p>
+              <h4 class="card-title text-center "><b><strong class ="strongx" height="180px" width="auto">{{service?.name}}</strong></b></h4>
+              <h4 class="card-text text-center strongy "><b class ="strongy" height="180px" width="auto"> {{service?.cost}} DT/H</b></h4>
+              <p class="card-description text-center strongz" height="180px" width="auto">{{service?.description}}</p>
               <div class="text-center">
 
                 <button type="button" class="btn btn-success" (click)="addtocart(service)"><span class="cart-hide">ADD </span></button>

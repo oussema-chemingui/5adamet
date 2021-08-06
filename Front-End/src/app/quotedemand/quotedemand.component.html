@@ -44,3 +44,42 @@
   </div>
   
   </div>
+
+  <div class="container">
+    <div class="m-4 text-center">
+      <button class="btn button-edit " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Check Responses About Cost Estimation Demands
+      </button></div>
+    </div>
+    <br>
+    <br>
+ 
+    <div class="collapse" id="collapseExample">
+      <br>
+      <div class="col-lg-4" *ngFor="let answer of costanswersArray">
+        <div class="card card-margin">
+            <div class="card-body pt-0">
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-primary">
+                            <span class="widget-49-date-day">{{answer.date.substring(0, 1)}}</span>
+                            <span class="widget-49-date-month">Aug</span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">please check the answer of <strong>{{answer.spname}}</strong> </span>
+                            <span class="widget-49-meeting-time">{{answer.date}}</span>
+                        </div>
+                    </div>
+          <h3 style="margin-left: 90px;">{{answer.description}}</h3><br>
+          <h3 style="margin-left: 90px;">TOTAL COST : {{answer.total}}</h3>
+                    <div class="widget-49-meeting-action">
+                        <a  class="btn btn-sm btn-primary">Accept Offer</a>
+                        <a  class="btn btn-sm button-delete">Decline Offer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
