@@ -13,7 +13,7 @@ export class ServiceService {
   
  constructor(private hc:HttpClient) {}
 
-//users
+//users autentification
  postadminsignup(userobj):Observable<any>{
   return this.hc.post(`${this.API_SERVER}/auth/admins/signup`,userobj)
 }
@@ -44,6 +44,7 @@ return this.hc.post<{ accessToken: string }>(`${this.API_SERVER}/auth/signin`,us
 // }));
    }
 
+
 //serviceProvider
 getserviceproviders():Observable<any>{
   return this.hc.get(`${this.API_SERVER}/serviceproviders/getall`)
@@ -54,6 +55,17 @@ deleteprovider(providerObj):Observable<any>{
   return this.hc.delete(`${this.API_SERVER}/serviceproviders/${providerObj}`)
 }
 
+
+
+//users
+
+getusers():Observable<any>{
+  return this.hc.get(`${this.API_SERVER}/users/getall`)
+}
+
+deleteuser(userObj):Observable<any>{
+  return this.hc.delete(`${this.API_SERVER}/users/${userObj}`)
+}
 
 
 
@@ -71,6 +83,7 @@ deleteprovider(providerObj):Observable<any>{
   deleteservices(serviceObj):Observable<any>{
     return this.hc.delete(`${this.API_SERVER}/services/deleteservices/${serviceObj}`)
   }
+
 
 //cart
   addtocart(cartObj):Observable<any>{
@@ -93,24 +106,46 @@ deleteprovider(providerObj):Observable<any>{
     return this.hc.delete(`${this.API_SERVER}/cart/${cartItemId}`)
       }
  
+      
       //contact
       postcontactdata(contactObj):Observable<any>{
         return this.hc.post(`${this.API_SERVER}/contacts/new-mail`,contactObj)
       }
    
 
+      //reviews
+
       postreview(reviewObj):Observable<any>{
         return this.hc.post(`${this.API_SERVER}/reviews/addreview`,reviewObj)
       }
       
 
-   postprofdata(profObj):Observable<any>{
-     return this.hc.post("/professional/createprof",profObj)
-   }
+      getreviews():Observable<any>{
+        return this.hc.get(`${this.API_SERVER}/reviews/getreviews`)
+      }
 
-   addquantitytocart(cartObj):Observable<any>{
-     return this.hc.put("/cart/addquantitytocart",cartObj)
-   }
+
+      deletereview(reviewObj):Observable<any>{
+        return this.hc.delete(`${this.API_SERVER}/reviews/${reviewObj}`)
+      }
+
+
+
+      //cost estimation
+
+      postcostestimation(costObj):Observable<null>{
+        return this.hc.post<null>(`${this.API_SERVER}/costestimations/createcost`,costObj)
+      }
+
+
+
+      getcostestimations():Observable<any>{
+        return this.hc.get(`${this.API_SERVER}/costestimations/getcosts`)
+      }
+
+
+
+
 
 
    getUserDetails(serviceId):Observable<any>{

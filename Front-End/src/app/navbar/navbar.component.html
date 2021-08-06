@@ -34,6 +34,11 @@
               
             </li>
 
+            <li class="nav-item" >
+              
+              <a class="nav-link p-3 active" *ngIf="loggedInsp && loggedIn " routerLink="serviceproviderprofil" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">COST ESTIM.</a>
+            
+          </li>
 
             <li class="nav-item"  >
               <a class="nav-link active p-3 " *ngIf="loggedInuser" routerLink="mybookings" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">MY BOOKINGS</a>
@@ -42,20 +47,20 @@
 
             <li class="nav-item" >
               
-              <a class="nav-link p-3 active" *ngIf="loggedInadmin && loggedIn" routerLink="adminaddservices" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">SERVICES MANAGE.</a>
+              <a class="nav-link p-3 active" *ngIf="loggedInadmin && loggedIn" routerLink="adminaddservices" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">SERVICES PANEL</a>
             
           </li>
 
           
           <li class="nav-item" >
               
-            <a class="nav-link p-3 active" *ngIf="loggedInadmin && loggedIn" routerLink="serviceproviders" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">PROVIDERS MANAGE.</a>
+            <a class="nav-link p-3 active" *ngIf="loggedInadmin && loggedIn" routerLink="serviceproviders" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">PROV./USERS PANEL</a>
           
         </li>
 
             <li class="nav-item" >
               
-              <a class="nav-link p-3 active" *ngIf="loggedInuser && loggedIn || loggedInadmin && loggedIn" routerLink="ratings" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">REVIEWS</a>
+              <a class="nav-link p-3 active" *ngIf="loggedInuser && loggedIn || loggedInadmin && loggedIn || loggedInsp && loggedIn" routerLink="ratings" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">REVIEWS</a>
             
           </li>
 

@@ -30,6 +30,9 @@ export class MybookingsComponent implements OnInit {
         localStorage.clear();
         alert("Unauthorized access")
         this.router.navigateByUrl("/login")
+        setTimeout(()=>{
+          window.location.reload();
+        },10)
       }
       this.us.getservicetocart().subscribe(
         res=>{

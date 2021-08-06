@@ -13,7 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { StepComponent } from './step/step.component'
 import { SuccessComponent } from './success/success.component';
 import { UpdateComponent } from './update/update.component';
-
+import { ServProvidersComponent } from './serv-providers/serv-providers.component';
 import { SuccesspurchaseComponent } from './successpurchase/successpurchase.component';
 import { ErrorComponent } from './error/error.component';
 import { FormComponent } from './form/form.component';
@@ -28,9 +28,13 @@ import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
 import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
 import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
+import { ServiceCardsComponent } from './service-cards/service-cards.component';
+
+
 
 import { ServProvidersComponent } from './serv-providers/serv-providers.component';
 import { StripeCheckoutComponent } from './stripe-checkout/stripe-checkout.component';
+
 
 const routes: Routes = [
 
@@ -45,7 +49,7 @@ const routes: Routes = [
   {path:'quoteresponse',component:QuoteresponseComponent},
 
   {path:'serviceproviders',component:ServProvidersComponent},
-
+  {path:'serviceproviderprofil',component:ServiceCardsComponent},
 
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},
@@ -62,7 +66,9 @@ const routes: Routes = [
   {path:'adminaddservices',component:AdminaddservicesComponent},
   {path:'update/:serviceId',component:UpdateComponent},
   {path:'successpurchase',component:SuccesspurchaseComponent},
+
   {path:'stripe',component:StripeCheckoutComponent},
+
   {path:'error',component:ErrorComponent},
   // {path:':code',component:FormComponent},
 

@@ -1,8 +1,8 @@
 import { CostEstimation } from './costestimation.entity';
 import { EntityRepository, Repository } from 'typeorm';
 import { CreateCostEstimationDto } from './dto/costestimation.dto';
-import { CostEstimationStatus } from './costestimation.enum';
 import { User } from 'src/auth/user.entity';
+import { CostEstimationStatus } from './costestimation.enum';
 
 @EntityRepository(CostEstimation)
 export class CostEstimationRepository extends Repository<CostEstimation> {
@@ -14,22 +14,33 @@ export class CostEstimationRepository extends Repository<CostEstimation> {
     }
   }
 
-  async createCostEstimation(
-    createCostEstimationDto: CreateCostEstimationDto,
-    user: User,
-  ): Promise<CostEstimation> {
-    const { description, date, service } = createCostEstimationDto;
-    const costEstimation = new CostEstimation();
-    costEstimation.description = description;
-    costEstimation.date = date;
-    costEstimation.status = CostEstimationStatus.NOTRESERVED;
-    costEstimation.user = user;
-    costEstimation.service = service;
-    costEstimation.spResponse = [];
 
-    await this.save(costEstimation);
+  async getCostEstimations(): Promise<CostEstimation[]>{
 
-    delete costEstimation.user;
-    return costEstimation;
+    const query = this.createQueryBuilder('costestimation');
+  
+    try {
+      const costestimation = await query.getMany();
+      return costestimation;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async createCostEstimation(createCostEstimationDto: CreateCostEstimationDto): Promise<CostEstimation> {
+    const { username, description, city, date ,service,image } = createCostEstimationDto;
+
+    const costestimation = this.create({
+      username,
+      description,
+      city,
+      date,
+      service,
+      image,
+      status:CostEstimationStatus.NOTRESERVED,
+    });
+
+    await this.save(costestimation);
+    return costestimation;
   }
 }
