@@ -17,7 +17,10 @@
 </div>
 <br>
 <br>
-<section id="gallery">
+
+<br>
+<section id="gallery" >
+  <h1>COST ESTIMATION REQUESTS</h1>
   <div class="container-fluid content-row">
     <div class="row">
     <div class="col-lg-4 mb-4" *ngFor="let cost of costestimationsArray">
@@ -40,3 +43,44 @@
   </div>
 </div>
 </section>
+<br>
+
+<br>
+
+
+<div class="container">
+  <div class="m-4 text-center">
+    <button class="btn btn-style"type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Check Answers From Costumers
+    </button></div>
+  </div>
+  <div class="collapse" id="collapseExample">
+    <div class="col-lg-4" *ngFor="let answer of costanswersArray">
+      <div class="card card-margin">
+          <div class="card-body pt-0">
+              <div class="widget-49">
+                  <div class="widget-49-title-wrapper">
+                      <div class="widget-49-date-primary">
+                          <span class="widget-49-date-day">{{answer.date.substring(0, 1)}}</span>
+                          <span class="widget-49-date-month">Aug</span>
+                      </div>
+                      <div class="widget-49-meeting-info">
+                          <span class="widget-49-pro-title">please check the answer of <strong>{{answer.spname}}</strong> </span>
+                          <span class="widget-49-meeting-time">{{answer.date}}</span>
+                      </div>
+                  </div>
+        <h6 style="margin-left: 70px;">{{answer.description}}</h6><br>
+        <h6 style="margin-left: 70px;">TOTAL COST : {{answer.total}}</h6>
+                  <div class="widget-49-meeting-action">
+                    <p *ngIf="answer?.status == 'NOTANSWERED'"><i class="fa fa-check-circle" style="color:#c21616;" aria-hidden="true"></i>&nbsp;&nbsp;NOT YET ANSWERED</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+
+
+
+

@@ -9,7 +9,7 @@ import { ServiceService } from '../service.service';
 })
 export class ServiceCardsComponent implements OnInit {
   costestimationsArray=[];
-
+costanswersArray=[];
   
 
   username=localStorage.getItem("name")
@@ -40,6 +40,22 @@ export class ServiceCardsComponent implements OnInit {
         console.log(err)
       }
     )
+
+    this.us.getcostanswers().subscribe(
+      (res)=>{
+
+        console.log('ANSWERSSS',res)
+        this.costanswersArray=res
+      },
+      (err)=>{
+        alert("Something went wrong")
+        console.log(err)
+      }
+    )
+
+
+
+
    
   }
 
