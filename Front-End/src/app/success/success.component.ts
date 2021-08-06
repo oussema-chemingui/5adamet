@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from '../service.service';
 
 @Component({
@@ -10,53 +10,49 @@ import { ServiceService } from '../service.service';
 export class SuccessComponent implements OnInit {
 skills:any
 username:any
-cartitemsobj:any
-totalprice:any
+cartitemsobj:any[];
+costs: Array<any> =  [];
+totalprice:any;
 numberofitems:any
 quantity:any
 profdetails=[];
 newprof=[]
-  constructor(private us:ServiceService,private ac:ActivatedRoute) { }
+  constructor(private us:ServiceService,private ac:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
    
     
     this.username=localStorage.getItem("name")
-    this.us.getservicetocart().subscribe(
-      res=>{
-        console.log(res["message"])
-        this.cartitemsobj=res["message"]
-        this.totalprice=this.cartitemsobj.reduce((acc,curr)=>{
-          return acc+(curr.quantity*curr.price)
-        },0)
-        console.log(this.totalprice)
-        this.numberofitems=this.cartitemsobj.reduce((acc,curr)=>{
-          return acc+curr.quantity;
-        },0)
-        console.log(this.quantity)
-        this.skills=this.cartitemsobj.map((res)=>res.mainservice )
-        console.log(this.skills)
-        
-      },
-      err=>{alert("something went wrong")
+      let token=localStorage.getItem("token")
+      if(token==null || localStorage.getItem("role")!=='user'){
+        localStorage.clear();
+        alert("Unauthorized access")
+        this.router.navigateByUrl("/login")
+        setTimeout(()=>{
+          window.location.reload();
+        },10)
+      }
+      this.us.getservicetocart().subscribe(
+        res=>{
+          
+          this.cartitemsobj=res.filter(res =>{
+          console.log('ITEMMM',res)
+            return (res.username.toLocaleLowerCase().match(this.username.toLocaleLowerCase()))
+          })
+          this.numberofitems = this.cartitemsobj.length
+
+         this.cartitemsobj.forEach(elem =>{
+              this.costs.push(elem.cost)
+
+         })
+
+     this.totalprice=this.costs.reduce((a, b) => a + b, 0)
+     console.log('totaaall',this.totalprice)
+         
+        },
+        err=>{alert("something went wrong")
       console.log(err)}
       )
-  
-      this.us.getprofessionaldetails().subscribe(
-        (res)=>{
-          console.log(res["message"])
-          if(res["message"]!=null){
-          this.profdetails.push(res["message"])
-          this.newprof.push(this.profdetails[0][0])
-          console.log("success",this.profdetails,this.newprof)
-          }else{
-            console.log("something went wrong")
-          }
-        },
-        (err)=>{
-          alert("something went wrong")
-        }
-        )
 
 
 }

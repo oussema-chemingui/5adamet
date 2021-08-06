@@ -6,14 +6,11 @@ import { configValidationSchema } from './config.schema';
 
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { CostestimationModule } from './costestimation/costestimation.module';
-import { SpresponseModule } from './spresponse/spresponse.module';
+
 
 import { ServiceModule } from './service/service.module';
 import { CategoryModule } from './category/category.module';
-// import { LinkController } from './link/link.controller';
-// import { LinkService } from './link/link.service';
-// import { LinkModule } from './link/link.module';
-import { PackageModule } from './package/package.module';
+
 import { CartModule } from './cart/cart.module';
 
 import { ContactModule } from './contact/contact.module';
@@ -22,6 +19,8 @@ import { NodemailerDrivers, NodemailerModule, NodemailerOptions } from '@crowdli
 import { ReviewModule } from './reviews/review.module';
 import { ServiceProviderModule } from './serviceProvider/serviceProvider.module';
 import { UserModule } from './auth/user.module';
+import { CostanswerModule } from './costanswer/costanswer.module';
+
 
 
 @Module({
@@ -64,18 +63,16 @@ import { UserModule } from './auth/user.module';
     ServiceProviderModule,
     UserModule,
     CostestimationModule,
+    CostanswerModule,
     CloudinaryModule,
     ConfigModule.forRoot({
       envFilePath: '.env',
     }),
-    // LinkModule,
-    PackageModule,
+
     
   ],
-  // controllers: [LinkController,],
+  
   providers: [
-    // LinkService,
-   
     
   ],
 })

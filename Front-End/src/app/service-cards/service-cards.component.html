@@ -21,13 +21,17 @@
   <div class="container">
     <div class="row">
     <div class="col-lg-4 mb-4" *ngFor="let cost of costestimationsArray">
-    <div class="card">
+    <div class="card" *ngIf="cost?.status == 'NOTRESERVED'">
       <img [src]="cost?.image" height="200px" width="auto">
       <div class="card-body">
-        <h5 class="card-title">{{cost.city}}</h5>
-        <p class="card-text">{{cost.description}}</p>
-       <a href="" class="btn btn-outline-success btn-sm">Read More</a>
-        <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
+        <p class="card-title" style="color: gray;"><strong>{{cost.city}} {{cost.date}}</strong></p>
+        <p class="card-text"><strong>{{cost.description}}</strong></p>
+        <p *ngIf="cost?.status == 'NOTRESERVED'"><i class="fa fa-check-circle" style="color:#0cf11f;" aria-hidden="true"></i>&nbsp;&nbsp;Available</p>
+       <div></div>
+       <a (click)="askToTreat(cost)" class="btn btn-success" *ngIf="cost?.status == 'NOTRESERVED'">Answer</a>
+      
+       <p *ngIf="cost?.status == 'RESERVED'"><i class="fa fa-check-circle" style="color:#f11b0c;" aria-hidden="true"></i>&nbsp;&nbsp;Already Treated</p>
+       <a class="btn btn-danger"  *ngIf="cost?.status == 'RESERVED'">Unavailable</a>
       </div>
      </div>
     </div>

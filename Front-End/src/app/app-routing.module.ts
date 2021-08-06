@@ -24,11 +24,11 @@ import { FormRevComponent } from './formrev/formrev.component';
 import { RatingsComponent } from './ratings/ratings.component';
 
  
-import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
+
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
-import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
-import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
+
 import { ServiceCardsComponent } from './service-cards/service-cards.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -38,15 +38,14 @@ const routes: Routes = [
 
 
 
-  {path:'quotedemands',component:QuotedemandsComponent},
-  {path:'quoteresponses',component:QuoteresponsesComponent},
+
   {path:'quotedemand',component:QuotedemandComponent},
-  {path:'quoteinfo',component:QuoteinfoComponent},
   {path:'quoteresponse',component:QuoteresponseComponent},
 
   {path:'serviceproviders',component:ServProvidersComponent},
   {path:'serviceproviderprofil',component:ServiceCardsComponent},
-
+  
+  {path:'payment',component: PaymentComponent},
   {path:'feedbackform',component:FormRevComponent },
   {path:'ratings',component: RatingsComponent},
   {path:'costestimation',component:QuotedemandComponent},

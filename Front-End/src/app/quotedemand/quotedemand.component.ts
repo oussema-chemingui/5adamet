@@ -115,6 +115,15 @@ this.username=localStorage.getItem("name")
 
   }
 
+  accept(){
+
+  }
+
+
+  decline(){
+
+    
+  }
 
 }
 

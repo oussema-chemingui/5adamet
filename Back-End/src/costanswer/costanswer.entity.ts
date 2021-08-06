@@ -6,13 +6,14 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { CostEstimationStatus } from './costestimation.enum';
+import { CostAnswerStatus } from './costanswer.enum';
 
 
 
 
-@Entity('costestimations')
-export class CostEstimation {
+
+@Entity('costanswers')
+export class CostAnswer {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -22,24 +23,23 @@ export class CostEstimation {
   @Column()
   date: string;
 
-  @Column()
-  service: string;
 
   @Column()
   username: string;
 
-  @Column()
-  city: string;
-
-  @Column()
-  status: CostEstimationStatus; 
-
+  
   @Column({
-    nullable: true,
+    default: 0.0,
   })
-  image: string;
+  total: number;
 
 
+  @Column()
+  spname: string;
+
+  
+  @Column()
+  status: CostAnswerStatus; 
 
 
 }

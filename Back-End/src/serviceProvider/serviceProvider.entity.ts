@@ -1,5 +1,4 @@
 
-import { SpResponse } from 'src/spresponse/spresponse.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()

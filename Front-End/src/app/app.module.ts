@@ -49,13 +49,13 @@ import { RatingsComponent } from './ratings/ratings.component';
 import { FormRevComponent } from './formrev/formrev.component';
 
 import { QuoteresponseComponent } from './quoteresponse/quoteresponse.component';
-import { QuoteresponsesComponent } from './quoteresponses/quoteresponses.component';
-import { QuotedemandsComponent } from './quotedemands/quotedemands.component';
+
 
 import { ServProvidersComponent } from './serv-providers/serv-providers.component';
 import { ServiceCardsComponent } from './service-cards/service-cards.component';
 
-import { QuoteinfoComponent } from './quoteinfo/quoteinfo.component';
+
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -97,13 +97,14 @@ registerLocaleData(en);
    RatingsComponent,
    FormRevComponent,
    QuoteresponseComponent,
-   QuoteresponsesComponent,
-   QuotedemandsComponent,
+
+
 
    ServProvidersComponent,
    ServiceCardsComponent,
 
-   QuoteinfoComponent,
+
+    PaymentComponent,
 
    
 

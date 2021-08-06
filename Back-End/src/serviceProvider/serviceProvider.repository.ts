@@ -30,12 +30,12 @@ import { SignUpDto } from 'src/auth/dto/auth-credentials-signup.dto';
     
     
     async createServiceProvider(authCredentialsDto: SignUpDto): Promise<void> {
-      const { email, password ,name} = authCredentialsDto;
+      const { email, password ,name ,address,phone} = authCredentialsDto;
   
       const salt = await bcrypt.genSalt();
       const hashedPassword = await bcrypt.hash(password, salt);
   
-      const sp = this.create({ name ,email, password: hashedPassword });
+      const sp = this.create({ name ,email, password: hashedPassword,address,phone});
   
       try {
         await this.save(sp);

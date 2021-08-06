@@ -10,7 +10,14 @@ export class SignUpDto extends AuthCredentialsDto {
   @MaxLength(30)
   name: string;
 
+  @IsString()
+  @MinLength(5)
+  @MaxLength(40)
+  address: string;
 
-
+  @IsString()
+  @MinLength(5)
+  @MaxLength(30)
+  phone: string;
 
 }

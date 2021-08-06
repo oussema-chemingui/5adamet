@@ -42,5 +42,15 @@ export class ServiceCardsComponent implements OnInit {
     )
    
   }
+
+
+  askToTreat(cost){
+    console.log('COST',cost.username)
+    this.router.navigate(['/quoteresponse'], { queryParams: { cost: JSON.stringify(cost) }});
+  }
+
+
+
+
   
 }

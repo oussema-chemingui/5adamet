@@ -144,6 +144,19 @@ deleteuser(userObj):Observable<any>{
       }
 
 
+      //cost answers
+
+
+      postcreateanswer(answerObj):Observable<null>{
+        return this.hc.post<null>(`${this.API_SERVER}/costanwsers/createanswer`,answerObj)
+      }
+
+
+
+      getcostanswers():Observable<any>{
+        return this.hc.get(`${this.API_SERVER}/costanwsers/getanswers`)
+      }
+
 
 
 
@@ -166,23 +179,5 @@ deleteuser(userObj):Observable<any>{
    getprofessionaldetails():Observable<any>{
      return this.hc.get("/professional/getdetails")
    }
-   
-   ////////////oussema//////////////////////////////////
 
-  //  createQuotedemand():Observable<any>{
-  //    return this.hc.post(`${this.API_SERVER}/costestimation/create`,quoteDemandObj)
-  //  }
-
-   getAllDemands():Observable<any>{
-     return this.hc.get(`${this.API_SERVER}/costestimation/all`)
-   }
-
-   getAllResponsesById(id):Observable<any>{
-     return this.hc.get(`${this.API_SERVER}/spresponse/spresponses/${id}`)
-   }
-
-  //  createQuoteResponse(id):Observable<any>{
-  //    return this.hc.post(`${this.API_SERVER}/spresponse/${id}`,quoteResponseObj)
-  //  }
-  
 }
